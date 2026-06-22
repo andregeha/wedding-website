@@ -28,7 +28,7 @@ import fitz  # PyMuPDF
 HERE = os.path.dirname(__file__)
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 FDIR = "/mnt/skills/examples/canvas-design/canvas-fonts/"
-INSTR, INSTR_IT, PLEX = FDIR+"InstrumentSerif-Regular.ttf", FDIR+"InstrumentSerif-Italic.ttf", FDIR+"IBMPlexSerif-Regular.ttf"
+PLEX, PLEX_IT = FDIR+"IBMPlexSerif-Regular.ttf", FDIR+"IBMPlexSerif-Italic.ttf"
 
 # --- content (keep in sync with wedding-details.md) ---
 EYEBROW = "NOUS NOUS MARIONS"
@@ -39,7 +39,7 @@ RECEPTION = ("RÉCEPTION · 18 h 30", "Hôtel Al Bustan", "Beit Mery, Mont-Liban
 RSVP    = "Réponse souhaitée avant le 31 juillet 2026"
 SITE    = "https://andregeha.github.io/wedding-website/"
 QR_CAPTION = "INFOS & CONFIRMATION EN LIGNE"
-ILLUS  = os.path.join(ROOT, "assets/img/hotel.webp")  # full-colour, ~1400px
+ILLUS  = os.path.join(HERE, "hotel-source.png")  # original full-res, lossless (2000px)
 PDF    = os.path.join(HERE, "invitation.pdf")
 PNG    = os.path.join(HERE, "invitation.png")
 
@@ -50,9 +50,8 @@ MUTED = colors.Color(97/255, 92/255, 86/255)
 LINE2 = colors.Color(228/255, 231/255, 224/255)
 
 def build():
-    pdfmetrics.registerFont(TTFont("Instr", INSTR))
-    pdfmetrics.registerFont(TTFont("InstrIt", INSTR_IT))
     pdfmetrics.registerFont(TTFont("Plex", PLEX))
+    pdfmetrics.registerFont(TTFont("PlexIt", PLEX_IT))
     W, H = A5
     c = canvas.Canvas(PDF, pagesize=A5)
     cx = W / 2
@@ -77,11 +76,11 @@ def build():
 
     spaced(EYEBROW, 72, "Plex", 9.6, 3.8, MUTED)
 
-    # Names, sage ampersand
-    a, amp, r = NAMES; fs = 42
-    c.setFont("Instr", fs)
-    wa, wamp, wr = (c.stringWidth(s, "Instr", fs) for s in (a, amp, r))
-    x = cx - (wa + wamp + wr) / 2; yb = Y(126)
+    # Names, sage ampersand (same family as the rest)
+    a, amp, r = NAMES; fs = 36
+    c.setFont("Plex", fs)
+    wa, wamp, wr = (c.stringWidth(s, "Plex", fs) for s in (a, amp, r))
+    x = cx - (wa + wamp + wr) / 2; yb = Y(124)
     c.setFillColor(INK); c.drawString(x, yb, a)
     c.setFillColor(SAGE); c.drawString(x + wa, yb, amp)
     c.setFillColor(INK); c.drawString(x + wa + wamp, yb, r)
@@ -110,7 +109,7 @@ def build():
     cer_role = orn + 36
     block(*CEREMONY, cer_role)
     block(*RECEPTION, cer_role + 50)
-    center(RSVP, cer_role + 99, "InstrIt", 11, MUTED)
+    center(RSVP, cer_role + 99, "PlexIt", 10.5, MUTED)
 
     # Vector QR + caption
     qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
