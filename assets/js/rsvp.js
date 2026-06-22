@@ -9,6 +9,7 @@
   var addBtn = document.getElementById("add-guest");
   var status = document.getElementById("rsvp-status");
   var MAX = 12;
+  var seq = 1; // monotonic, so guest field names never collide after add/remove
 
   function setStatus(msg, state) {
     status.textContent = msg;
@@ -29,7 +30,8 @@
       var input = document.createElement("input");
       input.type = "text";
       input.className = "rsvp__input guest-input";
-      input.name = "Invité " + (guestCount() + 1);
+      seq++;
+      input.name = "Invité " + seq;
       input.maxLength = 80;
       input.placeholder = "Prénom et nom";
       input.autocomplete = "name";

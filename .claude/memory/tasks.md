@@ -8,9 +8,13 @@
 - [x] `index.html` rebuilt with real French content; sage-green accent + faire-part date motif.
 
 ## Now (blocked on client)
-- [ ] Client: send the **Web3Forms access key** (from web3forms.com, using André's email)
-      → replace `PLACEHOLDER_ACCESS_KEY` in `index.html`, then redeploy to activate the form.
 - [ ] Client (later): provide **bank details** for the Cadeaux section.
+- [ ] Client: do a **test RSVP** to confirm Web3Forms emails arrive (first submit triggers
+      a Web3Forms activation email to André's address).
+
+## Done (recent)
+- [x] Online RSVP **activated** with Web3Forms key (c267589e…); form emails André per submit.
+- [x] RSVP recoloured to the light theme; favicon = hotel arched window; share image.
 
 ## Done (recent)
 - [x] Hotel illustration integrated + optimized; add-to-calendar button; dinner = 20 h 00.
