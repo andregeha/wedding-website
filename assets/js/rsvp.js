@@ -8,6 +8,7 @@
   var list = document.getElementById("guest-list");
   var addBtn = document.getElementById("add-guest");
   var status = document.getElementById("rsvp-status");
+  var success = document.getElementById("rsvp-success");
   var MAX = 12;
   var seq = 1; // monotonic, so guest field names never collide after add/remove
 
@@ -97,9 +98,14 @@
       .then(function (r) { return r.json(); })
       .then(function (data) {
         if (data && data.success) {
+          // Show the confirmation panel in place of the form.
           form.reset();
           form.style.display = "none";
-          setStatus("Merci ! Votre réponse a bien été enregistrée. — André & Rhéa", "ok");
+          setStatus("", null);
+          if (success) {
+            success.hidden = false;
+            success.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
         } else {
           setStatus("Une erreur est survenue. Merci de réessayer ou de nous répondre directement.", "err");
           if (submitBtn) submitBtn.disabled = false;

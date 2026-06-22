@@ -2,6 +2,12 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-22 — On-site RSVP confirmation panel
+- Client confirmed Web3Forms emails arrive. Replaced the small success status line with an
+  elegant **confirmation panel** (sage check + « Merci ! » + message) that appears in place
+  of the form after a successful submit, scrolls into view, gentle pop animation
+  (disabled under prefers-reduced-motion).
+
 ## 2026-06-22 — Activated RSVP + acted on thorough review (subagent)
 - Set the **Web3Forms access key** → online RSVP form is live (emails André per submit).
 - Ran a senior code/UX review via a subagent; applied the high-value fixes:

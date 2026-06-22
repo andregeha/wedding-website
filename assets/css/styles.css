@@ -262,6 +262,16 @@ textarea.rsvp__input { resize: vertical; }
 }
 .rsvp__add:hover { background: rgba(95, 125, 99, 0.08); }
 
+/* Confirmation après envoi */
+.rsvp__success {
+  max-width: 30rem; margin: 1.6rem auto 0; padding: 2.2rem 1.9rem; text-align: center;
+  background: var(--bg-alt); border: 1px solid var(--line); border-radius: 1rem;
+}
+.rsvp__check { display: block; margin: 0 auto 0.4rem; animation: rsvp-pop 0.35s ease-out; }
+.rsvp__success-title { font-family: var(--serif); font-size: 1.9rem; color: var(--ink); margin: 0.4rem 0 0.4rem; }
+.rsvp__success-text { color: var(--muted); max-width: 24rem; margin: 0 auto; }
+@keyframes rsvp-pop { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
 .rsvp__actions { text-align: center; margin-top: 0.5rem; }
 .rsvp__status { margin: 0.9rem 0 0; min-height: 1.2em; font-size: 0.95rem; text-align: center; }
 .rsvp__status.is-ok { color: var(--accent); }
@@ -285,4 +295,5 @@ textarea.rsvp__input { resize: vertical; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn { transition: none; }
+  .rsvp__check { animation: none; }
 }
