@@ -2,6 +2,18 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-22 — Activated RSVP + acted on thorough review (subagent)
+- Set the **Web3Forms access key** → online RSVP form is live (emails André per submit).
+- Ran a senior code/UX review via a subagent; applied the high-value fixes:
+  - Compressed the PNG **fallback** 575 KB → **130 KB** (downscaled 1000px + 256-colour quantize).
+  - **Body font-weight 300 → 400** and darkened `--muted` to `#615c56` (mobile legibility).
+  - Sticky nav: added **`-webkit-backdrop-filter`** + bumped opacity to 0.95 (iOS see-through fix).
+  - RSVP no-JS fallback: added Web3Forms **`redirect`** hidden input.
+  - Guest field names use a **monotonic counter** (no collisions after add/remove).
+  - `.ics` **DTSTAMP** set to a real value.
+  - Removed **dead CSS** (`.faq*`, `.illustration-placeholder`) + stale comment.
+- Deferred (noted, low value): self-hosting fonts; collapsing the form on success; canonical tag.
+
 ## 2026-06-22 — RSVP section recoloured to the light theme
 - Moved the whole RSVP block from the dark charcoal panel into the **same light tone as the
   rest of the site**; removed the distinct coloured frame on the "mariés" contact card.

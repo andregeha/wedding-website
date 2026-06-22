@@ -9,7 +9,7 @@
   --bg:        #ffffff;   /* blanc                 */
   --bg-alt:    #f7f7f3;   /* vert/gris très clair  */
   --ink:       #2b2b29;   /* charbon (comme le faire-part) */
-  --muted:     #6b6660;   /* gris texte            */
+  --muted:     #615c56;   /* gris texte (AA confortable) */
   --accent:    #5f7d63;   /* vert sauge (AA sur blanc) */
   --accent-soft:#aebfa3;  /* sauge clair décoratif */
   --accent-ink:#ffffff;
@@ -33,7 +33,7 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
@@ -90,17 +90,9 @@ img, svg { max-width: 100%; height: auto; display: block; }
 }
 .hero__place { color: var(--muted); margin: 0 0 2rem; }
 
-/* Illustration de l'hôtel (avec repère de secours tant que le fichier manque) */
+/* Illustration de l'hôtel */
 .hero__illustration { margin: 0 auto 2.4rem; max-width: 30rem; }
 .hero__illustration img { width: 100%; height: auto; }
-.illustration-placeholder {
-  border: 1px dashed var(--line);
-  border-radius: 0.5rem;
-  padding: 2.5rem 1rem;
-  color: var(--muted);
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-}
 
 /* ---------- Boutons ---------- */
 .btn {
@@ -134,7 +126,8 @@ img, svg { max-width: 100%; height: auto; display: block; }
   flex-wrap: wrap;
   gap: clamp(1rem, 4vw, 2.8rem);
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
@@ -195,11 +188,6 @@ img, svg { max-width: 100%; height: auto; display: block; }
 .timeline li:last-child { border-bottom: none; }
 .timeline__time { font-family: var(--serif); font-size: 1.3rem; color: var(--accent); min-width: 4.5rem; }
 .timeline__what { align-self: center; }
-
-/* ---------- Infos pratiques ---------- */
-.faq { display: grid; gap: 1.6rem; grid-template-columns: 1fr; text-align: left; }
-.faq__item h3 { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 0.3rem; }
-.faq__item p { color: var(--muted); margin: 0; }
 
 /* ---------- Présence (RSVP) — même ton clair que le reste ---------- */
 .section--rsvp .section__lead strong { color: var(--ink); }
@@ -292,7 +280,6 @@ textarea.rsvp__input { resize: vertical; }
 /* ---------- Responsive ---------- */
 @media (min-width: 640px) {
   .cards { grid-template-columns: 1fr 1fr; }
-  .faq   { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
