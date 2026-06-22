@@ -8,7 +8,6 @@
   var list = document.getElementById("guest-list");
   var addBtn = document.getElementById("add-guest");
   var status = document.getElementById("rsvp-status");
-  var count = 1;
   var MAX = 12;
 
   function setStatus(msg, state) {
@@ -16,18 +15,21 @@
     status.className = "rsvp__status" + (state ? " is-" + state : "");
   }
 
+  function guestCount() { return list.querySelectorAll(".guest-input").length; }
+  function syncAddBtn() { if (addBtn) addBtn.style.display = guestCount() >= MAX ? "none" : ""; }
+
   // Add another guest name field
   if (addBtn) {
     addBtn.addEventListener("click", function () {
-      if (count >= MAX) return;
-      count++;
+      if (guestCount() >= MAX) return;
+
       var row = document.createElement("div");
       row.className = "guest-row";
 
       var input = document.createElement("input");
       input.type = "text";
       input.className = "rsvp__input guest-input";
-      input.name = "Invité " + count;
+      input.name = "Invité " + (guestCount() + 1);
       input.maxLength = 80;
       input.placeholder = "Prénom et nom";
       input.autocomplete = "name";
@@ -37,13 +39,13 @@
       remove.className = "rsvp__remove";
       remove.setAttribute("aria-label", "Retirer cet invité");
       remove.textContent = "×";
-      remove.addEventListener("click", function () { row.remove(); });
+      remove.addEventListener("click", function () { row.remove(); syncAddBtn(); });
 
       row.appendChild(input);
       row.appendChild(remove);
       list.appendChild(row);
       input.focus();
-      if (count >= MAX) addBtn.style.display = "none";
+      syncAddBtn();
     });
   }
 

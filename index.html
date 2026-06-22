@@ -115,12 +115,18 @@
       <h2 class="section__title">Confirmer votre présence</h2>
       <p class="section__lead">
         Votre présence compte énormément pour nous. Merci de nous faire part de votre
-        réponse avant le <strong>31&#8239;juillet&#8239;2026</strong>, directement auprès
-        des mariés ou de leurs parents&#8239;:
+        réponse avant le <strong>31&#8239;juillet&#8239;2026</strong>.
       </p>
-      <div class="rsvp__parents">
-        <p><span>Elie &amp; Pascale</span> Geha</p>
-        <p><span>Manhal &amp; Najwa</span> Nacouzi</p>
+
+      <div class="rsvp__contacts">
+        <div class="rsvp__contact rsvp__contact--couple">
+          <span class="rsvp__role">Auprès des mariés</span>
+          <span class="rsvp__names">André &amp; Rhéa</span>
+        </div>
+        <div class="rsvp__contact">
+          <span class="rsvp__role">ou de leurs parents</span>
+          <span class="rsvp__names">Elie &amp; Pascale Geha<br />Manhal &amp; Najwa Nacouzi</span>
+        </div>
       </div>
 
       <p class="rsvp__online-intro">
@@ -142,24 +148,36 @@
 
           <fieldset class="rsvp__field">
             <legend>Votre réponse</legend>
-            <label class="rsvp__radio"><input type="radio" name="Présence" value="Présent(e)" checked /> Avec joie, je serai présent·e</label>
-            <label class="rsvp__radio"><input type="radio" name="Présence" value="Absent(e)" /> Hélas, je ne pourrai pas venir</label>
+            <div class="rsvp__pills">
+              <label class="rsvp__pill">
+                <input type="radio" name="Présence" value="Présent(e)" checked />
+                <span>Je serai présent·e</span>
+              </label>
+              <label class="rsvp__pill">
+                <input type="radio" name="Présence" value="Absent(e)" />
+                <span>Je ne pourrai pas venir</span>
+              </label>
+            </div>
           </fieldset>
 
           <div class="rsvp__field">
             <label for="guest-1">Nom du ou des invités</label>
-            <div id="guest-list">
-              <input class="rsvp__input guest-input" id="guest-1" name="Invité 1" type="text" maxlength="80" required placeholder="Prénom et nom" autocomplete="name" />
+            <div id="guest-list" class="rsvp__guests">
+              <div class="guest-row">
+                <input class="rsvp__input guest-input" id="guest-1" name="Invité 1" type="text" maxlength="80" required placeholder="Prénom et nom" autocomplete="name" />
+              </div>
             </div>
             <button type="button" id="add-guest" class="rsvp__add">+ Ajouter un invité</button>
           </div>
 
           <div class="rsvp__field">
             <label for="rsvp-msg">Un petit mot (facultatif)</label>
-            <textarea id="rsvp-msg" name="Message" class="rsvp__input" rows="3" maxlength="500" placeholder="Régime alimentaire, question…"></textarea>
+            <textarea id="rsvp-msg" name="Message" class="rsvp__input" rows="3" maxlength="500"></textarea>
           </div>
 
-          <button type="submit" class="btn btn--light">Envoyer ma réponse</button>
+          <div class="rsvp__actions">
+            <button type="submit" class="btn btn--accent">Envoyer ma réponse</button>
+          </div>
           <p id="rsvp-status" class="rsvp__status" role="status" aria-live="polite"></p>
         </form>
       </details>

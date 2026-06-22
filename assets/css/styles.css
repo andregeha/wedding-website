@@ -205,13 +205,84 @@ img, svg { max-width: 100%; height: auto; display: block; }
 .section--rsvp { background: var(--ink); color: var(--bg); max-width: none; }
 .section--rsvp .section__title, .section--rsvp .section__lead { color: var(--bg); }
 .section--rsvp .section__lead strong { color: #fff; }
-.rsvp__parents { display: flex; flex-wrap: wrap; gap: 1rem 3rem; justify-content: center; }
-.rsvp__parents p {
-  font-family: var(--serif);
-  font-size: 1.4rem;
-  margin: 0;
+
+/* Contacts directs (les mariés mis en avant) */
+.rsvp__contacts { display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: center; margin-top: 1.8rem; }
+.rsvp__contact {
+  flex: 1 1 14rem; max-width: 18rem; padding: 1.5rem 1.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 0.85rem;
 }
-.rsvp__parents span { display: block; }
+.rsvp__contact--couple { border-color: var(--accent-soft); background: rgba(174, 191, 163, 0.08); }
+.rsvp__role {
+  display: block; margin-bottom: 0.55rem;
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-soft);
+}
+.rsvp__names { font-family: var(--serif); font-size: 1.5rem; line-height: 1.35; color: var(--bg); }
+
+/* Online RSVP */
+.rsvp__online-intro { color: #cfc7bd; max-width: 34rem; margin: 2.6rem auto 1.3rem; font-size: 0.95rem; }
+.rsvp__disclosure { text-align: center; }
+.rsvp__disclosure summary { list-style: none; cursor: pointer; display: inline-block; }
+.rsvp__disclosure summary::-webkit-details-marker { display: none; }
+.rsvp__disclosure[open] summary { margin-bottom: 0.2rem; }
+.btn--ghost-light { background: transparent; color: var(--bg); border-color: var(--bg); }
+.btn--ghost-light:hover { background: var(--bg); color: var(--ink); }
+.btn--accent { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn--accent:hover { opacity: 0.92; }
+.btn--accent[disabled] { opacity: 0.5; cursor: default; }
+
+/* Modern light form card */
+.rsvp__form {
+  max-width: 30rem; margin: 1.6rem auto 0; padding: 1.9rem;
+  text-align: left; color: var(--ink); background: #fff;
+  border-radius: 1rem; box-shadow: 0 16px 44px rgba(0, 0, 0, 0.22);
+}
+.rsvp__field { border: 0; padding: 0; margin: 0 0 1.5rem; }
+.rsvp__field > label, .rsvp__field legend {
+  display: block; padding: 0; margin: 0 0 0.6rem;
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+}
+/* Présence as pill toggles */
+.rsvp__pills { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+.rsvp__pill { position: relative; }
+.rsvp__pill input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.rsvp__pill span {
+  display: block; text-align: center; padding: 0.75rem 0.6rem;
+  border: 1px solid var(--line); border-radius: 0.7rem; font-size: 0.92rem; color: var(--ink);
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.rsvp__pill input:checked + span { background: var(--accent); border-color: var(--accent); color: #fff; }
+.rsvp__pill input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.rsvp__input {
+  width: 100%; padding: 0.78rem 0.9rem; font: inherit; color: var(--ink);
+  background: #fbfaf7; border: 1px solid var(--line); border-radius: 0.65rem;
+}
+.rsvp__input:focus-visible { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(95, 125, 99, 0.18); }
+textarea.rsvp__input { resize: vertical; }
+
+.rsvp__guests { display: flex; flex-direction: column; gap: 0.6rem; }
+.guest-row { position: relative; }
+.guest-row .rsvp__input { padding-right: 2.7rem; }
+.rsvp__remove {
+  position: absolute; top: 50%; right: 0.45rem; transform: translateY(-50%);
+  width: 1.9rem; height: 1.9rem; display: flex; align-items: center; justify-content: center;
+  border: 0; border-radius: 50%; background: transparent; color: var(--muted);
+  font-size: 1.35rem; line-height: 1; cursor: pointer;
+}
+.rsvp__remove:hover { background: rgba(0, 0, 0, 0.06); color: var(--ink); }
+.rsvp__add {
+  display: block; width: 100%; margin-top: 0.7rem; padding: 0.7rem; cursor: pointer;
+  font-size: 0.9rem; color: var(--accent); background: transparent;
+  border: 1px dashed var(--accent-soft); border-radius: 0.65rem; transition: background 0.15s ease;
+}
+.rsvp__add:hover { background: rgba(95, 125, 99, 0.08); }
+
+.rsvp__actions { text-align: center; margin-top: 0.5rem; }
+.rsvp__status { margin: 0.9rem 0 0; min-height: 1.2em; font-size: 0.95rem; text-align: center; }
+.rsvp__status.is-ok { color: var(--accent); }
+.rsvp__status.is-err { color: #b5483c; }
+.rsvp__status.is-pending { color: var(--muted); }
 
 /* Online RSVP */
 .rsvp__online-intro { color: #cfc7bd; max-width: 34rem; margin: 2.4rem auto 1.2rem; font-size: 0.95rem; }

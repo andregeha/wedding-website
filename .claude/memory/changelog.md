@@ -2,6 +2,16 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-22 — RSVP redesign + venue-inspired favicon (client feedback)
+- New **favicon**: the hotel's **arched window** (lancet) in the drawing's sampled blue on a
+  cream disc — replaces the "&" icon. Regenerated .ico / 16 / 32 / 512 / apple-touch.
+- **RSVP contacts** restructured into two cards; **"Auprès des mariés — André & Rhéa"**
+  emphasized so it's not buried in text.
+- **Online form redesigned** as a modern white card: présent/absent **pill toggles**,
+  full-width guest rows with inline ✕ remove, dashed "+ Ajouter un invité", **centered submit**.
+- Removed the "régime alimentaire" placeholder from the message field.
+- Verified assets serve (200); no orphaned CSS classes.
+
 ## 2026-06-22 — Online RSVP + favicon + share image
 - Reworked RSVP copy: confirm directly with the **mariés OR their parents** (not only parents).
 - Added an **optional online RSVP form** (disclosure button → form) posting to **Web3Forms**:
