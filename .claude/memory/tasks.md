@@ -8,6 +8,9 @@
 - [x] `index.html` rebuilt with real French content; sage-green accent + faire-part date motif.
 
 ## Now (blocked on client)
+- [ ] Client: **buy `mariage-andre-et-rhea.com`** (fallback `…-2026.com`) + set DNS
+      (apex A/AAAA to GitHub Pages + `www` CNAME → andregeha.github.io). Then tell me →
+      I add the repo `CNAME` file, update absolute URLs, and we enable Enforce HTTPS.
 - [ ] Client (later): provide **bank details** for the Cadeaux section.
 - [ ] Client: do a **test RSVP** to confirm Web3Forms emails arrive (first submit triggers
       a Web3Forms activation email to André's address).
@@ -32,5 +35,5 @@
 - [ ] Custom domain.
 
 ## Notes
-- Tight transition ceremony→reception: Achrafieh (Beyrouth) 17 h → Beit Mery 18 h 30
+- Tight transition ceremony→reception: Achrafieh (Beyrouth) 16 h 45 → Beit Mery 18 h 30
   (~20-30 min up the mountain). Fine, but worth keeping in mind.
