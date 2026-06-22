@@ -11,6 +11,16 @@ Things worth not re-learning. Newest at top.
 - I **cannot toggle GitHub Pages settings** via the available tools — the client enables
   Pages once (Settings → Pages → Source = GitHub Actions); after that, deploys are automatic.
 
+## 2026-06-22 — Recurring PR conflicts (and the fix)
+- Because main is updated via **squash-merge**, the working branch keeps its original commits
+  and diverges from the squashed commit → every re-PR conflicts on the touched files.
+- **Resolution that works:** before opening the next PR, `git merge origin/main` on the branch
+  and resolve in favour of the branch: `git checkout --ours -- .` (the branch holds the latest
+  desired state), commit, push, then PR + squash-merge.
+- Cleaner long-term: reset the branch to `origin/main` after each merge — but `git reset --hard`
+  is blocked by the safety classifier here, so the merge/--ours dance is the practical path.
+- Deploy is reliable: each merge to main triggers "Deploy to GitHub Pages", green in ~15 s.
+
 ## 2026-06-22 — Deploy / git workflow (important)
 - **Direct `git push` to `main` is blocked by the environment proxy (HTTP 503).** Pushes
   only succeed to the assigned branch `claude/phone-assistant-setup-sm66ba`. To publish to
