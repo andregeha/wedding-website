@@ -12,9 +12,13 @@ Things worth not re-learning. Newest at top.
   Pages once (Settings → Pages → Source = GitHub Actions); after that, deploys are automatic.
 
 ## 2026-06-22 — Tooling
-- No local headless browser in the container (`chromium`/`chrome` absent); `npx` exists,
-  so responsive screenshots need `npx playwright` (network-dependent). The `preview` skill
-  documents both paths. `python3 -m http.server` works for serving.
+- No local headless browser; `npx`/`npm` work and `playwright` installs, BUT the
+  **Chromium binary download is blocked by the network policy** → in-container screenshots
+  are not possible. Verify visually on a real device, or rely on careful CSS review.
+  `python3 -m http.server` works for serving/HTTP checks.
+- **Attachments sent in chat are NOT written to the container filesystem** — I can see
+  images but cannot embed them. The client must add image files to the repo (e.g. via
+  GitHub web upload to `assets/img/`).
 
 ## 2026-06-22 — Client preferences (confirmed)
 - Site language: **French only** (`lang="fr"`, French typography).

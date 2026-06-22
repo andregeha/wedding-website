@@ -5,15 +5,15 @@
    ========================================================= */
 
 :root {
-  /* Palette — neutres minimalistes.
-     --accent est un PLACEHOLDER : à remplacer par la couleur du faire-part. */
-  --bg:        #ffffff;   /* blanc            */
-  --bg-alt:    #f6f5f3;   /* gris très clair  */
-  --ink:       #1f1d1b;   /* charbon          */
-  --muted:     #6b6660;   /* gris texte       */
-  --accent:    #8a8475;   /* taupe neutre (placeholder) */
+  /* Palette — neutres minimalistes + 1 accent (vert sauge tiré de l'illustration). */
+  --bg:        #ffffff;   /* blanc                 */
+  --bg-alt:    #f7f7f3;   /* vert/gris très clair  */
+  --ink:       #2b2b29;   /* charbon (comme le faire-part) */
+  --muted:     #6b6660;   /* gris texte            */
+  --accent:    #5f7d63;   /* vert sauge (AA sur blanc) */
+  --accent-soft:#aebfa3;  /* sauge clair décoratif */
   --accent-ink:#ffffff;
-  --line:      #e7e4df;
+  --line:      #e6e6e0;
 
   /* Type : sans-serif net partout ; serif réservée aux prénoms */
   --serif: "Cormorant Garamond", Georgia, serif;
@@ -68,16 +68,31 @@ img, svg { max-width: 100%; height: auto; display: block; }
   margin: 0 0 0.8rem;
 }
 .hero__names .amp { color: var(--accent); font-style: italic; }
+/* Date façon faire-part : texte capitales encadré de deux filets fins. */
 .hero__date {
-  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0.6rem 0 0.3rem;
+}
+.hero__date::before, .hero__date::after {
+  content: "";
+  height: 1px;
+  width: clamp(1.5rem, 8vw, 3rem);
+  background: var(--accent-soft);
+}
+.hero__date span {
+  font-size: 0.9rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  margin: 0.4rem 0 0.2rem;
+  white-space: nowrap;
 }
 .hero__place { color: var(--muted); margin: 0 0 2rem; }
 
-/* Illustration de l'hôtel (placeholder en attendant le fichier) */
-.hero__illustration { margin: 0 auto 2.4rem; max-width: 24rem; }
+/* Illustration de l'hôtel (avec repère de secours tant que le fichier manque) */
+.hero__illustration { margin: 0 auto 2.4rem; max-width: 30rem; }
+.hero__illustration img { width: 100%; height: auto; }
 .illustration-placeholder {
   border: 1px dashed var(--line);
   border-radius: 0.5rem;
@@ -103,8 +118,6 @@ img, svg { max-width: 100%; height: auto; display: block; }
   transition: transform .15s ease, opacity .15s ease;
 }
 .btn:hover { transform: translateY(-1px); opacity: 0.9; }
-.btn--wa { background: var(--accent); border-color: var(--accent); }
-.btn--ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
 
 /* ---------- Nav ---------- */
 .nav {
@@ -166,8 +179,10 @@ img, svg { max-width: 100%; height: auto; display: block; }
 .card__title { font-family: var(--serif); font-size: 1.7rem; margin-bottom: 0.7rem; }
 .card__time { text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.78rem; color: var(--accent); margin: 0 0 0.9rem; }
 .card__venue { font-weight: 400; margin: 0; }
-.card__addr { color: var(--muted); margin: 0.2rem 0 1.1rem; }
+.card__addr { color: var(--muted); margin: 0.2rem 0 0.8rem; }
+.card__note { color: var(--muted); font-size: 0.85rem; margin: 0 0 1.1rem; }
 .card__map { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; font-size: 0.88rem; }
+.card__map:hover { color: var(--accent); }
 
 /* ---------- Programme (timeline) ---------- */
 .timeline { list-style: none; padding: 0; margin: 0 auto; max-width: 24rem; text-align: left; }
@@ -181,11 +196,17 @@ img, svg { max-width: 100%; height: auto; display: block; }
 .faq__item h3 { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 0.3rem; }
 .faq__item p { color: var(--muted); margin: 0; }
 
-/* ---------- Présence (RSVP WhatsApp) ---------- */
+/* ---------- Présence (RSVP) ---------- */
 .section--rsvp { background: var(--ink); color: var(--bg); max-width: none; }
 .section--rsvp .section__title, .section--rsvp .section__lead { color: var(--bg); }
-.section--rsvp .btn--ghost { color: var(--bg); border-color: var(--bg); }
-.rsvp__contacts { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+.section--rsvp .section__lead strong { color: #fff; }
+.rsvp__parents { display: flex; flex-wrap: wrap; gap: 1rem 3rem; justify-content: center; }
+.rsvp__parents p {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  margin: 0;
+}
+.rsvp__parents span { display: block; }
 
 /* ---------- Footer ---------- */
 .footer { text-align: center; padding: var(--space) 1.5rem; }

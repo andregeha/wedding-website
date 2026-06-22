@@ -1,33 +1,29 @@
 # Tasks & Roadmap
 
 ## Done
-- [x] Repo renamed to `wedding-website` (GitHub redirect keeps the remote working).
-- [x] Project + memory initialized; plan approved.
-- [x] Decisions logged: minimaliste moderne · WhatsApp RSVP · hotel illustration · GitHub URL.
-- [x] Scaffold retuned to French + minimalist + WhatsApp + illustration slot.
-- [x] Skills `content-sync` and `preview` created.
+- [x] Repo renamed to `wedding-website`; project + memory initialized; plan approved.
+- [x] Decisions logged: minimaliste moderne · WhatsApp→parents RSVP · hotel illustration · GitHub URL.
+- [x] Skills `publish`, `content-sync`, `preview` created.
+- [x] Full content provided by client and logged to `wedding-details.md` (+ venue research).
+- [x] `index.html` rebuilt with real French content; sage-green accent + faire-part date motif.
 
 ## Now (blocked on client)
-- [ ] Client: provide intake answers — prénoms, date, lieu(x), programme, dress code,
-      hébergement, enfants, cadeaux, **numéros WhatsApp + date limite RSVP**.
-- [ ] Client: send the **hotel illustration** file (PNG transparent / SVG) + a **faire-part photo**.
-- [ ] Client: enable GitHub Pages (Settings → Pages → Source = "GitHub Actions").
+- [ ] Client: add the **hotel illustration** file to the repo at `assets/img/hotel.png`
+      (chat attachments don't reach the container — upload via GitHub or send a usable link).
+- [ ] Client: confirm the **dinner time** (« 8h » interpreted as 20 h 00).
+- [ ] Client: enable **GitHub Pages** (Settings → Pages → Source = "GitHub Actions").
+- [ ] Client (later): provide **bank details** for the Cadeaux section.
 
-## Next (once content + illustration arrive)
-- [ ] Fill `wedding-details.md` with confirmed content.
-- [ ] Set the accent color from the faire-part; finalize fonts.
-- [ ] Place the hotel illustration in the hero (+ optional divider motif).
-- [ ] Render real French content into `index.html`; remove unused sections.
-- [ ] French typography pass (narrow NBSP, guillemets « »).
-- [ ] Favicon + Open Graph share preview.
-- [ ] Verify responsive (360/390/768/1280) + accessibility + Lighthouse ≥ 95.
+## Next (once illustration arrives)
+- [ ] Optimize the illustration (size/format), confirm it sits well in the hero on mobile.
+- [ ] Favicon + Open Graph share image.
+- [ ] Visual check on a real device (in-container screenshots blocked by network policy).
 - [ ] Merge to `main` and confirm the live Pages deploy.
 
 ## Later / nice-to-have
-- [ ] Add-to-calendar button (.ics) for the wedding date.
-- [ ] Map links/embeds for the venue(s).
+- [ ] Add-to-calendar (.ics) for samedi 22 août 2026.
 - [ ] Custom domain.
 
-## Open questions (carried)
-- One venue or two (ceremony + reception)?
-- Any welcome text / short story, or skip it?
+## Notes
+- Tight transition ceremony→reception: Achrafieh (Beyrouth) 17 h → Beit Mery 18 h 30
+  (~20-30 min up the mountain). Fine, but worth keeping in mind.

@@ -2,6 +2,21 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-22 — Real content rendered into the site
+- Client provided full content. Logged all of it to `wedding-details.md`, including online
+  research on the two venues (Église N.-D. de l'Annonciation, Achrafieh — grec-orthodoxe,
+  consacrée 1927 ; Hôtel Al Bustan, Beit Mery — landmark de 1967 surplombant Beyrouth).
+- Rebuilt `index.html` with real French content: hero (André & Rhéa · samedi 22 août 2026 ·
+  Beyrouth & Beit Mery), Le jour J (cérémonie 17 h / réception 18 h 30 + parkings + plans),
+  Programme, Cadeaux (coordonnées bancaires à venir), Présence (RSVP avant 31 juillet 2026
+  via les parents — pas de numéros). Removed welcome/dress-code/lodging/children sections.
+- Design locked to faire-part look: charcoal on white + **sage-green accent** from the
+  illustration; faire-part-style thin-rule date motif in the hero. French typography
+  (narrow NBSP in « 17 h 00 », etc.).
+- Hotel illustration referenced at `assets/img/hotel.png` with a graceful fallback;
+  **file still needed from client** (chat attachments don't reach the container).
+- Open: confirm **dinner time** (client wrote « 8h » → set to 20 h 00); bank details later.
+
 ## 2026-06-22 — Plan approved + scaffold retuned to chosen direction
 - Prepared and got approval for the full website plan (saved in plan history).
 - Logged client decisions to `decisions.md` and `wedding-details.md`:

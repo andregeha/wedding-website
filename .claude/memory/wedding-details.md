@@ -1,62 +1,82 @@
 # Wedding Details — Source of Truth
 
-> This is the canonical content for the site. Update here first, then reflect in `index.html`.
-> Everything below marked `TODO` is a placeholder awaiting confirmation from the client.
+> Canonical content for the site. Update here first, then reflect in `index.html`.
 
 ## The couple
-- Partner 1: **TODO**
-- Partner 2: **TODO**
-- Display as: **TODO & TODO**
+- Partner 1: **André Geha**
+- Partner 2: **Rhéa Nacouzi**
+- Display as: **André & Rhéa**
 
 ## Date & time
-- Wedding date: **TODO**
-- Ceremony time: **TODO**
-- Reception time: **TODO**
+- Wedding date: **samedi 22 août 2026**
+- Ceremony: **17 h 00**
+- Reception / cocktail: **18 h 30**
 
-## Locations
-### Ceremony
-- Venue name: **TODO**
-- Address: **TODO**
-- Map link: **TODO**
+## Cérémonie (religieuse)
+- Type: religieuse (rite grec-orthodoxe).
+- Heure: **17 h 00**
+- Lieu: **Église Notre-Dame de l'Annonciation**, Achrafieh, Beyrouth.
+- Parking: **gratuit, à 50 m après l'église sur la droite de la route.**
+- Carte: https://maps.app.goo.gl/grQqHbBrcDq7Jx4i6
+- Recherche (mémoire): église paroissiale grec-orthodoxe d'Achrafieh, consacrée en 1927
+  (terrain donné par la famille Fernainé). Façade à portique et grand portail, parapet
+  flanqué de deux coupoles en rosace contenant quatre cloches. Riche collection d'icônes
+  (icônes russes du XIXe, œuvres de Habib Srour, rare icône sur toile du XVIIe).
 
-### Reception
-- Venue name: **TODO**
-- Address: **TODO**
-- Map link: **TODO**
+## Réception
+- Heure: **18 h 30** (cocktail).
+- Lieu: **Hôtel Al Bustan**, Beit Mery (Mont-Liban).
+- Parking: **gratuit sur place.**
+- Carte: https://maps.app.goo.gl/j3J1pSzMC57UrrDx9
+- Recherche (mémoire): institution emblématique ouverte en 1967, perchée sur la colline
+  de Beit Mery surplombant Beyrouth et la Méditerranée, à ~20 min de Beyrouth. Chapelle
+  intime, jardins et "crystal garden" pour les réceptions, spa, deux restaurants, terrasse
+  panoramique. Hôte du festival international Al Bustan. Site: hotelalbustan.com
 
-## Schedule / timeline
-- **TODO** (e.g. 15:00 Ceremony · 16:00 Cocktails · 18:00 Dinner · 21:00 Dancing)
+## Programme / déroulé
+- **17 h 00** — Cérémonie religieuse
+- **18 h 30** — Cocktail
+- **20 h 00** — Dîner  *(⚠️ client a écrit « 8h diner » → interprété comme 20 h ; à confirmer)*
+- **02 h 00** — Fin de la célébration
 
 ## Dress code
-- **TODO**
+- Non précisé (à ne pas afficher).
 
-## RSVP — via WhatsApp (no online form)
-Guests confirm by WhatsApp. List each contact with name + international number.
-- Contact 1 (e.g. les mariés): **TODO name** — **TODO +country number** → `wa.me/<number>`
-- Contact 2 (e.g. parents): **TODO name** — **TODO +country number** → `wa.me/<number>`
-- RSVP deadline (date limite): **TODO**
-- Optional prefilled WhatsApp message: **TODO** (e.g. « Bonjour, je confirme ma présence au mariage »)
+## Accès / parking / transport
+- Parking gratuit à l'église (50 m après, à droite) et à l'hôtel (sur place).
 
-## Travel & accommodation
-- **TODO** (parking, nearby hotels, transport, navette)
+## Hébergement
+- Non précisé (à ne pas afficher).
 
-## Children
-- **TODO** (welcome or not)
+## Enfants
+- Non précisé (à ne pas afficher).
 
-## Gifts / registry
-- **TODO**
+## Cadeaux
+- **Coordonnées bancaires à communiquer ultérieurement** (André les ajoutera plus tard).
 
-## FAQ / Infos pratiques
-- **TODO**
+## RSVP
+- **Date limite: 31 juillet 2026.**
+- Pas de numéros affichés (les invités les connaissent). Contacter les parents:
+  - **Elie & Pascale Geha**
+  - **Manhal & Najwa Nacouzi**
+
+## Mot d'accueil / histoire
+- Aucun (on s'en passe).
 
 ## Assets (from the client)
-- Hotel illustration file (PNG transparent / SVG): **TODO — not yet provided**
-- Faire-part photo (for accent color / font reference): **TODO — not yet provided**
+- **Hotel illustration**: provided in chat (hand-drawn watercolor of Al Bustan), but **not
+  yet on disk / in repo**. NEEDED at `assets/img/hotel.png` (transparent or white bg).
+  The page references it with a graceful fallback until the file is added.
+- **Faire-part**: seen in chat (style/color reference only — no file needed).
 
-## Design
-- Direction: minimaliste moderne (neutrals + 1 accent).
-- Accent color: **TODO — derive from faire-part** (placeholder neutral in CSS for now).
+## Design (from faire-part)
+- Aesthetic confirmed: near-monochrome, **charcoal text on white**, the colourful hand-drawn
+  illustration provides all the colour — exactly the faire-part look.
+- Accent: **soft sage green** (drawn from the foliage/garden in the illustration), used
+  sparingly (rules, links, button). Faire-part uses a thin-rule date motif — echoed in the hero.
+- Fonts: client said no need to match the faire-part font. Keep Inter (sans) for body,
+  a refined serif (Cormorant) for names/headings.
 
 ---
-*Last confirmed: design direction + RSVP-by-WhatsApp + illustration-as-visual (2026-06-22).
-All concrete wedding content still placeholders — awaiting client intake answers.*
+*Last confirmed: full content provided 2026-06-22. Pending: hotel illustration file;
+confirm dinner time (20 h?); bank details for gifts later.*
