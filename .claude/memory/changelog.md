@@ -2,6 +2,16 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-22 — Illustration integrated + add-to-calendar
+- Client uploaded `assets/img/hotel.png` to `main`; pulled it onto the working branch.
+- Optimized the illustration: `hotel.webp` (~82 KB) as primary + compressed `hotel.png`
+  (~575 KB) fallback via `<picture>`. (Installed Pillow from PyPI — network allows pip.)
+- Added an **« Ajouter au calendrier »** button → `assets/wedding.ics` (VEVENT, TZ Asia/Beirut,
+  22 Aug 2026 17:00 → 23 Aug 02:00, both venues in the description).
+- Dinner time confirmed at 20 h 00. Client confirmed GitHub Pages is enabled.
+- Note: `main` currently has only the initial commit + the uploaded image, NOT the site.
+  Going live requires getting the branch content onto `main` (pending explicit go-ahead).
+
 ## 2026-06-22 — Real content rendered into the site
 - Client provided full content. Logged all of it to `wedding-details.md`, including online
   research on the two venues (Église N.-D. de l'Annonciation, Achrafieh — grec-orthodoxe,
