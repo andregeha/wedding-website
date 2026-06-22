@@ -2,6 +2,17 @@
 
 Each entry: what was decided, and why. Newest at top.
 
+## 2026-06-22 — Custom domain: mariage-andre-et-rhea.com (.com, cheap registrar)
+- **Decision:** Buy `mariage-andre-et-rhea.com` (fallback `…-2026.com` if taken) at a cheap
+  registrar (Porkbun / Cloudflare / OVH, ~10 €/yr, free WHOIS privacy). Point it at GitHub
+  Pages; keep the site on GitHub's CDN (speed unchanged by registrar/price).
+- **Rejected:** `.lb` (expensive, manual approval, bureaucratic), `.mariage` (does not exist),
+  long names like `invitation-mariage-…` (less elegant). Short name = classier.
+- **Setup order (avoid breaking the live github.io URL):** buy → set DNS (apex A/AAAA to
+  GitHub + `www` CNAME) → THEN add repo `CNAME` file + update absolute URLs (og/twitter/
+  canonical/ics) → enable "Enforce HTTPS". Do NOT add the CNAME file before DNS resolves.
+- GitHub Pages apex IPs: A 185.199.108-111.153 ; AAAA 2606:50c0:8000-8003::153 ; www CNAME → andregeha.github.io
+
 ## 2026-06-22 — Online RSVP via Web3Forms (static-site friendly)
 - **Decision:** Keep the direct contacts (mariés OR their parents) AND add an optional
   online RSVP form. The form posts to **Web3Forms** (`api.web3forms.com/submit`).
