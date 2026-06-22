@@ -26,18 +26,19 @@
       <p class="hero__date"><span>samedi 22 août 2026</span></p>
       <p class="hero__place">Beyrouth &amp; Beit&nbsp;Mery · Liban</p>
 
-      <!-- Visuel signature : illustration dessinée à la main de l'hôtel Al Bustan.
-           Le fichier assets/img/hotel.png doit être ajouté ; sinon le repère ci-dessous s'affiche. -->
+      <!-- Visuel signature : illustration dessinée à la main de l'hôtel Al Bustan. -->
       <figure class="hero__illustration">
-        <img src="assets/img/hotel.png" alt="Illustration dessinée à la main de l'hôtel Al Bustan, à Beit Mery"
-             width="640" height="430"
-             onerror="this.style.display='none';document.getElementById('illus-fallback').style.display='block';" />
-        <div id="illus-fallback" class="illustration-placeholder" hidden>
-          Illustration de l'hôtel<br /><small>(fichier à ajouter : <code>assets/img/hotel.png</code>)</small>
-        </div>
+        <picture>
+          <source srcset="assets/img/hotel.webp" type="image/webp" />
+          <img src="assets/img/hotel.png" width="700" height="495"
+               alt="Illustration dessinée à la main de l'hôtel Al Bustan, à Beit Mery" />
+        </picture>
       </figure>
 
-      <a class="btn" href="#presence">Confirmer ma présence</a>
+      <div class="hero__actions">
+        <a class="btn" href="#presence">Confirmer ma présence</a>
+        <a class="btn btn--ghost" href="assets/wedding.ics" download>Ajouter au calendrier</a>
+      </div>
     </div>
   </header>
 

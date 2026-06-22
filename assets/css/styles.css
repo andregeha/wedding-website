@@ -118,6 +118,11 @@ img, svg { max-width: 100%; height: auto; display: block; }
   transition: transform .15s ease, opacity .15s ease;
 }
 .btn:hover { transform: translateY(-1px); opacity: 0.9; }
+.btn--ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn--ghost:hover { background: var(--ink); color: var(--bg); }
+
+/* Boutons du hero côte à côte (passent en colonne sur mobile étroit) */
+.hero__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; }
 
 /* ---------- Nav ---------- */
 .nav {
