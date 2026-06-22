@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>André & Rhéa — Notre mariage</title>
+  <meta name="description" content="André & Rhéa se marient le samedi 22 août 2026 au Liban. Toutes les informations pratiques : cérémonie, réception, programme et confirmation de présence." />
+
+  <!-- Open Graph (aperçu lors du partage) -->
+  <meta property="og:title" content="André & Rhéa — Notre mariage" />
+  <meta property="og:description" content="Le samedi 22 août 2026 au Liban. Rejoignez-nous pour célébrer." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <!-- ====== HERO ====== -->
+  <header class="hero" id="haut">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">Nous nous marions</p>
+      <h1 class="hero__names">André <span class="amp">&amp;</span> Rhéa</h1>
+      <p class="hero__date"><span>samedi 22 août 2026</span></p>
+      <p class="hero__place">Beyrouth &amp; Beit&nbsp;Mery · Liban</p>
+
+      <!-- Visuel signature : illustration dessinée à la main de l'hôtel Al Bustan.
+           Le fichier assets/img/hotel.png doit être ajouté ; sinon le repère ci-dessous s'affiche. -->
+      <figure class="hero__illustration">
+        <img src="assets/img/hotel.png" alt="Illustration dessinée à la main de l'hôtel Al Bustan, à Beit Mery"
+             width="640" height="430"
+             onerror="this.style.display='none';document.getElementById('illus-fallback').style.display='block';" />
+        <div id="illus-fallback" class="illustration-placeholder" hidden>
+          Illustration de l'hôtel<br /><small>(fichier à ajouter : <code>assets/img/hotel.png</code>)</small>
+        </div>
+      </figure>
+
+      <a class="btn" href="#presence">Confirmer ma présence</a>
+    </div>
+  </header>
+
+  <!-- ====== NAV ====== -->
+  <nav class="nav" aria-label="Sections">
+    <a href="#jour-j">Le jour J</a>
+    <a href="#programme">Programme</a>
+    <a href="#cadeaux">Cadeaux</a>
+    <a href="#presence">Présence</a>
+  </nav>
+
+  <main>
+    <!-- ====== LE JOUR J — QUAND & OÙ ====== -->
+    <section class="section section--alt" id="jour-j">
+      <h2 class="section__title">Le jour J</h2>
+      <div class="cards">
+        <article class="card">
+          <h3 class="card__title">Cérémonie</h3>
+          <p class="card__time">17&#8239;h&#8239;00</p>
+          <p class="card__venue">Église Notre-Dame de l'Annonciation</p>
+          <p class="card__addr">Achrafieh, Beyrouth</p>
+          <p class="card__note">Parking gratuit à 50&#8239;m après l'église, sur la droite.</p>
+          <a class="card__map" href="https://maps.app.goo.gl/grQqHbBrcDq7Jx4i6" target="_blank" rel="noopener">Voir le plan</a>
+        </article>
+        <article class="card">
+          <h3 class="card__title">Réception</h3>
+          <p class="card__time">18&#8239;h&#8239;30</p>
+          <p class="card__venue">Hôtel Al Bustan</p>
+          <p class="card__addr">Beit Mery, Mont-Liban</p>
+          <p class="card__note">Parking gratuit sur place.</p>
+          <a class="card__map" href="https://maps.app.goo.gl/j3J1pSzMC57UrrDx9" target="_blank" rel="noopener">Voir le plan</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====== PROGRAMME ====== -->
+    <section class="section" id="programme">
+      <h2 class="section__title">Programme</h2>
+      <ul class="timeline">
+        <li><span class="timeline__time">17&#8239;h&#8239;00</span> <span class="timeline__what">Cérémonie religieuse</span></li>
+        <li><span class="timeline__time">18&#8239;h&#8239;30</span> <span class="timeline__what">Cocktail</span></li>
+        <li><span class="timeline__time">20&#8239;h&#8239;00</span> <span class="timeline__what">Dîner</span></li>
+        <li><span class="timeline__time">02&#8239;h&#8239;00</span> <span class="timeline__what">Fin de la célébration</span></li>
+      </ul>
+    </section>
+
+    <!-- ====== CADEAUX ====== -->
+    <section class="section section--alt" id="cadeaux">
+      <h2 class="section__title">Cadeaux</h2>
+      <p class="section__lead">
+        Votre présence est notre plus beau cadeau. Pour celles et ceux qui souhaitent
+        contribuer, nos coordonnées bancaires seront communiquées prochainement.
+      </p>
+    </section>
+
+    <!-- ====== CONFIRMER SA PRÉSENCE (RSVP) ====== -->
+    <section class="section section--rsvp" id="presence">
+      <h2 class="section__title">Confirmer votre présence</h2>
+      <p class="section__lead">
+        Merci de nous faire part de votre réponse avant le
+        <strong>31&#8239;juillet&#8239;2026</strong>, auprès de nos parents.
+      </p>
+      <div class="rsvp__parents">
+        <p><span>Elie &amp; Pascale</span> Geha</p>
+        <p><span>Manhal &amp; Najwa</span> Nacouzi</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <p class="footer__names">André &amp; Rhéa</p>
+    <p class="footer__note">Au plaisir de célébrer ce jour avec vous.</p>
+    <a class="footer__top" href="#haut">Haut de page ↑</a>
+  </footer>
+</body>
+</html>

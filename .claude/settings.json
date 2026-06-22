@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git fetch:*)",
+      "Bash(git pull:*)",
+      "Bash(python3 -m http.server:*)",
+      "Read",
+      "Edit",
+      "Write"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '=== Wedding Website — project memory (.claude/memory/) ===' && echo '[Read CLAUDE.md and .claude/memory/*.md before working.]' && echo && echo '--- changelog (recent) ---' && tail -n 25 .claude/memory/changelog.md 2>/dev/null && echo && echo '--- tasks ---' && cat .claude/memory/tasks.md 2>/dev/null"
+          }
+        ]
+      }
+    ]
+  }
+}
