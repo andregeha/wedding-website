@@ -2,6 +2,14 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-22 — RSVP section recoloured to the light theme
+- Moved the whole RSVP block from the dark charcoal panel into the **same light tone as the
+  rest of the site**; removed the distinct coloured frame on the "mariés" contact card.
+- Fixed invisible unselected pills/inputs (darker 1.5px borders); form is now a subtle sand
+  card with white fields. Disclosure button uses the standard `btn--ghost`.
+- Removed a **stale duplicated dark-theme RSVP CSS block** that was overriding the new styles
+  (leftover from a merge).
+
 ## 2026-06-22 — RSVP redesign + venue-inspired favicon (client feedback)
 - New **favicon**: the hotel's **arched window** (lancet) in the drawing's sampled blue on a
   cream disc — replaces the "&" icon. Regenerated .ico / 16 / 32 / 512 / apple-touch.
