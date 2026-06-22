@@ -138,9 +138,8 @@
         <summary class="btn btn--ghost">Confirmer en ligne</summary>
 
         <form id="rsvp-form" class="rsvp__form" action="https://api.web3forms.com/submit" method="POST">
-          <!-- Web3Forms : la clé d'accès est publique par conception (aucun secret exposé).
-               TODO: remplacer PLACEHOLDER_ACCESS_KEY par la clé fournie par le client. -->
-          <input type="hidden" name="access_key" value="PLACEHOLDER_ACCESS_KEY" />
+          <!-- Web3Forms : clé d'accès publique par conception (aucun secret exposé). -->
+          <input type="hidden" name="access_key" value="c267589e-935c-4789-a61f-ffce15d0db2f" />
           <input type="hidden" name="subject" value="Nouveau RSVP — mariage André & Rhéa" />
           <input type="hidden" name="from_name" value="Site mariage André & Rhéa" />
           <!-- Honeypot anti-spam : doit rester vide -->
