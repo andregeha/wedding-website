@@ -2,6 +2,14 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-22 — Invitation upgraded to a vector PDF
+- Rebuilt the faire-part as a **true vector PDF** (reportlab: embedded fonts, vector QR) for
+  crisp print quality — the previous PDF was a 300-DPI raster. Illustration embedded full
+  colour from `hotel.webp`. PNG preview rendered from the same PDF via PyMuPDF (preview==print).
+- Fixed the over-wide line: ceremony/reception now show « role · heure » then the venue on its
+  own line. Rebalanced the lower section so the QR + caption sit cleanly above the border.
+- Updated the `invitation` skill (now reportlab + pymupdf).
+
 ## 2026-06-22 — Printable invitation (faire-part)
 - Created a print-ready **A5 300-DPI** invitation matching the site: Instrument Serif names
   (sage « & »), thin-rule date motif, hotel illustration, QR to the site.

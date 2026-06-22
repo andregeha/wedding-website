@@ -5,27 +5,26 @@ description: Generate or update the printable wedding invitation (faire-part) �
 
 # Printable invitation (faire-part)
 
-A print-ready **A5 (1748×2480 px @ 300 DPI)** card reusing the site identity: Instrument
-Serif names with a sage-green « & », the thin-rule date motif, the hotel illustration, and
-a QR code to the site. Output: `assets/print/invitation.png` and `invitation.pdf`.
+A print-ready **A5** card reusing the site identity. Output is a **true vector PDF**
+(`assets/print/invitation.pdf` — crisp text + QR at any size) plus a matching PNG preview
+(`invitation.png`, rendered from the same PDF). The hotel illustration is embedded full-colour.
 
 ## Regenerate
 ```bash
-pip install Pillow qrcode    # if not present (PyPI is reachable; browser/CDN are not)
+pip install reportlab pymupdf Pillow   # PyPI is reachable; browser/CDN are not
 python3 assets/print/generate_invitation.py
 ```
 Then QC by viewing `assets/print/invitation.png` before publishing.
 
 ## Keep in sync
-Content is defined at the top of `assets/print/generate_invitation.py` and must match
+Content constants are at the top of `assets/print/generate_invitation.py` and must match
 `.claude/memory/wedding-details.md` (names, date, **ceremony/reception times**, venues,
-RSVP deadline). When a detail changes on the site, update the script constants and re-run.
+RSVP deadline). When a detail changes on the site, update the constants and re-run.
 
 ## Notes
-- Fonts come from the canvas-design skill (`/mnt/skills/.../canvas-fonts/`): Instrument Serif
-  (display/italic) + IBM Plex Serif (caps/addresses). Matches the OG share image.
+- Built with **reportlab** (vector PDF: embeds Instrument Serif + IBM Plex Serif, draws the
+  date rules and a **vector QR** via `reportlab.graphics.barcode.qr`). **PyMuPDF** rasterises
+  the PDF to the PNG preview so preview == print. Illustration source: `assets/img/hotel.webp`.
 - The QR encodes the live site URL; it keeps working after the custom domain is attached
-  (GitHub redirects the old URL). Swap `SITE` to the custom domain once it's live for a
-  cleaner target, then regenerate.
-- The PDF embeds a 300-DPI raster — fine for home printing and print shops at A5.
+  (GitHub redirects the old URL). Swap `SITE` to the custom domain once live, then regenerate.
 - Palette mirrors `styles.css`: ink #2b2b29, sage #5f7d63, soft sage #aebfa3, muted #615c56.

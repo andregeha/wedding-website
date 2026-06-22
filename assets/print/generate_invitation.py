@@ -1,98 +1,130 @@
 #!/usr/bin/env python3
-"""Generate the printable wedding invitation (A5, 300 DPI) → invitation.png + invitation.pdf.
+"""Generate the printable wedding invitation (faire-part), A5.
 
-Reuses the website's identity: Instrument Serif names, sage-green accent, the hotel
-illustration, the thin-rule date motif, and a QR code to the site.
-Content mirrors .claude/memory/wedding-details.md — update both together.
+Produces a TRUE VECTOR PDF (crisp text + QR at any zoom/print size) via reportlab,
+with the hand-drawn hotel illustration embedded at high resolution. Also renders a
+PNG preview from the same PDF (via PyMuPDF) so the preview always matches the print file.
+
+Reuses the website identity: Instrument Serif names with a sage « & », thin-rule date
+motif, the hotel illustration, sage-green accent, and a QR code to the site.
+Content mirrors .claude/memory/wedding-details.md — keep them in sync.
 
 Run from the repo root:  python3 assets/print/generate_invitation.py
-Requires: Pillow, qrcode  (pip install Pillow qrcode)
-Fonts: bundled with the canvas-design skill; fall back to any serif if absent.
+Requires: reportlab, pymupdf, Pillow  (pip install reportlab pymupdf Pillow)
 """
 import os
-from PIL import Image, ImageDraw, ImageFont
-import qrcode
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A5
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.lib import colors
+from reportlab.lib.utils import ImageReader
+from reportlab.graphics.barcode import qr
+from reportlab.graphics.shapes import Drawing
+from reportlab.graphics import renderPDF
+from PIL import Image
+import fitz  # PyMuPDF
 
 HERE = os.path.dirname(__file__)
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 FDIR = "/mnt/skills/examples/canvas-design/canvas-fonts/"
-INSTR    = FDIR + "InstrumentSerif-Regular.ttf"
-INSTR_IT = FDIR + "InstrumentSerif-Italic.ttf"
-PLEX     = FDIR + "IBMPlexSerif-Regular.ttf"
+INSTR, INSTR_IT, PLEX = FDIR+"InstrumentSerif-Regular.ttf", FDIR+"InstrumentSerif-Italic.ttf", FDIR+"IBMPlexSerif-Regular.ttf"
 
 # --- content (keep in sync with wedding-details.md) ---
-NAMES   = ("André ", "&", " Rhéa")
 EYEBROW = "NOUS NOUS MARIONS"
+NAMES   = ("André ", "&", " Rhéa")
 DATE    = "SAMEDI 22 AOÛT 2026"
-CEREMONY = ("CÉRÉMONIE", "16 h 45  —  Église Notre-Dame de l'Annonciation", "Achrafieh, Beyrouth")
-RECEPTION = ("RÉCEPTION", "18 h 30  —  Hôtel Al Bustan", "Beit Mery, Mont-Liban")
+CEREMONY = ("CÉRÉMONIE · 16 h 45", "Église Notre-Dame de l'Annonciation", "Achrafieh, Beyrouth")
+RECEPTION = ("RÉCEPTION · 18 h 30", "Hôtel Al Bustan", "Beit Mery, Mont-Liban")
 RSVP    = "Réponse souhaitée avant le 31 juillet 2026"
 SITE    = "https://andregeha.github.io/wedding-website/"
 QR_CAPTION = "INFOS & CONFIRMATION EN LIGNE"
+ILLUS  = os.path.join(ROOT, "assets/img/hotel.webp")  # full-colour, ~1400px
+PDF    = os.path.join(HERE, "invitation.pdf")
+PNG    = os.path.join(HERE, "invitation.png")
 
-INK=(43,43,41); SAGE=(95,125,99); SAGES=(174,191,163); MUTED=(97,92,86); WHITE=(255,255,255)
-W, H = 1748, 2480  # A5 @ 300 DPI
-
-def F(p, s): return ImageFont.truetype(p, s)
+INK   = colors.Color(43/255, 43/255, 41/255)
+SAGE  = colors.Color(95/255, 125/255, 99/255)
+SAGES = colors.Color(174/255, 191/255, 163/255)
+MUTED = colors.Color(97/255, 92/255, 86/255)
+LINE2 = colors.Color(228/255, 231/255, 224/255)
 
 def build():
-    im = Image.new("RGB", (W, H), WHITE)
-    d = ImageDraw.Draw(im); cx = W / 2
-    d.rectangle([92, 92, W-92, H-92], outline=SAGES, width=3)
-    d.rectangle([108, 108, W-108, H-108], outline=(230, 233, 226), width=1)
+    pdfmetrics.registerFont(TTFont("Instr", INSTR))
+    pdfmetrics.registerFont(TTFont("InstrIt", INSTR_IT))
+    pdfmetrics.registerFont(TTFont("Plex", PLEX))
+    W, H = A5
+    c = canvas.Canvas(PDF, pagesize=A5)
+    cx = W / 2
+    def Y(off): return H - off
 
-    def spaced(t, cx, baseline, f, fill, sp):
-        ws = [d.textlength(ch, font=f) for ch in t]; total = sum(ws) + sp*(len(t)-1); x = cx - total/2
-        for ch, w in zip(t, ws):
-            d.text((x, baseline), ch, font=f, fill=fill, anchor="ls"); x += w + sp
+    # delicate double border
+    c.setLineJoin(1)
+    c.setStrokeColor(SAGES); c.setLineWidth(1.6); c.rect(22, 22, W-44, H-44)
+    c.setStrokeColor(LINE2); c.setLineWidth(0.7); c.rect(26.5, 26.5, W-53, H-53)
+
+    def spaced(text, off, font, size, tracking, color):
+        c.setFont(font, size); c.setFillColor(color)
+        widths = [c.stringWidth(ch, font, size) for ch in text]
+        total = sum(widths) + tracking * (len(text) - 1)
+        x = cx - total/2; y = Y(off)
+        for ch, w in zip(text, widths):
+            c.drawString(x, y, ch); x += w + tracking
         return total
 
-    def center(t, cx, baseline, f, fill):
-        d.text((cx, baseline), t, font=f, fill=fill, anchor="ms")
+    def center(text, off, font, size, color):
+        c.setFont(font, size); c.setFillColor(color); c.drawCentredString(cx, Y(off), text)
 
-    spaced(EYEBROW, cx, 300, F(PLEX, 40), MUTED, 16)
+    spaced(EYEBROW, 72, "Plex", 9.6, 3.8, MUTED)
 
-    fn = F(INSTR, 176)
-    a, amp, r = NAMES
-    wa, wamp, wr = (d.textlength(s, font=fn) for s in (a, amp, r))
-    x = cx - (wa+wamp+wr)/2; bl = 520
-    d.text((x, bl), a, font=fn, fill=INK, anchor="ls"); x += wa
-    d.text((x, bl), amp, font=fn, fill=SAGE, anchor="ls"); x += wamp
-    d.text((x, bl), r, font=fn, fill=INK, anchor="ls")
+    # Names, sage ampersand
+    a, amp, r = NAMES; fs = 42
+    c.setFont("Instr", fs)
+    wa, wamp, wr = (c.stringWidth(s, "Instr", fs) for s in (a, amp, r))
+    x = cx - (wa + wamp + wr) / 2; yb = Y(126)
+    c.setFillColor(INK); c.drawString(x, yb, a)
+    c.setFillColor(SAGE); c.drawString(x + wa, yb, amp)
+    c.setFillColor(INK); c.drawString(x + wa + wamp, yb, r)
 
-    fd = F(PLEX, 46); bld = 650
-    dw = spaced(DATE, cx, bld, fd, INK, 9)
-    ry = bld - 15; gap = dw/2 + 50
-    d.line([(cx-gap-90, ry), (cx-gap, ry)], fill=SAGES, width=2)
-    d.line([(cx+gap, ry), (cx+gap+90, ry)], fill=SAGES, width=2)
+    # Date + side rules
+    dw = spaced(DATE, 156, "Plex", 11, 2.2, INK)
+    ry = Y(156) + 3.2; gap = dw/2 + 9
+    c.setStrokeColor(SAGES); c.setLineWidth(1)
+    c.line(cx-gap-24, ry, cx-gap-5, ry); c.line(cx+gap+5, ry, cx+gap+24, ry)
 
-    ill = Image.open(os.path.join(ROOT, "assets/img/hotel.png")).convert("RGBA")
-    tw = 860; th = int(tw * ill.height / ill.width); ill = ill.resize((tw, th), Image.LANCZOS)
-    iy = 740; im.paste(ill, (int(cx-tw/2), iy), ill)
+    # Illustration
+    img = Image.open(ILLUS).convert("RGB")
+    top_illus = 170; iw = 205; ih = iw * img.height / img.width
+    c.drawImage(ImageReader(img), cx - iw/2, H - (top_illus + ih), width=iw, height=ih)
 
-    oy = iy + th + 70
-    d.line([(cx-55, oy), (cx+55, oy)], fill=SAGES, width=2)
-    d.ellipse([cx-4, oy-4, cx+4, oy+4], fill=SAGE)
+    # Ornament
+    orn = top_illus + ih + 22
+    oy = Y(orn); c.setStrokeColor(SAGES); c.setLineWidth(1)
+    c.line(cx-14, oy, cx+14, oy); c.setFillColor(SAGE); c.circle(cx, oy, 1.2, fill=1, stroke=0)
 
-    def block(role, line, addr, y):
-        spaced(role, cx, y, F(PLEX, 32), SAGE, 12)
-        center(line, cx, y+62, F(INSTR, 52), INK)
-        center(addr, cx, y+112, F(PLEX, 34), MUTED)
+    def block(role, venue, addr, top):
+        spaced(role, top, "Plex", 8, 2.4, SAGE)
+        center(venue, top + 15, "Instr", 13, INK)
+        center(addr, top + 27, "Plex", 8.4, MUTED)
 
-    block(*CEREMONY, oy+150)
-    block(*RECEPTION, oy+360)
-    center(RSVP, cx, oy+560, F(INSTR_IT, 44), MUTED)
+    cer_role = orn + 36
+    block(*CEREMONY, cer_role)
+    block(*RECEPTION, cer_role + 50)
+    center(RSVP, cer_role + 99, "InstrIt", 11, MUTED)
 
-    qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_M, box_size=10, border=1)
-    qr.add_data(SITE); qr.make(fit=True)
-    qimg = qr.make_image(fill_color=INK, back_color="white").convert("RGB")
-    qs = 210; qimg = qimg.resize((qs, qs), Image.NEAREST); qy = oy + 640
-    im.paste(qimg, (int(cx-qs/2), qy))
-    spaced(QR_CAPTION, cx, qy+qs+50, F(PLEX, 28), MUTED, 8)
+    # Vector QR + caption
+    qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
+    b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 50
+    qr_top = cer_role + 119
+    dwg = Drawing(qs, qs, transform=[qs/bw, 0, 0, qs/bh, 0, 0]); dwg.add(qw)
+    renderPDF.draw(dwg, c, cx - qs/2, H - (qr_top + qs))
+    spaced(QR_CAPTION, qr_top + qs + 12, "Plex", 6.7, 1.9, MUTED)
 
-    png = os.path.join(HERE, "invitation.png"); pdf = os.path.join(HERE, "invitation.pdf")
-    im.save(png); im.save(pdf, "PDF", resolution=300.0)
-    print("wrote", png, "and", pdf)
+    c.showPage(); c.save()
+
+    # PNG preview from the same PDF (keeps preview == print)
+    doc = fitz.open(PDF); doc[0].get_pixmap(dpi=200).save(PNG); doc.close()
+    print("wrote", PDF, "and", PNG)
 
 if __name__ == "__main__":
     build()
