@@ -2,6 +2,24 @@
 
 Each entry: what was decided, and why. Newest at top.
 
+## 2026-06-22 — Online RSVP via Web3Forms (static-site friendly)
+- **Decision:** Keep the direct contacts (mariés OR their parents) AND add an optional
+  online RSVP form. The form posts to **Web3Forms** (`api.web3forms.com/submit`).
+- **Why:** GitHub Pages is static (no backend, public repo). Web3Forms is free + unlimited,
+  emails André on each submission, and stores nothing in the repo. Its **access key is
+  public by design** (safe to commit). Alternatives: Formspree (50/mo free cap), Google Forms
+  (external page, off-brand).
+- **Security:** honeypot field (`botcheck`); HTTPS-only POST to the one trusted endpoint;
+  client never writes user input into the DOM as HTML (textContent only → no XSS); inputs
+  have maxlength; JS guards against the placeholder key so the live form never errors.
+- **Pending:** André's Web3Forms access key to replace `PLACEHOLDER_ACCESS_KEY` in index.html.
+
+## 2026-06-22 — Favicon + social share image
+- **Decision:** Favicon = serif "&" on a sage disc; OG/Twitter share image (1200×630) =
+  "André & Rhéa" + date + the hotel illustration, on white. Generated with Pillow using
+  Instrument Serif (names) + IBM Plex Serif (caps lines).
+- **Why:** Classy, simple, consistent with the faire-part; makes shared links look polished.
+
 ## 2026-06-22 — Design direction: minimaliste moderne
 - **Decision:** Clean, airy, near-monochrome palette (off-white / charcoal) + **one
   restrained accent** color taken from the faire-part. Primarily a clean sans-serif;

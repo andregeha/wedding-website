@@ -11,6 +11,16 @@ Things worth not re-learning. Newest at top.
 - I **cannot toggle GitHub Pages settings** via the available tools — the client enables
   Pages once (Settings → Pages → Source = GitHub Actions); after that, deploys are automatic.
 
+## 2026-06-22 — Deploy / git workflow (important)
+- **Direct `git push` to `main` is blocked by the environment proxy (HTTP 503).** Pushes
+  only succeed to the assigned branch `claude/phone-assistant-setup-sm66ba`. To publish to
+  `main`, open a PR (branch → main) and merge it via the GitHub MCP tools. This triggers the
+  Pages deploy. (PR #1 and PR #2 followed this path.)
+- Binary files (e.g. the illustration) conflict when both `main` and the branch change them;
+  resolve on the branch with `git merge origin/main` + `git checkout --ours <file>`, push, then merge the PR.
+- Repo is `andregeha/wedding-website` (renamed); MCP scope name `phone-assistant` still works via redirect.
+- Live URL: https://andregeha.github.io/wedding-website/
+
 ## 2026-06-22 — Tooling
 - No local headless browser; `npx`/`npm` work and `playwright` installs, BUT the
   **Chromium binary download is blocked by the network policy** → in-container screenshots

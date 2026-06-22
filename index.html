@@ -6,11 +6,27 @@
   <title>André & Rhéa — Notre mariage</title>
   <meta name="description" content="André & Rhéa se marient le samedi 22 août 2026 au Liban. Toutes les informations pratiques : cérémonie, réception, programme et confirmation de présence." />
 
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+  <meta name="theme-color" content="#5f7d63" />
+
   <!-- Open Graph (aperçu lors du partage) -->
   <meta property="og:title" content="André & Rhéa — Notre mariage" />
   <meta property="og:description" content="Le samedi 22 août 2026 au Liban. Rejoignez-nous pour célébrer." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_FR" />
+  <meta property="og:url" content="https://andregeha.github.io/wedding-website/" />
+  <meta property="og:image" content="https://andregeha.github.io/wedding-website/assets/img/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="André & Rhéa — samedi 22 août 2026" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="André & Rhéa — Notre mariage" />
+  <meta name="twitter:description" content="Le samedi 22 août 2026 au Liban. Rejoignez-nous pour célébrer." />
+  <meta name="twitter:image" content="https://andregeha.github.io/wedding-website/assets/img/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -98,13 +114,55 @@
     <section class="section section--rsvp" id="presence">
       <h2 class="section__title">Confirmer votre présence</h2>
       <p class="section__lead">
-        Merci de nous faire part de votre réponse avant le
-        <strong>31&#8239;juillet&#8239;2026</strong>, auprès de nos parents.
+        Votre présence compte énormément pour nous. Merci de nous faire part de votre
+        réponse avant le <strong>31&#8239;juillet&#8239;2026</strong>, directement auprès
+        des mariés ou de leurs parents&#8239;:
       </p>
       <div class="rsvp__parents">
         <p><span>Elie &amp; Pascale</span> Geha</p>
         <p><span>Manhal &amp; Najwa</span> Nacouzi</p>
       </div>
+
+      <p class="rsvp__online-intro">
+        Vous pouvez également confirmer votre présence en ligne&#8239;— inutile de le faire
+        si vous nous avez déjà répondu directement.
+      </p>
+
+      <details class="rsvp__disclosure">
+        <summary class="btn btn--ghost-light">Confirmer en ligne</summary>
+
+        <form id="rsvp-form" class="rsvp__form" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Forms : la clé d'accès est publique par conception (aucun secret exposé).
+               TODO: remplacer PLACEHOLDER_ACCESS_KEY par la clé fournie par le client. -->
+          <input type="hidden" name="access_key" value="PLACEHOLDER_ACCESS_KEY" />
+          <input type="hidden" name="subject" value="Nouveau RSVP — mariage André & Rhéa" />
+          <input type="hidden" name="from_name" value="Site mariage André & Rhéa" />
+          <!-- Honeypot anti-spam : doit rester vide -->
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none !important" />
+
+          <fieldset class="rsvp__field">
+            <legend>Votre réponse</legend>
+            <label class="rsvp__radio"><input type="radio" name="Présence" value="Présent(e)" checked /> Avec joie, je serai présent·e</label>
+            <label class="rsvp__radio"><input type="radio" name="Présence" value="Absent(e)" /> Hélas, je ne pourrai pas venir</label>
+          </fieldset>
+
+          <div class="rsvp__field">
+            <label for="guest-1">Nom du ou des invités</label>
+            <div id="guest-list">
+              <input class="rsvp__input guest-input" id="guest-1" name="Invité 1" type="text" maxlength="80" required placeholder="Prénom et nom" autocomplete="name" />
+            </div>
+            <button type="button" id="add-guest" class="rsvp__add">+ Ajouter un invité</button>
+          </div>
+
+          <div class="rsvp__field">
+            <label for="rsvp-msg">Un petit mot (facultatif)</label>
+            <textarea id="rsvp-msg" name="Message" class="rsvp__input" rows="3" maxlength="500" placeholder="Régime alimentaire, question…"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--light">Envoyer ma réponse</button>
+          <p id="rsvp-status" class="rsvp__status" role="status" aria-live="polite"></p>
+        </form>
+      </details>
     </section>
   </main>
 
@@ -114,5 +172,7 @@
     <p class="footer__note">Au plaisir de célébrer ce jour avec vous.</p>
     <a class="footer__top" href="#haut">Haut de page ↑</a>
   </footer>
+
+  <script src="assets/js/rsvp.js" defer></script>
 </body>
 </html>

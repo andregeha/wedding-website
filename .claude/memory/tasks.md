@@ -8,11 +8,14 @@
 - [x] `index.html` rebuilt with real French content; sage-green accent + faire-part date motif.
 
 ## Now (blocked on client)
-- [ ] Client: add the **hotel illustration** file to the repo at `assets/img/hotel.png`
-      (chat attachments don't reach the container — upload via GitHub or send a usable link).
-- [ ] Client: confirm the **dinner time** (« 8h » interpreted as 20 h 00).
-- [ ] Client: enable **GitHub Pages** (Settings → Pages → Source = "GitHub Actions").
+- [ ] Client: send the **Web3Forms access key** (from web3forms.com, using André's email)
+      → replace `PLACEHOLDER_ACCESS_KEY` in `index.html`, then redeploy to activate the form.
 - [ ] Client (later): provide **bank details** for the Cadeaux section.
+
+## Done (recent)
+- [x] Hotel illustration integrated + optimized; add-to-calendar button; dinner = 20 h 00.
+- [x] Site published to `main`; GitHub Pages live at andregeha.github.io/wedding-website.
+- [x] Online RSVP form (Web3Forms) + favicon + social share image.
 
 ## Next (once illustration arrives)
 - [ ] Optimize the illustration (size/format), confirm it sits well in the hero on mobile.
