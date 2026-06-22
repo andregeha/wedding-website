@@ -2,6 +2,15 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-22 — Invitation: uniform typography + max-quality illustration
+- Unified the faire-part on a **single typeface, IBM Plex Serif** (regular + italic) —
+  names and the RSVP line were the last Instrument Serif holdouts (the tall/narrow font that
+  looked stretched). Now fully consistent.
+- Embedded the illustration at **original lossless 2000px** (`assets/print/hotel-source.png`)
+  instead of the WebP, for maximum print quality. PDF stays vector (text + QR).
+- Quality note for client: vector PDF = resolution-independent; CMYK + bleed/crop marks can be
+  added on request for a professional printer.
+
 ## 2026-06-22 — Invitation upgraded to a vector PDF
 - Rebuilt the faire-part as a **true vector PDF** (reportlab: embedded fonts, vector QR) for
   crisp print quality — the previous PDF was a 300-DPI raster. Illustration embedded full
