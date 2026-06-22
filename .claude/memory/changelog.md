@@ -2,6 +2,10 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-22 — Ceremony time corrected to 16 h 45
+- Religious ceremony moved 17 h 00 → **16 h 45** everywhere: Le jour J card, Programme
+  timeline, the `.ics` (DTSTART 16:45), and `wedding-details.md`. Reception stays 18 h 30.
+
 ## 2026-06-22 — On-site RSVP confirmation panel
 - Client confirmed Web3Forms emails arrive. Replaced the small success status line with an
   elegant **confirmation panel** (sage check + « Merci ! » + message) that appears in place

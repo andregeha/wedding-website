@@ -35,5 +35,5 @@
 - [ ] Custom domain.
 
 ## Notes
-- Tight transition ceremony→reception: Achrafieh (Beyrouth) 17 h → Beit Mery 18 h 30
+- Tight transition ceremony→reception: Achrafieh (Beyrouth) 16 h 45 → Beit Mery 18 h 30
   (~20-30 min up the mountain). Fine, but worth keeping in mind.
