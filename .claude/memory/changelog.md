@@ -2,6 +2,16 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-22 — Online RSVP + favicon + share image
+- Reworked RSVP copy: confirm directly with the **mariés OR their parents** (not only parents).
+- Added an **optional online RSVP form** (disclosure button → form) posting to **Web3Forms**:
+  attendance radio, add/remove multiple guest names, optional message; honeypot + XSS-safe JS
+  (`assets/js/rsvp.js`). Works as a plain POST without JS too. Awaiting André's access key
+  (`PLACEHOLDER_ACCESS_KEY`); JS shows a graceful message until then.
+- Added **favicon** set (serif "&" on sage disc: .ico, 16/32 png, apple-touch, 512) and a
+  **1200×630 OG/Twitter share image** (Pillow + Instrument/IBM Plex Serif). Wired into <head>.
+- Verified all assets serve locally (200).
+
 ## 2026-06-22 — Illustration integrated + add-to-calendar
 - Client uploaded `assets/img/hotel.png` to `main`; pulled it onto the working branch.
 - Optimized the illustration: `hotel.webp` (~82 KB) as primary + compressed `hotel.png`
