@@ -2,6 +2,13 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-22 — Printable invitation (faire-part)
+- Created a print-ready **A5 300-DPI** invitation matching the site: Instrument Serif names
+  (sage « & »), thin-rule date motif, hotel illustration, QR to the site.
+- Outputs `assets/print/invitation.png` + `invitation.pdf`; generator script
+  `assets/print/generate_invitation.py` + new **`invitation` skill** to regenerate/keep in
+  sync with `wedding-details.md` (content constants at top of the script).
+
 ## 2026-06-22 — Ceremony time corrected to 16 h 45
 - Religious ceremony moved 17 h 00 → **16 h 45** everywhere: Le jour J card, Programme
   timeline, the `.ics` (DTSTART 16:45), and `wedding-details.md`. Reception stays 18 h 30.
