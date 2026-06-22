@@ -14,11 +14,20 @@ Each entry: what was decided, and why. Newest at top.
   have maxlength; JS guards against the placeholder key so the live form never errors.
 - **Pending:** André's Web3Forms access key to replace `PLACEHOLDER_ACCESS_KEY` in index.html.
 
-## 2026-06-22 — Favicon + social share image
-- **Decision:** Favicon = serif "&" on a sage disc; OG/Twitter share image (1200×630) =
-  "André & Rhéa" + date + the hotel illustration, on white. Generated with Pillow using
-  Instrument Serif (names) + IBM Plex Serif (caps lines).
-- **Why:** Classy, simple, consistent with the faire-part; makes shared links look polished.
+## 2026-06-22 — Favicon = the hotel's arched window (revised)
+- **Decision:** Favicon is a clean **lancet (pointed) arched window** in the illustration's
+  exact blue (sampled #6F9DC4) on a cream disc — inspired by the hotel drawing, recognizable
+  at 16px. Replaces the earlier serif "&" (client felt it had nothing to do with the wedding).
+- **OG/Twitter share image** (1200×630): "André & Rhéa" + date + the hotel illustration on
+  white (Instrument Serif names + IBM Plex Serif caps). Unchanged.
+- **Why:** Ties the icon to the venue; classy and clear at small sizes.
+
+## 2026-06-22 — RSVP redesign (clearer contacts + modern form)
+- **Decision:** Show two contact cards — **"Auprès des mariés — André & Rhéa"** (emphasized)
+  and "ou de leurs parents — …" — so the couple isn't buried in prose. The online form is a
+  **modern white card** (pill toggles for présent/absent, full-width guest rows with an inline
+  ✕, dashed "+ Ajouter un invité", centered submit). Removed the dietary-suggestion placeholder.
+- **Why:** Client feedback: contacts were buried, the dark form was unattractive.
 
 ## 2026-06-22 — Design direction: minimaliste moderne
 - **Decision:** Clean, airy, near-monochrome palette (off-white / charcoal) + **one
