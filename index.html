@@ -1,125 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Wedding</title>
-  <meta name="description" content="Join us to celebrate our wedding. Find all the details here." />
+  <title>Notre mariage</title>
+  <meta name="description" content="Toutes les informations pratiques pour célébrer notre mariage avec nous." />
 
-  <!-- Open Graph (social share preview) -->
-  <meta property="og:title" content="Our Wedding" />
-  <meta property="og:description" content="Join us to celebrate. All the details here." />
+  <!-- Open Graph (aperçu lors du partage) -->
+  <meta property="og:title" content="Notre mariage" />
+  <meta property="og:description" content="Rejoignez-nous pour célébrer. Toutes les infos ici." />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- Minimaliste moderne : sans-serif net (Inter) + serif raffinée réservée aux prénoms (Cormorant) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
   <!-- ====== HERO ====== -->
-  <header class="hero" id="top">
+  <header class="hero" id="haut">
     <div class="hero__inner">
-      <p class="hero__eyebrow">We're getting married</p>
-      <!-- TODO: real names from .claude/memory/wedding-details.md -->
-      <h1 class="hero__names">Partner One <span class="amp">&amp;</span> Partner Two</h1>
-      <!-- TODO: real date -->
-      <p class="hero__date">Date to be confirmed</p>
-      <p class="hero__place">Location to be confirmed</p>
-      <a class="btn" href="#rsvp">RSVP</a>
+      <p class="hero__eyebrow">Nous nous marions</p>
+      <!-- TODO: prénoms réels (wedding-details.md) -->
+      <h1 class="hero__names">Prénom <span class="amp">&amp;</span> Prénom</h1>
+      <!-- TODO: date réelle, ex. « samedi 12 septembre 2026 » -->
+      <p class="hero__date">Date à confirmer</p>
+      <p class="hero__place">Lieu à confirmer</p>
+
+      <!-- Visuel signature : illustration dessinée à la main de l'hôtel.
+           TODO: remplacer par le fichier fourni (assets/img/hotel.svg ou .png). -->
+      <figure class="hero__illustration" aria-hidden="true">
+        <div class="illustration-placeholder">Illustration de l'hôtel<br /><small>(à venir)</small></div>
+      </figure>
+
+      <a class="btn" href="#presence">Confirmer ma présence</a>
     </div>
   </header>
 
   <!-- ====== NAV ====== -->
   <nav class="nav" aria-label="Sections">
-    <a href="#story">Our Story</a>
-    <a href="#details">Details</a>
-    <a href="#schedule">Schedule</a>
-    <a href="#info">Info</a>
-    <a href="#rsvp">RSVP</a>
+    <a href="#jour-j">Le jour J</a>
+    <a href="#programme">Programme</a>
+    <a href="#infos">Infos pratiques</a>
+    <a href="#presence">Présence</a>
   </nav>
 
   <main>
-    <!-- ====== STORY ====== -->
-    <section class="section" id="story">
-      <h2 class="section__title">Our Story</h2>
+    <!-- ====== MOT D'ACCUEIL ====== -->
+    <section class="section" id="accueil">
       <p class="section__lead">
-        <!-- TODO: optional short story / welcome note -->
-        A short, warm welcome to our guests goes here.
+        <!-- TODO: court mot d'accueil, ou supprimer cette section -->
+        Un petit mot pour vous accueillir et vous donner rendez-vous le jour J.
       </p>
     </section>
 
-    <!-- ====== DETAILS ====== -->
-    <section class="section section--alt" id="details">
-      <h2 class="section__title">When &amp; Where</h2>
+    <!-- ====== LE JOUR J — QUAND & OÙ ====== -->
+    <section class="section section--alt" id="jour-j">
+      <h2 class="section__title">Le jour J</h2>
       <div class="cards">
         <article class="card">
-          <h3 class="card__title">Ceremony</h3>
-          <p class="card__time">Time TBC</p>
-          <p class="card__venue">Venue name</p>
-          <p class="card__addr">Address</p>
-          <a class="card__map" href="#" target="_blank" rel="noopener">View map</a>
+          <h3 class="card__title">Cérémonie</h3>
+          <p class="card__time">Heure à confirmer</p>
+          <p class="card__venue">Nom du lieu</p>
+          <p class="card__addr">Adresse</p>
+          <a class="card__map" href="#" target="_blank" rel="noopener">Voir le plan</a>
         </article>
         <article class="card">
-          <h3 class="card__title">Reception</h3>
-          <p class="card__time">Time TBC</p>
-          <p class="card__venue">Venue name</p>
-          <p class="card__addr">Address</p>
-          <a class="card__map" href="#" target="_blank" rel="noopener">View map</a>
+          <h3 class="card__title">Réception</h3>
+          <p class="card__time">Heure à confirmer</p>
+          <p class="card__venue">Nom du lieu</p>
+          <p class="card__addr">Adresse</p>
+          <a class="card__map" href="#" target="_blank" rel="noopener">Voir le plan</a>
         </article>
       </div>
     </section>
 
-    <!-- ====== SCHEDULE ====== -->
-    <section class="section" id="schedule">
-      <h2 class="section__title">Schedule</h2>
+    <!-- ====== PROGRAMME ====== -->
+    <section class="section" id="programme">
+      <h2 class="section__title">Programme</h2>
       <ul class="timeline">
-        <!-- TODO: real schedule -->
-        <li><span class="timeline__time">15:00</span> <span class="timeline__what">Ceremony</span></li>
-        <li><span class="timeline__time">16:00</span> <span class="timeline__what">Cocktails</span></li>
-        <li><span class="timeline__time">18:00</span> <span class="timeline__what">Dinner</span></li>
-        <li><span class="timeline__time">21:00</span> <span class="timeline__what">Dancing</span></li>
+        <!-- TODO: horaires réels -->
+        <li><span class="timeline__time">15 h 00</span> <span class="timeline__what">Cérémonie</span></li>
+        <li><span class="timeline__time">16 h 00</span> <span class="timeline__what">Cocktail</span></li>
+        <li><span class="timeline__time">19 h 00</span> <span class="timeline__what">Dîner</span></li>
+        <li><span class="timeline__time">22 h 00</span> <span class="timeline__what">Soirée dansante</span></li>
       </ul>
     </section>
 
-    <!-- ====== INFO / FAQ ====== -->
-    <section class="section section--alt" id="info">
-      <h2 class="section__title">Good to Know</h2>
+    <!-- ====== INFOS PRATIQUES ====== -->
+    <section class="section section--alt" id="infos">
+      <h2 class="section__title">Infos pratiques</h2>
       <div class="faq">
         <div class="faq__item">
           <h3>Dress code</h3>
-          <p>To be confirmed.</p>
+          <p>À confirmer.</p>
         </div>
         <div class="faq__item">
-          <h3>Travel &amp; parking</h3>
-          <p>To be confirmed.</p>
+          <h3>Accès &amp; parking</h3>
+          <p>À confirmer.</p>
         </div>
         <div class="faq__item">
-          <h3>Accommodation</h3>
-          <p>To be confirmed.</p>
+          <h3>Hébergement</h3>
+          <p>À confirmer.</p>
         </div>
         <div class="faq__item">
-          <h3>Gifts</h3>
-          <p>To be confirmed.</p>
+          <h3>Cadeaux</h3>
+          <p>À confirmer.</p>
         </div>
       </div>
     </section>
 
-    <!-- ====== RSVP ====== -->
-    <section class="section section--rsvp" id="rsvp">
-      <h2 class="section__title">RSVP</h2>
-      <p class="section__lead">Please let us know if you can join us.</p>
-      <!-- TODO: real RSVP method (mailto, phone, or form) and deadline -->
-      <a class="btn" href="mailto:?subject=RSVP%20-%20Our%20Wedding">Reply by email</a>
-      <p class="rsvp__deadline">Kindly respond by [deadline].</p>
+    <!-- ====== CONFIRMER SA PRÉSENCE (RSVP via WhatsApp) ====== -->
+    <section class="section section--rsvp" id="presence">
+      <h2 class="section__title">Confirmer votre présence</h2>
+      <p class="section__lead">
+        Merci de nous prévenir avant le <strong>[date limite]</strong> en nous écrivant sur WhatsApp.
+      </p>
+      <div class="rsvp__contacts">
+        <!-- TODO: numéros WhatsApp réels au format international, ex. wa.me/212600000000 -->
+        <a class="btn btn--wa" href="https://wa.me/000000000000?text=Bonjour%2C%20je%20confirme%20ma%20pr%C3%A9sence%20au%20mariage" target="_blank" rel="noopener">
+          WhatsApp — Les mariés
+        </a>
+        <a class="btn btn--wa btn--ghost" href="https://wa.me/000000000000?text=Bonjour%2C%20je%20confirme%20ma%20pr%C3%A9sence%20au%20mariage" target="_blank" rel="noopener">
+          WhatsApp — Les parents
+        </a>
+      </div>
     </section>
   </main>
 
   <!-- ====== FOOTER ====== -->
   <footer class="footer">
-    <p class="footer__names">Partner One &amp; Partner Two</p>
-    <p class="footer__note">We can't wait to celebrate with you.</p>
-    <a class="footer__top" href="#top">Back to top ↑</a>
+    <p class="footer__names">Prénom &amp; Prénom</p>
+    <p class="footer__note">Au plaisir de célébrer ce jour avec vous.</p>
+    <a class="footer__top" href="#haut">Haut de page ↑</a>
   </footer>
 </body>
 </html>

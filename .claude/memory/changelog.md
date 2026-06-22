@@ -2,6 +2,19 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-22 — Plan approved + scaffold retuned to chosen direction
+- Prepared and got approval for the full website plan (saved in plan history).
+- Logged client decisions to `decisions.md` and `wedding-details.md`:
+  minimaliste moderne · RSVP via WhatsApp (no form) · hotel illustration (no photos) ·
+  free GitHub URL for now (custom domain later).
+- Retuned the scaffold to match: French (`lang="fr"`) minimalist `index.html`, WhatsApp
+  RSVP section + contact numbers, a slot for the hand-drawn hotel illustration; reworked
+  `styles.css` tokens to neutral minimalist palette + placeholder accent + sans-serif body.
+- Added skills: `content-sync` (map memory → page, French typography) and `preview`
+  (local server + responsive screenshots).
+- **Still needed from client:** intake answers (names, date, venue(s), programme, WhatsApp
+  numbers + deadline), the hotel illustration file, a faire-part photo; enable GitHub Pages.
+
 ## 2026-06-22 — Project initialization
 - Repurposed the empty `phone-assistant` repo into the wedding website project.
 - Replaced the unrelated AL/Business Central `.gitignore` with a web `.gitignore`.

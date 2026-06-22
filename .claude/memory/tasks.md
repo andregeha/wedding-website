@@ -1,26 +1,33 @@
 # Tasks & Roadmap
 
-## Now (blocked on client)
-- [ ] Client: rename GitHub repo `phone-assistant` → `wedding-website`.
-- [ ] Client: enable GitHub Pages (repo → Settings → Pages → Source = "GitHub Actions").
-- [ ] Client: provide real wedding details (see `wedding-details.md` placeholders).
+## Done
+- [x] Repo renamed to `wedding-website` (GitHub redirect keeps the remote working).
+- [x] Project + memory initialized; plan approved.
+- [x] Decisions logged: minimaliste moderne · WhatsApp RSVP · hotel illustration · GitHub URL.
+- [x] Scaffold retuned to French + minimalist + WhatsApp + illustration slot.
+- [x] Skills `content-sync` and `preview` created.
 
-## Next (once details arrive)
+## Now (blocked on client)
+- [ ] Client: provide intake answers — prénoms, date, lieu(x), programme, dress code,
+      hébergement, enfants, cadeaux, **numéros WhatsApp + date limite RSVP**.
+- [ ] Client: send the **hotel illustration** file (PNG transparent / SVG) + a **faire-part photo**.
+- [ ] Client: enable GitHub Pages (Settings → Pages → Source = "GitHub Actions").
+
+## Next (once content + illustration arrive)
 - [ ] Fill `wedding-details.md` with confirmed content.
-- [ ] Render real content into `index.html`.
-- [ ] Choose final palette + fonts to match the printed wedding card.
-- [ ] Add a hero photo / imagery if the couple wants.
-- [ ] Verify responsive layout on mobile widths.
+- [ ] Set the accent color from the faire-part; finalize fonts.
+- [ ] Place the hotel illustration in the hero (+ optional divider motif).
+- [ ] Render real French content into `index.html`; remove unused sections.
+- [ ] French typography pass (narrow NBSP, guillemets « »).
+- [ ] Favicon + Open Graph share preview.
+- [ ] Verify responsive (360/390/768/1280) + accessibility + Lighthouse ≥ 95.
 - [ ] Merge to `main` and confirm the live Pages deploy.
 
 ## Later / nice-to-have
 - [ ] Add-to-calendar button (.ics) for the wedding date.
-- [ ] Map embeds / directions for venues.
-- [ ] RSVP mechanism (mailto link, or a simple form via Formspree-style service).
-- [ ] Custom domain (optional).
-- [ ] Favicon + social share preview (Open Graph) image.
+- [ ] Map links/embeds for the venue(s).
+- [ ] Custom domain.
 
-## Open questions
-- Two venues (ceremony + reception) or one?
-- Language(s) of the site?
-- Does the printed card have a visual style/colors to match?
+## Open questions (carried)
+- One venue or two (ceremony + reception)?
+- Any welcome text / short story, or skip it?

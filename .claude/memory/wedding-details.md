@@ -30,21 +30,33 @@
 ## Dress code
 - **TODO**
 
-## RSVP
-- How to RSVP: **TODO** (email / phone / form)
-- RSVP deadline: **TODO**
+## RSVP — via WhatsApp (no online form)
+Guests confirm by WhatsApp. List each contact with name + international number.
+- Contact 1 (e.g. les mariés): **TODO name** — **TODO +country number** → `wa.me/<number>`
+- Contact 2 (e.g. parents): **TODO name** — **TODO +country number** → `wa.me/<number>`
+- RSVP deadline (date limite): **TODO**
+- Optional prefilled WhatsApp message: **TODO** (e.g. « Bonjour, je confirme ma présence au mariage »)
 
 ## Travel & accommodation
-- **TODO** (parking, nearby hotels, transport)
+- **TODO** (parking, nearby hotels, transport, navette)
+
+## Children
+- **TODO** (welcome or not)
 
 ## Gifts / registry
 - **TODO**
 
-## FAQ
+## FAQ / Infos pratiques
 - **TODO**
 
-## Contact
-- **TODO**
+## Assets (from the client)
+- Hotel illustration file (PNG transparent / SVG): **TODO — not yet provided**
+- Faire-part photo (for accent color / font reference): **TODO — not yet provided**
+
+## Design
+- Direction: minimaliste moderne (neutrals + 1 accent).
+- Accent color: **TODO — derive from faire-part** (placeholder neutral in CSS for now).
 
 ---
-*Last confirmed: nothing yet — all placeholders. Created during project setup.*
+*Last confirmed: design direction + RSVP-by-WhatsApp + illustration-as-visual (2026-06-22).
+All concrete wedding content still placeholders — awaiting client intake answers.*
