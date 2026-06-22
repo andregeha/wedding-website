@@ -104,8 +104,8 @@ def build():
 
     def block(role, venue, addr, top):
         spaced(role, top, "Plex", 8, 2.4, SAGE)
-        center(venue, top + 15, "Instr", 13, INK)
-        center(addr, top + 27, "Plex", 8.4, MUTED)
+        center(venue, top + 14, "Plex", 11, INK)
+        center(addr, top + 26, "Plex", 8.4, MUTED)
 
     cer_role = orn + 36
     block(*CEREMONY, cer_role)
