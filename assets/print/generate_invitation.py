@@ -43,7 +43,7 @@ DATE    = "SAMEDI 22 AOÛT 2026"
 CEREMONY  = ("CÉRÉMONIE · 16 h 45", "Église Notre-Dame de l'Annonciation", "Achrafieh, Beyrouth")
 RECEPTION = ("RÉCEPTION · 18 h 30", "Hôtel Al Bustan", "Beit Mery, Mont-Liban")
 # Recto footer — discreet one-line gift/bank note (kept minimal)
-BANK_LINE = "Si le cœur vous en dit  ·  Liban (USD) IBAN ‹ à compléter ›   ·   International (EUR) IBAN ‹ à compléter ›"
+BANK_LINE = "Liste de mariage  ·  Liban (USD) IBAN ‹ à compléter ›   ·   International (EUR) IBAN ‹ à compléter ›"
 # Verso — programme of the day (the beautiful back)
 PROG_TITLE = "LE DÉROULÉ DE LA JOURNÉE"
 PROGRAMME = [("16 h 45", "Cérémonie religieuse"), ("18 h 30", "Verre d'accueil"),
