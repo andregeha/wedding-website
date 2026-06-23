@@ -2,6 +2,10 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-23 — Gift section term → « Liste de mariage » (client choice)
+- Client opted for « Liste de mariage » on both the site (section title + nav) and the card
+  recto footer (bank line lead-in), superseding the earlier « Avec gratitude / Si le cœur… ».
+
 ## 2026-06-23 — Soften « Cadeaux » wording
 - Replaced the explicit « Cadeaux » with a gentler, classier framing:
   - **Site:** section title → « Avec gratitude » (nav « Gratitude »); body softened
