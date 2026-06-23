@@ -42,13 +42,12 @@ NAMES   = ("André ", "&", " Rhéa")
 DATE    = "SAMEDI 22 AOÛT 2026"
 CEREMONY  = ("CÉRÉMONIE · 16 h 45", "Église Notre-Dame de l'Annonciation", "Achrafieh, Beyrouth")
 RECEPTION = ("RÉCEPTION · 18 h 30", "Hôtel Al Bustan", "Beit Mery, Mont-Liban")
-# Verso — gifts / bank (discreet: minimal, just the IBANs; rest on request)
-GIFT_TITLE = "AVEC GRATITUDE"
-GIFT_1 = "Votre présence est notre plus beau cadeau."
-GIFT_2 = "Si vous souhaitez néanmoins nous gâter :"
-ACCT_LB_LINE   = "Liban · USD — IBAN ‹ à compléter ›"
-ACCT_INTL_LINE = "International · EUR — IBAN ‹ à compléter ›"
-GIFT_NOTE = "Bénéficiaire et BIC/SWIFT communiqués sur demande"
+# Recto footer — discreet one-line gift/bank note (kept minimal)
+BANK_LINE = "Cadeaux  ·  Liban (USD) IBAN ‹ à compléter ›   ·   International (EUR) IBAN ‹ à compléter ›"
+# Verso — programme of the day (the beautiful back)
+PROG_TITLE = "LE DÉROULÉ DE LA JOURNÉE"
+PROGRAMME = [("16 h 45", "Cérémonie religieuse"), ("18 h 30", "Cocktail"),
+             ("20 h 00", "Dîner"), ("02 h 00", "Fin de la soirée")]
 SITE = "https://andregeha.github.io/wedding-website/"
 QR_CAPTION = "INFOS & CONFIRMATION EN LIGNE"
 
@@ -92,49 +91,55 @@ def build():
     center(PARENTS[1], cx+128, 56, "Plex", 11.5, INK)
     center(INVITE, cx, 88, "PlexIt", 10.5, MUTED)
 
-    a, amp, r = NAMES; fs = 34
+    a, amp, r = NAMES; fs = 30
     c.setFont("Plex", fs)
     wa, wamp, wr = (c.stringWidth(s, "Plex", fs) for s in (a, amp, r))
-    x = cx - (wa+wamp+wr)/2; yb = Y(126)
+    x = cx - (wa+wamp+wr)/2; yb = Y(124)
     c.setFillColor(INK); c.drawString(x, yb, a)
     c.setFillColor(SAGE); c.drawString(x+wa, yb, amp)
     c.setFillColor(INK); c.drawString(x+wa+wamp, yb, r)
 
-    dw = spaced(DATE, cx, 152, "Plex", 11, 2.2, INK); rules(cx, 149, dw/2)
+    dw = spaced(DATE, cx, 150, "Plex", 11, 2.2, INK); rules(cx, 147, dw/2)
 
     img = Image.open(ILLUS).convert("RGB")
-    iw = 130; ih = iw*img.height/img.width
-    c.drawImage(ImageReader(img), cx-iw/2, H-(168+ih), width=iw, height=ih)
+    iw = 126; ih = iw*img.height/img.width
+    c.drawImage(ImageReader(img), cx-iw/2, H-(164+ih), width=iw, height=ih)
 
     def vblock(role, venue, addr, cxc, top):
         spaced(role, cxc, top, "Plex", 8, 2.2, SAGE)
         center(venue, cxc, top+13, "Plex", 10, INK)
         center(addr, cxc, top+24, "Plex", 7.8, MUTED)
-    vy = 168 + ih + 18
+    vy = 164 + ih + 16
     vblock(*CEREMONY, cx-118, vy)
     vblock(*RECEPTION, cx+118, vy)
+
+    # discreet one-line gift/bank footer
+    fy = Y(312); c.setStrokeColor(LINE2); c.setLineWidth(0.8); c.line(cx-66, fy, cx+66, fy)
+    center(BANK_LINE, cx, 324, "Plex", 6.6, MUTED)
     c.showPage()
 
-    # ===================== VERSO (no illustration) =====================
+    # ===================== VERSO — programme (the beautiful back) =====================
     border()
-    spaced(GIFT_TITLE, cx, 96, "Plex", 9.5, 3, SAGE)
-    center(GIFT_1, cx, 128, "PlexIt", 13.5, INK)
-    # ornament
-    oy = Y(150); c.setStrokeColor(SAGES); c.setLineWidth(1)
+    spaced(PROG_TITLE, cx, 78, "Plex", 10, 3.2, SAGE)
+    oy = Y(100); c.setStrokeColor(SAGES); c.setLineWidth(1)
     c.line(cx-26, oy, cx-6, oy); c.line(cx+6, oy, cx+26, oy)
     c.setFillColor(SAGE); c.circle(cx, oy, 1.3, fill=1, stroke=0)
-    # discreet gift / bank
-    center(GIFT_2, cx, 186, "Plex", 9, MUTED)
-    center(ACCT_LB_LINE, cx, 206, "Plex", 9, INK)
-    center(ACCT_INTL_LINE, cx, 222, "Plex", 9, INK)
-    center(GIFT_NOTE, cx, 242, "PlexIt", 7.6, MUTED)
 
-    # QR bottom-centre + caption
+    def prow(t, label, off):
+        y = Y(off); gap = 15
+        c.setFont("Plex", 14); c.setFillColor(SAGE); c.drawRightString(cx-gap, y, t)
+        c.setFillColor(SAGES); c.circle(cx, y+4, 1.2, fill=1, stroke=0)
+        c.setFont("Plex", 12.5); c.setFillColor(INK); c.drawString(cx+gap, y, label)
+    py = 148
+    for t, label in PROGRAMME:
+        prow(t, label, py); py += 34
+
+    # QR + caption at the bottom
     spaced(QR_CAPTION, cx, 286, "Plex", 6.5, 1.8, MUTED)
     qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
-    b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 38
+    b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 36
     dwg = Drawing(qs, qs, transform=[qs/bw, 0, 0, qs/bh, 0, 0]); dwg.add(qw)
-    renderPDF.draw(dwg, c, cx-qs/2, 32)
+    renderPDF.draw(dwg, c, cx-qs/2, 30)
     c.showPage()
 
     c.save()
