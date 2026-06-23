@@ -52,7 +52,16 @@
 - Non précisé (à ne pas afficher).
 
 ## Cadeaux
-- **Coordonnées bancaires à communiquer ultérieurement** (André les ajoutera plus tard).
+- Présentés **discrètement au verso du faire-part**, deux comptes : **Liban (USD)** et
+  **étranger (EUR)**. Champs par compte : Bénéficiaire / Banque / IBAN / BIC-SWIFT.
+- Détails réels **à compléter** par André (placeholders « ‹ à compléter › » en attendant).
+
+## Faire-part imprimé
+- Format **paysage 178 × 127 mm** (7×5", standard), **recto/verso**, vectoriel.
+- **Émis par les parents** : « Elie & Pascale Geha · Manhal & Najwa Nacouzi — ont la joie de
+  vous convier au mariage de leurs enfants André & Rhéa ».
+- Recto : invitation + cérémonie/réception (2 colonnes) + illustration. Verso : illustration,
+  mot « cadeaux » + 2 comptes bancaires + QR vers le site. Généré par `assets/print/`.
 
 ## RSVP
 - **Date limite: 31 juillet 2026.**

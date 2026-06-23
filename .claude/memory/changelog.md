@@ -2,6 +2,15 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-22 — Invitation redesigned: landscape, parents-issued, recto/verso + bank
+- New **landscape 178×127 mm (7×5") recto/verso** card (2-page vector PDF + recto/verso PNGs).
+- **Recto:** issued by the parents (Elie & Pascale Geha · Manhal & Najwa Nacouzi) — « ont la joie
+  de vous convier au mariage de leurs enfants André & Rhéa » — date, illustration, and
+  cérémonie/réception in two columns.
+- **Verso:** illustration + discreet « cadeaux » note with **two bank accounts** (Liban/USD,
+  étranger/EUR; Bénéficiaire/Banque/IBAN/BIC, placeholders `‹ à compléter ›`) + QR.
+- Still uniform IBM Plex Serif. Pending: real bank details from André to replace placeholders.
+
 ## 2026-06-22 — Invitation: uniform typography + max-quality illustration
 - Unified the faire-part on a **single typeface, IBM Plex Serif** (regular + italic) —
   names and the RSVP line were the last Instrument Serif holdouts (the tall/narrow font that
