@@ -2,6 +2,12 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-23 — Soften « Cadeaux » wording
+- Replaced the explicit « Cadeaux » with a gentler, classier framing:
+  - **Site:** section title → « Avec gratitude » (nav « Gratitude »); body softened
+    (« …et si le cœur vous en dit, nos coordonnées vous seront communiquées avec plaisir »).
+  - **Card recto footer:** bank line now led by « Si le cœur vous en dit · … » instead of « Cadeaux ».
+
 ## 2026-06-22 — « Cocktail » → « Verre d'accueil »
 - Replaced "Cocktail" with the classier **"Verre d'accueil"** on the site programme,
   the invitation card (verso timeline + generator), and `wedding-details.md`.
