@@ -166,6 +166,10 @@ img, svg { max-width: 100%; height: auto; display: block; }
 }
 .section__lead { color: var(--muted); max-width: 38rem; margin: 0 auto 2rem; font-size: 1.05rem; }
 
+/* Discreet bank lines under "Liste de mariage" */
+.gift-accounts { color: var(--muted); font-size: 0.92rem; line-height: 1.95; }
+.gift-accounts p { margin: 0.1rem 0; }
+
 /* ---------- Cartes Le jour J ---------- */
 .cards { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
 .card {
