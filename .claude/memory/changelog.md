@@ -2,6 +2,14 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-23 — Hand-drawn logo favicon + site « Liste de mariage » bank lines
+- New **favicon** from the client's hand-drawn logo (`Logo_AR.pdf`): cropped the blue floral
+  sprig (excluding the A./R. script), thickened slightly for small-size legibility →
+  favicon.ico / 16 / 32 / 512 / apple-touch. Source render kept reproducible via the PDF.
+- **Site gift section** reworded: « Pour ceux qui le souhaitent, une liste de mariage est
+  disponible chez : » followed by the two discreet bank lines (Liban USD / International EUR,
+  placeholders), matching the card. Added `.gift-accounts` style.
+
 ## 2026-06-23 — Gift section term → « Liste de mariage » (client choice)
 - Client opted for « Liste de mariage » on both the site (section title + nav) and the card
   recto footer (bank line lead-in), superseding the earlier « Avec gratitude / Si le cœur… ».
