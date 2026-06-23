@@ -42,14 +42,13 @@ NAMES   = ("André ", "&", " Rhéa")
 DATE    = "SAMEDI 22 AOÛT 2026"
 CEREMONY  = ("CÉRÉMONIE · 16 h 45", "Église Notre-Dame de l'Annonciation", "Achrafieh, Beyrouth")
 RECEPTION = ("RÉCEPTION · 18 h 30", "Hôtel Al Bustan", "Beit Mery, Mont-Liban")
-# Verso — gifts / bank (placeholders to complete)
-GIFT_TITLE = "AVEC TOUTE NOTRE GRATITUDE"
+# Verso — gifts / bank (discreet: minimal, just the IBANs; rest on request)
+GIFT_TITLE = "AVEC GRATITUDE"
 GIFT_1 = "Votre présence est notre plus beau cadeau."
-GIFT_2 = "Pour celles et ceux qui souhaitent y contribuer :"
-ACCT_LB   = ("AU LIBAN · USD", [("Bénéficiaire", "‹ à compléter ›"), ("Banque", "‹ à compléter ›"),
-             ("IBAN", "‹ à compléter ›"), ("BIC / SWIFT", "‹ à compléter ›")])
-ACCT_INTL = ("À L'ÉTRANGER · EUR", [("Bénéficiaire", "‹ à compléter ›"), ("Banque", "‹ à compléter ›"),
-             ("IBAN", "‹ à compléter ›"), ("BIC / SWIFT", "‹ à compléter ›")])
+GIFT_2 = "Si vous souhaitez néanmoins nous gâter :"
+ACCT_LB_LINE   = "Liban · USD — IBAN ‹ à compléter ›"
+ACCT_INTL_LINE = "International · EUR — IBAN ‹ à compléter ›"
+GIFT_NOTE = "Bénéficiaire et BIC/SWIFT communiqués sur demande"
 SITE = "https://andregeha.github.io/wedding-website/"
 QR_CAPTION = "INFOS & CONFIRMATION EN LIGNE"
 
@@ -88,56 +87,50 @@ def build():
 
     # ===================== RECTO =====================
     border()
-    center(PARENTS[0], cx, 58, "Plex", 12, INK)
-    center(PARENTS[1], cx, 76, "Plex", 12, INK)
-    center(INVITE, cx, 100, "PlexIt", 10.5, MUTED)
+    # Parents on either side of the card
+    center(PARENTS[0], cx-128, 56, "Plex", 11.5, INK)
+    center(PARENTS[1], cx+128, 56, "Plex", 11.5, INK)
+    center(INVITE, cx, 88, "PlexIt", 10.5, MUTED)
 
     a, amp, r = NAMES; fs = 34
     c.setFont("Plex", fs)
     wa, wamp, wr = (c.stringWidth(s, "Plex", fs) for s in (a, amp, r))
-    x = cx - (wa+wamp+wr)/2; yb = Y(140)
+    x = cx - (wa+wamp+wr)/2; yb = Y(126)
     c.setFillColor(INK); c.drawString(x, yb, a)
     c.setFillColor(SAGE); c.drawString(x+wa, yb, amp)
     c.setFillColor(INK); c.drawString(x+wa+wamp, yb, r)
 
-    dw = spaced(DATE, cx, 166, "Plex", 11, 2.2, INK); rules(cx, 163, dw/2)
+    dw = spaced(DATE, cx, 152, "Plex", 11, 2.2, INK); rules(cx, 149, dw/2)
 
     img = Image.open(ILLUS).convert("RGB")
-    iw = 132; ih = iw*img.height/img.width
-    c.drawImage(ImageReader(img), cx-iw/2, H-(182+ih), width=iw, height=ih)
+    iw = 130; ih = iw*img.height/img.width
+    c.drawImage(ImageReader(img), cx-iw/2, H-(168+ih), width=iw, height=ih)
 
     def vblock(role, venue, addr, cxc, top):
         spaced(role, cxc, top, "Plex", 8, 2.2, SAGE)
         center(venue, cxc, top+13, "Plex", 10, INK)
         center(addr, cxc, top+24, "Plex", 7.8, MUTED)
-    vy = 182 + ih + 22
+    vy = 168 + ih + 18
     vblock(*CEREMONY, cx-118, vy)
     vblock(*RECEPTION, cx+118, vy)
     c.showPage()
 
-    # ===================== VERSO =====================
+    # ===================== VERSO (no illustration) =====================
     border()
-    img2 = Image.open(ILLUS).convert("RGB")
-    iw2 = 104; ih2 = iw2*img2.height/img2.width
-    c.drawImage(ImageReader(img2), cx-iw2/2, H-(30+ih2), width=iw2, height=ih2)
-    gy = 30 + ih2 + 18
-    spaced(GIFT_TITLE, cx, gy, "Plex", 9, 2.6, SAGE)
-    center(GIFT_1, cx, gy+18, "PlexIt", 10, INK)
-    center(GIFT_2, cx, gy+33, "Plex", 8.8, MUTED)
+    spaced(GIFT_TITLE, cx, 96, "Plex", 9.5, 3, SAGE)
+    center(GIFT_1, cx, 128, "PlexIt", 13.5, INK)
+    # ornament
+    oy = Y(150); c.setStrokeColor(SAGES); c.setLineWidth(1)
+    c.line(cx-26, oy, cx-6, oy); c.line(cx+6, oy, cx+26, oy)
+    c.setFillColor(SAGE); c.circle(cx, oy, 1.3, fill=1, stroke=0)
+    # discreet gift / bank
+    center(GIFT_2, cx, 186, "Plex", 9, MUTED)
+    center(ACCT_LB_LINE, cx, 206, "Plex", 9, INK)
+    center(ACCT_INTL_LINE, cx, 222, "Plex", 9, INK)
+    center(GIFT_NOTE, cx, 242, "PlexIt", 7.6, MUTED)
 
-    def account(title, fields, cxc, top):
-        spaced(title, cxc, top, "Plex", 8.5, 2, SAGE)
-        y = top + 16
-        for label, val in fields:
-            c.setFont("Plex", 6.8); c.setFillColor(MUTED); c.drawCentredString(cxc, Y(y), label.upper())
-            c.setFont("Plex", 8.6); c.setFillColor(INK); c.drawCentredString(cxc, Y(y+10), val)
-            y += 18
-    ay = gy + 56
-    account(*ACCT_LB, cx-120, ay)
-    account(*ACCT_INTL, cx+120, ay)
-
-    # QR bottom-centre + caption (centre lane, below both columns)
-    spaced(QR_CAPTION, cx, 274, "Plex", 6.5, 1.8, MUTED)
+    # QR bottom-centre + caption
+    spaced(QR_CAPTION, cx, 286, "Plex", 6.5, 1.8, MUTED)
     qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
     b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 38
     dwg = Drawing(qs, qs, transform=[qs/bw, 0, 0, qs/bh, 0, 0]); dwg.add(qw)

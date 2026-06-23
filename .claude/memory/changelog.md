@@ -2,6 +2,14 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-22 — Invitation rework (client feedback)
+- **Recto:** parents now placed on either side (top-left / top-right) — classic faire-part
+  layout — with the invitation sentence centred below.
+- **Verso:** removed the repeated hotel illustration; made it airy with the « Votre présence
+  est notre plus beau cadeau » sentiment as the focus.
+- **Bank details now truly discreet:** only the IBAN per account on a small single line each
+  (Liban·USD, International·EUR) + « Bénéficiaire et BIC/SWIFT sur demande » footnote.
+
 ## 2026-06-22 — Invitation redesigned: landscape, parents-issued, recto/verso + bank
 - New **landscape 178×127 mm (7×5") recto/verso** card (2-page vector PDF + recto/verso PNGs).
 - **Recto:** issued by the parents (Elie & Pascale Geha · Manhal & Najwa Nacouzi) — « ont la joie
