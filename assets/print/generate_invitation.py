@@ -49,8 +49,8 @@ PROG_TITLE = "LE DÉROULÉ DE LA JOURNÉE"
 PROGRAMME = [("16 h 45", "Cérémonie religieuse"), ("18 h 30", "Cocktail"),
              ("20 h 00", "Dîner"), ("02 h 00", "Fin de la soirée")]
 RSVP_TITLE = "CONFIRMER VOTRE PRÉSENCE"
-RSVP_LINE = "Auprès des mariés ou de leurs parents — ou en ligne :"
-RSVP_DEADLINE = "Réponse souhaitée avant le 31 juillet 2026"
+RSVP_LINE = "Auprès des mariés ou de leurs parents, avant le 31 juillet 2026."
+ONLINE_LINE = "Ou en ligne — toutes les informations et le programme détaillé :"
 SITE = "https://andregeha.github.io/wedding-website/"
 QR_CAPTION = "INFOS & CONFIRMATION EN LIGNE"
 
@@ -90,11 +90,11 @@ def build():
     # ===================== RECTO =====================
     border()
     # Parents on either side of the card
-    center(PARENTS[0], cx-128, 56, "Plex", 11.5, INK)
-    center(PARENTS[1], cx+128, 56, "Plex", 11.5, INK)
+    center(PARENTS[0], cx-126, 56, "Plex", 12.5, INK)
+    center(PARENTS[1], cx+126, 56, "Plex", 12.5, INK)
     center(INVITE, cx, 88, "PlexIt", 10.5, MUTED)
 
-    a, amp, r = NAMES; fs = 30
+    a, amp, r = NAMES; fs = 25
     c.setFont("Plex", fs)
     wa, wamp, wr = (c.stringWidth(s, "Plex", fs) for s in (a, amp, r))
     x = cx - (wa+wamp+wr)/2; yb = Y(124)
@@ -137,14 +137,14 @@ def build():
     for t, label in PROGRAMME:
         prow(t, label, py); py += 30
 
-    # RSVP — confirm with the couple, the parents, or online (QR)
-    spaced(RSVP_TITLE, cx, 240, "Plex", 8.5, 2.6, SAGE)
-    center(RSVP_LINE, cx, 254, "Plex", 8.6, INK)
+    # RSVP — confirm with the couple, the parents, or online; site also has all info
+    spaced(RSVP_TITLE, cx, 234, "Plex", 8.5, 2.6, SAGE)
+    center(RSVP_LINE, cx, 248, "Plex", 8.6, INK)
+    center(ONLINE_LINE, cx, 264, "Plex", 8.3, MUTED)
     qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
     b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 34
     dwg = Drawing(qs, qs, transform=[qs/bw, 0, 0, qs/bh, 0, 0]); dwg.add(qw)
-    renderPDF.draw(dwg, c, cx-qs/2, H-(264+qs))
-    center(RSVP_DEADLINE, cx, 312, "PlexIt", 7.6, MUTED)
+    renderPDF.draw(dwg, c, cx-qs/2, H-(274+qs))
     c.showPage()
 
     c.save()
