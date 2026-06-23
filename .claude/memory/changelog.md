@@ -2,6 +2,13 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-22 — Invitation polish (client feedback)
+- **Names** reduced 34→30 pt (more refined).
+- **Bank/gift** info moved off the verso to a **single tiny discreet line on the recto** footer
+  (Liban·USD + International·EUR IBANs; rest on request).
+- **Verso reimagined as a beautiful page:** « Le déroulé de la journée » — an elegant centre-
+  axis timeline (16 h 45 Cérémonie · 18 h 30 Cocktail · 20 h 00 Dîner · 02 h 00 Fin) + QR.
+
 ## 2026-06-22 — Invitation rework (client feedback)
 - **Recto:** parents now placed on either side (top-left / top-right) — classic faire-part
   layout — with the invitation sentence centred below.
