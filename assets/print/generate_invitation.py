@@ -46,7 +46,7 @@ RECEPTION = ("RÉCEPTION · 18 h 30", "Hôtel Al Bustan", "Beit Mery, Mont-Liban
 BANK_LINE = "Cadeaux  ·  Liban (USD) IBAN ‹ à compléter ›   ·   International (EUR) IBAN ‹ à compléter ›"
 # Verso — programme of the day (the beautiful back)
 PROG_TITLE = "LE DÉROULÉ DE LA JOURNÉE"
-PROGRAMME = [("16 h 45", "Cérémonie religieuse"), ("18 h 30", "Cocktail"),
+PROGRAMME = [("16 h 45", "Cérémonie religieuse"), ("18 h 30", "Verre d'accueil"),
              ("20 h 00", "Dîner"), ("02 h 00", "Fin de la soirée")]
 RSVP_TITLE = "CONFIRMER VOTRE PRÉSENCE"
 RSVP_LINE = "Auprès des mariés ou de leurs parents, avant le 31 juillet 2026."
