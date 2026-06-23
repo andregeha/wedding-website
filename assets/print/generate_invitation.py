@@ -48,6 +48,9 @@ BANK_LINE = "Cadeaux  ·  Liban (USD) IBAN ‹ à compléter ›   ·   Internat
 PROG_TITLE = "LE DÉROULÉ DE LA JOURNÉE"
 PROGRAMME = [("16 h 45", "Cérémonie religieuse"), ("18 h 30", "Cocktail"),
              ("20 h 00", "Dîner"), ("02 h 00", "Fin de la soirée")]
+RSVP_TITLE = "CONFIRMER VOTRE PRÉSENCE"
+RSVP_LINE = "Auprès des mariés ou de leurs parents — ou en ligne :"
+RSVP_DEADLINE = "Réponse souhaitée avant le 31 juillet 2026"
 SITE = "https://andregeha.github.io/wedding-website/"
 QR_CAPTION = "INFOS & CONFIRMATION EN LIGNE"
 
@@ -118,10 +121,10 @@ def build():
     center(BANK_LINE, cx, 324, "Plex", 6.6, MUTED)
     c.showPage()
 
-    # ===================== VERSO — programme (the beautiful back) =====================
+    # ===================== VERSO — programme + RSVP (the beautiful back) =====================
     border()
-    spaced(PROG_TITLE, cx, 78, "Plex", 10, 3.2, SAGE)
-    oy = Y(100); c.setStrokeColor(SAGES); c.setLineWidth(1)
+    spaced(PROG_TITLE, cx, 62, "Plex", 10, 3.2, SAGE)
+    oy = Y(82); c.setStrokeColor(SAGES); c.setLineWidth(1)
     c.line(cx-26, oy, cx-6, oy); c.line(cx+6, oy, cx+26, oy)
     c.setFillColor(SAGE); c.circle(cx, oy, 1.3, fill=1, stroke=0)
 
@@ -130,16 +133,18 @@ def build():
         c.setFont("Plex", 14); c.setFillColor(SAGE); c.drawRightString(cx-gap, y, t)
         c.setFillColor(SAGES); c.circle(cx, y+4, 1.2, fill=1, stroke=0)
         c.setFont("Plex", 12.5); c.setFillColor(INK); c.drawString(cx+gap, y, label)
-    py = 148
+    py = 114
     for t, label in PROGRAMME:
-        prow(t, label, py); py += 34
+        prow(t, label, py); py += 30
 
-    # QR + caption at the bottom
-    spaced(QR_CAPTION, cx, 286, "Plex", 6.5, 1.8, MUTED)
+    # RSVP — confirm with the couple, the parents, or online (QR)
+    spaced(RSVP_TITLE, cx, 240, "Plex", 8.5, 2.6, SAGE)
+    center(RSVP_LINE, cx, 254, "Plex", 8.6, INK)
     qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
-    b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 36
+    b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 34
     dwg = Drawing(qs, qs, transform=[qs/bw, 0, 0, qs/bh, 0, 0]); dwg.add(qw)
-    renderPDF.draw(dwg, c, cx-qs/2, 30)
+    renderPDF.draw(dwg, c, cx-qs/2, H-(264+qs))
+    center(RSVP_DEADLINE, cx, 312, "PlexIt", 7.6, MUTED)
     c.showPage()
 
     c.save()

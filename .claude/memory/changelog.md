@@ -2,6 +2,11 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-22 — Invitation: add RSVP options on the verso
+- Added a « Confirmer votre présence » block on the verso (under the programme), mirroring the
+  site's three options: **auprès des mariés ou de leurs parents — ou en ligne** (QR), plus the
+  « Réponse souhaitée avant le 31 juillet 2026 » deadline.
+
 ## 2026-06-22 — Invitation polish (client feedback)
 - **Names** reduced 34→30 pt (more refined).
 - **Bank/gift** info moved off the verso to a **single tiny discreet line on the recto** footer
