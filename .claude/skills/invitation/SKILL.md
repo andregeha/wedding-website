@@ -5,9 +5,17 @@ description: Generate or update the printable wedding invitation (faire-part) �
 
 # Printable invitation (faire-part)
 
-A print-ready **A5** card reusing the site identity. Output is a **true vector PDF**
-(`assets/print/invitation.pdf` — crisp text + QR at any size) plus a matching PNG preview
-(`invitation.png`, rendered from the same PDF). The hotel illustration is embedded full-colour.
+A print-ready **landscape 178×127 mm (7×5") card, recto/verso**, reusing the site identity.
+Output is a **2-page true vector PDF** (`assets/print/invitation.pdf` — crisp text + QR) plus
+PNG previews of each page (`invitation.png` = recto, `invitation-verso.png` = verso), rendered
+from the same PDF. The hotel illustration is embedded full-resolution (`hotel-source.png`).
+
+- **Recto:** invitation issued by the parents (Elie & Pascale Geha · Manhal & Najwa Nacouzi),
+  names, date, illustration, and ceremony/reception in two columns.
+- **Verso:** illustration, a discreet "gifts" note with **two bank accounts** (Lebanon/USD and
+  abroad/EUR — Bénéficiaire/Banque/IBAN/BIC), and a QR to the site. Bank values are placeholders
+  (`‹ à compléter ›`) in the `ACCT_LB` / `ACCT_INTL` constants — fill with real details on request.
+- Single typeface throughout: **IBM Plex Serif** (regular + italic).
 
 ## Regenerate
 ```bash
