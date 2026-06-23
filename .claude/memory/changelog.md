@@ -2,6 +2,10 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-22 — « Cocktail » → « Verre d'accueil »
+- Replaced "Cocktail" with the classier **"Verre d'accueil"** on the site programme,
+  the invitation card (verso timeline + generator), and `wedding-details.md`.
+
 ## 2026-06-22 — Invitation: balance names + online wording
 - Couple's names reduced (30→25 pt) and parents bumped (11.5→12.5 pt) for a harmonious hierarchy.
 - Verso RSVP block now says the site has **toutes les informations et le programme détaillé**
