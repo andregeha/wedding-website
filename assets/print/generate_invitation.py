@@ -42,8 +42,9 @@ NAMES   = ("André ", "&", " Rhéa")
 DATE    = "SAMEDI 22 AOÛT 2026"
 CEREMONY  = ("CÉRÉMONIE · 16 h 45", "Église Notre-Dame de l'Annonciation", "Achrafieh, Beyrouth")
 RECEPTION = ("RÉCEPTION · 18 h 30", "Hôtel Al Bustan", "Beit Mery, Mont-Liban")
-# Recto footer — discreet one-line gift/bank note (kept minimal)
-BANK_LINE = "Liste de mariage  ·  Liban (USD) IBAN ‹ à compléter ›   ·   International (EUR) IBAN ‹ à compléter ›"
+# Recto footer — discreet gift/bank note (USD account only; full wire info)
+BANK_LINE1 = "Liste de mariage   ·   BLOM Bank S.A.L. (USD)   ·   BIC/SWIFT : BLOMLBBX"
+BANK_LINE2 = "IBAN LB90 0014 0000 2102 6732 6609 4314   ·   Bénéf. : André Geha &/ou Rhéa Nacouzi"
 # Verso — programme of the day (the beautiful back)
 PROG_TITLE = "LE DÉROULÉ DE LA JOURNÉE"
 PROGRAMME = [("16 h 45", "Cérémonie religieuse"), ("18 h 30", "Verre d'accueil"),
@@ -116,9 +117,10 @@ def build():
     vblock(*CEREMONY, cx-118, vy)
     vblock(*RECEPTION, cx+118, vy)
 
-    # discreet one-line gift/bank footer
-    fy = Y(312); c.setStrokeColor(LINE2); c.setLineWidth(0.8); c.line(cx-66, fy, cx+66, fy)
-    center(BANK_LINE, cx, 324, "Plex", 6.6, MUTED)
+    # discreet gift/bank footer — two lines (bank + BIC, then IBAN + beneficiary)
+    fy = Y(308); c.setStrokeColor(LINE2); c.setLineWidth(0.8); c.line(cx-72, fy, cx+72, fy)
+    center(BANK_LINE1, cx, 319, "Plex", 6.4, MUTED)
+    center(BANK_LINE2, cx, 328, "Plex", 6.4, MUTED)
     c.showPage()
 
     # ===================== VERSO — programme + RSVP (the beautiful back) =====================

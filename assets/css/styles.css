@@ -166,9 +166,15 @@ img, svg { max-width: 100%; height: auto; display: block; }
 }
 .section__lead { color: var(--muted); max-width: 38rem; margin: 0 auto 2rem; font-size: 1.05rem; }
 
-/* Discreet bank lines under "Liste de mariage" */
-.gift-accounts { color: var(--muted); font-size: 0.92rem; line-height: 1.95; }
-.gift-accounts p { margin: 0.1rem 0; }
+/* Discreet bank details under "Liste de mariage" */
+.gift-accounts { max-width: 32rem; margin: 0 auto; text-align: left; font-size: 0.95rem; }
+.gift-accounts > div { display: flex; flex-wrap: wrap; gap: 0.2rem 0.9rem; padding: 0.5rem 0; border-bottom: 1px solid var(--line); }
+.gift-accounts > div:last-child { border-bottom: 0; }
+.gift-accounts dt { flex: 0 0 8rem; color: var(--muted); }
+.gift-accounts dd { flex: 1 1 12rem; margin: 0; color: var(--ink); }
+.gift-iban { font-variant-numeric: tabular-nums; letter-spacing: 0.02em; word-break: break-word; }
+.gift-note { color: var(--muted); font-size: 0.9rem; max-width: 32rem; margin: 1.1rem auto 0; }
+.gift-note--soft { font-style: italic; font-size: 0.85rem; opacity: 0.85; margin-top: 0.5rem; }
 
 /* ---------- Cartes Le jour J ---------- */
 .cards { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
