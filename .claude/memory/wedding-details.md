@@ -51,17 +51,30 @@
 ## Enfants
 - Non précisé (à ne pas afficher).
 
-## Cadeaux
-- Présentés **discrètement au verso du faire-part**, deux comptes : **Liban (USD)** et
-  **étranger (EUR)**. Champs par compte : Bénéficiaire / Banque / IBAN / BIC-SWIFT.
-- Détails réels **à compléter** par André (placeholders « ‹ à compléter › » en attendant).
+## Cadeaux / Liste de mariage
+**Banque : BLOM Bank S.A.L.** (بنك لبنان والمهجر), Beyrouth, Liban — **BIC/SWIFT : `BLOMLBBX`**.
+Compte au nom de **ANDRE NOEL GEHA &/OR RHEA NACOUZI** (n° client 2660943). Ouvert juin 2026.
+
+Deux comptes ouverts, **un seul publié** :
+
+| Devise | N° de compte | IBAN | Publié ? |
+|--------|--------------|------|----------|
+| **USD** | 021 02 673 2660943 1 4 | `LB90 0014 0000 2102 6732 6609 4314` | ✅ site + faire-part |
+| LBP | 021 01 673 2660943 1 5 | `LB55 0014 0000 2101 6732 6609 4315` | ❌ mémoire seulement |
+
+- **Seul le compte USD** est affiché (site + faire-part) — décision client.
+- Participer **par virement** (BIC + IBAN ci-dessus) **ou en espèces** dans une agence BLOM Bank
+  au Liban. Locator : https://www.blombank.com/english/branches-and-atms-locator
+  (filtrer sur **Branches**, pas **ATMs**).
+- **Compte EUR (France)** en cours d'ouverture → à ajouter plus tard (virements depuis l'Europe).
 
 ## Faire-part imprimé
 - Format **paysage 178 × 127 mm** (7×5", standard), **recto/verso**, vectoriel.
 - **Émis par les parents** : « Elie & Pascale Geha · Manhal & Najwa Nacouzi — ont la joie de
   vous convier au mariage de leurs enfants André & Rhéa ».
-- Recto : invitation + cérémonie/réception (2 colonnes) + illustration. Verso : illustration,
-  mot « cadeaux » + 2 comptes bancaires + QR vers le site. Généré par `assets/print/`.
+- Recto : invitation + cérémonie/réception (2 colonnes) + illustration + un pied de page
+  discret « Liste de mariage » avec le **compte USD** (banque, BIC, IBAN, bénéficiaire).
+  Verso : programme de la journée + RSVP + QR vers le site. Généré par `assets/print/`.
 
 ## RSVP
 - **Date limite: 31 juillet 2026.**

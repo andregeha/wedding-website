@@ -2,6 +2,17 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-25 — Real bank details (BLOM Bank, USD) on site + faire-part
+- Client opened a BLOM Bank account (Lebanon), two currencies; **only USD is published**
+  per client. Full data saved to `wedding-details.md` (incl. the LBP IBAN, memory-only).
+- **Site « Liste de mariage »**: replaced placeholders with a discreet detail list —
+  Bénéficiaire / Banque / BIC-SWIFT (`BLOMLBBX`) / IBAN USD / Devise — plus a cash-deposit
+  line linking the BLOM branch locator (note: filter on *Branches*, not *ATMs*), and a soft
+  note that a EUR account (France) is coming. Added `.gift-accounts` (dl) + `.gift-note` CSS.
+- **Faire-part**: recto footer now two discreet lines with the USD wire info
+  (BLOM Bank · BIC · IBAN · beneficiary). Regenerated `invitation.pdf/png`.
+- SWIFT `BLOMLBBX` and the branch-locator URL verified via web search.
+
 ## 2026-06-23 — Hand-drawn logo favicon + site « Liste de mariage » bank lines
 - New **favicon** from the client's hand-drawn logo (`Logo_AR.pdf`): cropped the blue floral
   sprig (excluding the A./R. script), thickened slightly for small-size legibility →
