@@ -8,17 +8,17 @@
 - [x] `index.html` rebuilt with real French content; sage-green accent + faire-part date motif.
 
 ## Now (blocked on client)
-- [ ] Client: **connect the repo to Cloudflare Pages** → URL `mariage-andre-rhea-geha.pages.dev`.
-      Steps: Cloudflare dash → Workers & Pages → Create → Pages → Connect to Git → pick
-      `andregeha/wedding-website`, branch `main`, **Framework preset = None, Build command =
-      empty, Output directory = `/`** → Save & Deploy. Repo URLs + card QR already point there.
-      Once live, **confirm the exact URL** so we can print the card. (Web3Forms works as-is.)
-- [ ] Optional later: custom domain `mariage-andre-et-rhea.com` (can be added on top of either
-      GitHub Pages or Cloudflare Pages) — would replace the `.pages.dev` URL + QR.
+- [ ] Optional later: custom domain `mariage-andre-et-rhea.com` on top of GitHub Pages
+      (would replace the github.io URL + card QR). Otherwise nothing pending.
+
+## Decisions
+- **Hosting (2026-06-30 (7))**: client **keeps the GitHub Pages link**
+  `andregeha.github.io/wedding-website` (no Cloudflare/custom domain for now). Site URLs +
+  card QR reverted to it. The Cloudflare Pages route was prepared then reverted.
 
 ## Done (recent)
-- [x] 2026-06-30 (5): faire-part verso illustration enlarged & centred; site + card QR moved
-      to Cloudflare Pages URL `mariage-andre-rhea-geha.pages.dev` (absolute URLs updated).
+- [x] 2026-06-30 (6): faire-part verso — true vertical centering via `visible_bbox()` auto-crop
+      (CV-verified equal top/bottom margins).
 - [x] 2026-06-30 (2): **EUR/France account added** (Revolut, `REVOFRP2`,
       `FR76 2823 3000 0144 2006 8520 030`) on site + faire-part; site sections reordered
       (Jour J / Présence / Programme / Liste de mariage) with alternating backgrounds;
