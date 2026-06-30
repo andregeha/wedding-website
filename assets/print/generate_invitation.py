@@ -40,16 +40,13 @@ PARENTS = ("Elie & Pascale Geha", "Manhal & Najwa Nacouzi")
 INVITE  = "ont la joie de vous convier au mariage de leurs enfants"
 NAMES   = ("André ", "&", " Rhéa")
 DATE    = "SAMEDI 22 AOÛT 2026"
-CEREMONY  = ("CÉRÉMONIE · 16 h 45", "Église Notre-Dame de l'Annonciation", "Achrafieh, Beyrouth")
+CEREMONY  = ("CÉRÉMONIE · 16 h 30", "Église Notre-Dame de l'Annonciation", "Achrafieh, Beyrouth")
 RECEPTION = ("RÉCEPTION · 18 h 30", "Hôtel Al Bustan", "Beit Mery, Mont-Liban")
 # Recto footer — discreet gift/bank note (USD account only; full wire info)
 BANK_LINE1 = "Liste de mariage   ·   BLOM Bank S.A.L. (USD)   ·   BIC/SWIFT : BLOMLBBX"
 BANK_LINE2 = "IBAN LB90 0014 0000 2102 6732 6609 4314   ·   Bénéf. : André Geha &/ou Rhéa Nacouzi"
-# Verso — programme of the day (the beautiful back)
-PROG_TITLE = "LE DÉROULÉ DE LA JOURNÉE"
-PROGRAMME = [("16 h 45", "Cérémonie religieuse"), ("18 h 30", "Verre d'accueil"),
-             ("20 h 00", "Dîner"), ("02 h 00", "Fin de la soirée")]
-RSVP_TITLE = "CONFIRMER VOTRE PRÉSENCE"
+# Verso — the hand-drawn illustration (the beautiful back) + RSVP
+RSVP_TITLE = "MERCI DE CONFIRMER VOTRE PRÉSENCE"
 RSVP_LINE = "Auprès des mariés ou de leurs parents, avant le 31 juillet 2026."
 ONLINE_LINE = "Ou en ligne — toutes les informations et le programme détaillé :"
 SITE = "https://andregeha.github.io/wedding-website/"
@@ -89,31 +86,29 @@ def build():
         c.line(cxc-half-20, y, cxc-half-5, y); c.line(cxc+half+5, y, cxc+half+20, y)
 
     # ===================== RECTO =====================
+    # No illustration here — it now lives on the verso, larger. Layout rebalanced
+    # with generous whitespace around the names and date.
     border()
     # Parents on either side of the card
-    center(PARENTS[0], cx-126, 56, "Plex", 12.5, INK)
-    center(PARENTS[1], cx+126, 56, "Plex", 12.5, INK)
-    center(INVITE, cx, 88, "PlexIt", 10.5, MUTED)
+    center(PARENTS[0], cx-126, 74, "Plex", 12.5, INK)
+    center(PARENTS[1], cx+126, 74, "Plex", 12.5, INK)
+    center(INVITE, cx, 112, "PlexIt", 10.5, MUTED)
 
-    a, amp, r = NAMES; fs = 25
+    a, amp, r = NAMES; fs = 28
     c.setFont("Plex", fs)
     wa, wamp, wr = (c.stringWidth(s, "Plex", fs) for s in (a, amp, r))
-    x = cx - (wa+wamp+wr)/2; yb = Y(124)
+    x = cx - (wa+wamp+wr)/2; yb = Y(166)
     c.setFillColor(INK); c.drawString(x, yb, a)
     c.setFillColor(SAGE); c.drawString(x+wa, yb, amp)
     c.setFillColor(INK); c.drawString(x+wa+wamp, yb, r)
 
-    dw = spaced(DATE, cx, 150, "Plex", 11, 2.2, INK); rules(cx, 147, dw/2)
-
-    img = Image.open(ILLUS).convert("RGB")
-    iw = 126; ih = iw*img.height/img.width
-    c.drawImage(ImageReader(img), cx-iw/2, H-(164+ih), width=iw, height=ih)
+    dw = spaced(DATE, cx, 202, "Plex", 11, 2.2, INK); rules(cx, 199, dw/2)
 
     def vblock(role, venue, addr, cxc, top):
         spaced(role, cxc, top, "Plex", 8, 2.2, SAGE)
         center(venue, cxc, top+13, "Plex", 10, INK)
         center(addr, cxc, top+24, "Plex", 7.8, MUTED)
-    vy = 164 + ih + 16
+    vy = 258
     vblock(*CEREMONY, cx-118, vy)
     vblock(*RECEPTION, cx+118, vy)
 
@@ -123,30 +118,21 @@ def build():
     center(BANK_LINE2, cx, 328, "Plex", 6.4, MUTED)
     c.showPage()
 
-    # ===================== VERSO — programme + RSVP (the beautiful back) =====================
+    # ===================== VERSO — the illustration (large) + RSVP =====================
     border()
-    spaced(PROG_TITLE, cx, 62, "Plex", 10, 3.2, SAGE)
-    oy = Y(82); c.setStrokeColor(SAGES); c.setLineWidth(1)
-    c.line(cx-26, oy, cx-6, oy); c.line(cx+6, oy, cx+26, oy)
-    c.setFillColor(SAGE); c.circle(cx, oy, 1.3, fill=1, stroke=0)
-
-    def prow(t, label, off):
-        y = Y(off); gap = 15
-        c.setFont("Plex", 14); c.setFillColor(SAGE); c.drawRightString(cx-gap, y, t)
-        c.setFillColor(SAGES); c.circle(cx, y+4, 1.2, fill=1, stroke=0)
-        c.setFont("Plex", 12.5); c.setFillColor(INK); c.drawString(cx+gap, y, label)
-    py = 114
-    for t, label in PROGRAMME:
-        prow(t, label, py); py += 30
+    # The hand-drawn illustration is the hero of the back, shown large.
+    img = Image.open(ILLUS).convert("RGB")
+    iw = 232; ih = iw*img.height/img.width
+    c.drawImage(ImageReader(img), cx-iw/2, H-(54+ih), width=iw, height=ih)
 
     # RSVP — confirm with the couple, the parents, or online; site also has all info
-    spaced(RSVP_TITLE, cx, 234, "Plex", 8.5, 2.6, SAGE)
-    center(RSVP_LINE, cx, 248, "Plex", 8.6, INK)
-    center(ONLINE_LINE, cx, 264, "Plex", 8.3, MUTED)
+    spaced(RSVP_TITLE, cx, 248, "Plex", 8.5, 2.6, SAGE)
+    center(RSVP_LINE, cx, 264, "Plex", 8.6, INK)
+    center(ONLINE_LINE, cx, 280, "Plex", 8.3, MUTED)
     qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
-    b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 34
+    b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 32
     dwg = Drawing(qs, qs, transform=[qs/bw, 0, 0, qs/bh, 0, 0]); dwg.add(qw)
-    renderPDF.draw(dwg, c, cx-qs/2, H-(274+qs))
+    renderPDF.draw(dwg, c, cx-qs/2, H-(290+qs))
     c.showPage()
 
     c.save()

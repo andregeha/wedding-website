@@ -11,12 +11,14 @@
 - [ ] Client: **buy `mariage-andre-et-rhea.com`** (fallback `…-2026.com`) + set DNS
       (apex A/AAAA to GitHub Pages + `www` CNAME → andregeha.github.io). Then tell me →
       I add the repo `CNAME` file, update absolute URLs, and we enable Enforce HTTPS.
-- [ ] Client: do a **test RSVP** to confirm Web3Forms emails arrive (first submit triggers
-      a Web3Forms activation email to André's address).
 - [ ] Client (later): provide **EUR (France) IBAN + BIC** → add a second account for
-      virements depuis l'Europe (site + faire-part).
+      virements depuis l'Europe (site + faire-part). Still waiting (2026-06-30).
 
 ## Done (recent)
+- [x] 2026-06-30: cérémonie **16 h 30** (was 16 h 45); gift section = virement only
+      (dropped cash/agence note); RSVP heading « **Merci de confirmer** votre présence »;
+      faire-part redesign — illustration off recto, large on verso, programme dropped.
+- [x] **RSVP confirmed working** by client (Web3Forms emails arrive).
 - [x] **Bank details** added — BLOM Bank USD account (BIC `BLOMLBBX`, IBAN
       `LB90 0014 0000 2102 6732 6609 4314`) on site + faire-part; favicon = hand-drawn logo.
 - [x] Online RSVP **activated** with Web3Forms key (c267589e…); form emails André per submit.

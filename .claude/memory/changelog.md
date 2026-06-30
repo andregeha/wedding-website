@@ -2,6 +2,20 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 — Time fix, gift wording, "Merci de confirmer", faire-part redesign
+- Client confirmed the **online RSVP (Web3Forms) works**.
+- **Cérémonie 16 h 45 → 16 h 30** everywhere: site (carte + programme), `wedding-details.md`,
+  and faire-part (`CEREMONY` constant).
+- **Liste de mariage**: dropped the **dépôt en espèces / agence-locator** note on the site —
+  keep only the virement coordinates (BIC + IBAN). Reworded the lead. EUR (France) account
+  still pending. (Faire-part recto footer already wire-only.)
+- **RSVP heading** → « **Merci de confirmer** votre présence » (site `<h2>` + faire-part
+  `RSVP_TITLE`), instead of « Confirmer… » alone.
+- **Faire-part redesign**: moved the hand-drawn illustration **off the recto** (rebalanced
+  the recto: larger names, more whitespace) and onto the **verso, much larger**. Removed the
+  « déroulé de la journée » from the verso (it lives on the site); verso = big illustration +
+  RSVP + QR. Regenerated `invitation.pdf` / `.png` / `-verso.png`.
+
 ## 2026-06-25 — Real bank details (BLOM Bank, USD) on site + faire-part
 - Client opened a BLOM Bank account (Lebanon), two currencies; **only USD is published**
   per client. Full data saved to `wedding-details.md` (incl. the LBP IBAN, memory-only).
