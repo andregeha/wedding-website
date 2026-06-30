@@ -46,8 +46,8 @@ RECEPTION = ("RÉCEPTION · 18 h 30", "Hôtel Al Bustan", "Beit Mery, Mont-Liban
 GIFT_TITLE = "LISTE DE MARIAGE"
 GIFT_LB = "Liban · USD   —   André Geha &/ou Rhéa Nacouzi   ·   BIC BLOMLBBX   ·   LB90 0014 0000 2102 6732 6609 4314"
 GIFT_FR = "France · EUR   —   André Geha   ·   BIC REVOFRP2   ·   FR76 2823 3000 0144 2006 8520 030"
-# Site URL encoded by the recto QR (GitHub redirects keep it valid after a custom domain)
-SITE = "https://andregeha.github.io/wedding-website/"
+# Site URL encoded by the recto QR — the Cloudflare Pages address (neutral, no GitHub username)
+SITE = "https://mariage-andre-rhea-geha.pages.dev/"
 
 INK   = colors.Color(43/255, 43/255, 41/255)
 SAGE  = colors.Color(95/255, 125/255, 99/255)
@@ -132,9 +132,9 @@ def build():
     renderPDF.draw(dwg, c, gx + capw + gap, H-(qy_top+qs))
     c.showPage()
 
-    # ===================== VERSO — just the illustration, very large =====================
+    # ===================== VERSO — just the illustration, very large, centred =====================
     border()
-    iw = 340; ih = iw*img.height/img.width
+    iw = 400; ih = iw*img.height/img.width
     c.drawImage(ImageReader(img), cx-iw/2, (H-ih)/2, width=iw, height=ih)
     c.showPage()
 
