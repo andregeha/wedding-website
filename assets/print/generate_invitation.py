@@ -66,8 +66,8 @@ RECEPTION = ("RÉCEPTION · 18 h 30", "Hôtel Al Bustan", "Beit Mery, Mont-Liban
 GIFT_TITLE = "LISTE DE MARIAGE"
 GIFT_LB = "Liban · USD   —   André Geha &/ou Rhéa Nacouzi   ·   BIC BLOMLBBX   ·   LB90 0014 0000 2102 6732 6609 4314"
 GIFT_FR = "France · EUR   —   André Geha   ·   BIC REVOFRP2   ·   FR76 2823 3000 0144 2006 8520 030"
-# Site URL encoded by the recto QR — the Cloudflare Pages address (neutral, no GitHub username)
-SITE = "https://mariage-andre-rhea-geha.pages.dev/"
+# Site URL encoded by the recto QR (client keeps the GitHub Pages link)
+SITE = "https://andregeha.github.io/wedding-website/"
 
 INK   = colors.Color(43/255, 43/255, 41/255)
 SAGE  = colors.Color(95/255, 125/255, 99/255)
@@ -102,35 +102,38 @@ def build():
         y = Y(off); c.setStrokeColor(color); c.setLineWidth(1)
         c.line(cxc-half-20, y, cxc-half-5, y); c.line(cxc+half+5, y, cxc+half+20, y)
 
+    # Crop the illustration to its visible artwork (drops the faint lawn/white margins,
+    # esp. at the bottom) so it can be placed tight and centred on both sides.
     img = Image.open(ILLUS).convert("RGB")
+    vb = visible_bbox(img); art = img.crop(vb) if vb else img
 
     # ===================== RECTO — the complete invitation, incl. the illustration =====================
     border()
     # Parents on either side of the card
-    center(PARENTS[0], cx-128, 50, "Plex", 11, INK)
-    center(PARENTS[1], cx+128, 50, "Plex", 11, INK)
-    center(INVITE, cx, 70, "PlexIt", 9.5, MUTED)
+    center(PARENTS[0], cx-128, 58, "Plex", 11, INK)
+    center(PARENTS[1], cx+128, 58, "Plex", 11, INK)
+    center(INVITE, cx, 84, "PlexIt", 9.5, MUTED)
 
-    a, amp, r = NAMES; fs = 23
+    a, amp, r = NAMES; fs = 24
     c.setFont("Plex", fs)
     wa, wamp, wr = (c.stringWidth(s, "Plex", fs) for s in (a, amp, r))
-    x = cx - (wa+wamp+wr)/2; yb = Y(100)
+    x = cx - (wa+wamp+wr)/2; yb = Y(120)
     c.setFillColor(INK); c.drawString(x, yb, a)
     c.setFillColor(SAGE); c.drawString(x+wa, yb, amp)
     c.setFillColor(INK); c.drawString(x+wa+wamp, yb, r)
 
-    dw = spaced(DATE, cx, 122, "Plex", 9.5, 2.0, INK); rules(cx, 119, dw/2)
+    dw = spaced(DATE, cx, 146, "Plex", 9.5, 2.0, INK); rules(cx, 143, dw/2)
 
-    # the hand-drawn illustration, modest, between the date and the venues
-    iw = 116; ih = iw*img.height/img.width
-    c.drawImage(ImageReader(img), cx-iw/2, H-(132+ih), width=iw, height=ih)
+    # the hand-drawn illustration (cropped tight), lowered to give the top half air
+    iw = 128; ih = iw*art.height/art.width
+    c.drawImage(ImageReader(art), cx-iw/2, H-(162+ih), width=iw, height=ih)
 
     # ceremony / reception two columns
     def vblock(role, venue, addr, cxc, top):
         spaced(role, cxc, top, "Plex", 7.5, 2.0, SAGE)
         center(venue, cxc, top+12, "Plex", 9.2, INK)
         center(addr, cxc, top+22, "Plex", 7.2, MUTED)
-    vy = 132 + ih + 13
+    vy = 162 + ih + 14
     vblock(*CEREMONY, cx-118, vy)
     vblock(*RECEPTION, cx+118, vy)
 
@@ -153,13 +156,10 @@ def build():
     c.showPage()
 
     # ===================== VERSO — just the illustration, very large, truly centred =====================
-    # Crop the faint near-white margins (esp. the lawn fade at the bottom) so the
-    # *visible* artwork — not the image frame — is what gets centred on the page.
+    # Uses the same tight-cropped artwork, so the *visible* drawing is centred (not the frame).
     border()
-    vb = visible_bbox(img)
-    vimg = img.crop(vb) if vb else img
-    iw = 420; ih = iw*vimg.height/vimg.width
-    c.drawImage(ImageReader(vimg), cx-iw/2, (H-ih)/2, width=iw, height=ih)
+    iw = 420; ih = iw*art.height/art.width
+    c.drawImage(ImageReader(art), cx-iw/2, (H-ih)/2, width=iw, height=ih)
     c.showPage()
 
     c.save()

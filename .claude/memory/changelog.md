@@ -2,6 +2,13 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (7) — Keep GitHub link; recto drawing cropped + lowered, top half aired out
+- **Client keeps the GitHub Pages link** → reverted all site absolute URLs and the card QR
+  back to `https://andregeha.github.io/wedding-website/`. (Cloudflare task dropped.)
+- **Faire-part recto**: the illustration is now cropped tight (shared `art` = `visible_bbox`
+  crop, same as the verso) so there's **no white gap below it**; lowered it and spread the
+  **top half** (parents/invite/names/date) for more air. Names 23→24 pt.
+
 ## 2026-06-30 (6) — Verso: true vertical centering of the drawing (auto-crop)
 - The illustration has ~31% faint lawn/white at the bottom, so frame-centering left the art
   sitting high. Added `visible_bbox()` (numpy: row/col density of non-white pixels) to the
