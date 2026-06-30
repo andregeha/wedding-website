@@ -123,38 +123,34 @@ def build():
     dw = spaced(DATE, cx, 146, "Plex", 9.5, 2.0, INK); rules(cx, 143, dw/2)
 
     # the hand-drawn illustration (cropped tight), lowered to give the top half air
-    iw = 128; ih = iw*art.height/art.width
-    c.drawImage(ImageReader(art), cx-iw/2, H-(162+ih), width=iw, height=ih)
+    iw = 122; ih = iw*art.height/art.width
+    c.drawImage(ImageReader(art), cx-iw/2, H-(158+ih), width=iw, height=ih)
 
     # ceremony / reception two columns
     def vblock(role, venue, addr, cxc, top):
         spaced(role, cxc, top, "Plex", 7.5, 2.0, SAGE)
         center(venue, cxc, top+12, "Plex", 9.2, INK)
         center(addr, cxc, top+22, "Plex", 7.2, MUTED)
-    vy = 162 + ih + 14
+    vy = 158 + ih + 13
     vblock(*CEREMONY, cx-118, vy)
     vblock(*RECEPTION, cx+118, vy)
 
+    # RSVP — one compact line + QR, ABOVE the gift block (saves vertical space)
+    qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
+    b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 26
+    rsvp = "Réponse souhaitée avant le 21 juillet 2026 — auprès des mariés, de leurs parents, ou en ligne"
+    c.setFont("PlexIt", 6.2); rw = c.stringWidth(rsvp, "PlexIt", 6.2)
+    gap = 9; gx = cx - (rw + gap + qs)/2; ry_top = vy + 22 + 11
+    c.setFillColor(MUTED); c.drawString(gx, Y(ry_top + qs/2 + 2.2), rsvp)
+    dwg = Drawing(qs, qs, transform=[qs/bw, 0, 0, qs/bh, 0, 0]); dwg.add(qw)
+    renderPDF.draw(dwg, c, gx + rw + gap, H-(ry_top+qs))
+
     # discreet gift footer — small title, one compact line per account
-    gy = vy + 22 + 16
+    gy = ry_top + qs + 13
     c.setStrokeColor(LINE2); c.setLineWidth(0.7); c.line(cx-84, Y(gy), cx+84, Y(gy))
     spaced(GIFT_TITLE, cx, gy+9, "Plex", 6.2, 1.6, SAGE)
     center(GIFT_LB, cx, gy+18, "Plex", 5.9, MUTED)
     center(GIFT_FR, cx, gy+26, "Plex", 5.9, MUTED)
-
-    # QR + caption (two lines: RSVP deadline, then infos), inline at the very bottom
-    qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
-    b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 28
-    cap1 = "Réponse souhaitée avant le 21 juillet 2026 —"
-    cap2 = "auprès des mariés, de leurs parents, ou en ligne"
-    c.setFont("PlexIt", 7)
-    capw = max(c.stringWidth(cap1, "PlexIt", 7), c.stringWidth(cap2, "PlexIt", 7))
-    gap = 9; gx = cx - (capw + gap + qs)/2; qy_top = 302
-    c.setFillColor(MUTED)
-    c.drawString(gx, Y(qy_top + 10), cap1)
-    c.drawString(gx, Y(qy_top + 21), cap2)
-    dwg = Drawing(qs, qs, transform=[qs/bw, 0, 0, qs/bh, 0, 0]); dwg.add(qw)
-    renderPDF.draw(dwg, c, gx + capw + gap, H-(qy_top+qs))
     c.showPage()
 
     c.save()

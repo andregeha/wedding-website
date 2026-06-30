@@ -2,6 +2,11 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (10) — Card: RSVP line moved above Liste de mariage, on one line
+- Recto bottom reflowed: the RSVP line is now a **single line placed above** the « Liste de
+  mariage » block (was two lines below it), with the QR inline at its right — saves space.
+  Order is now: cérémonie/réception → RSVP one-liner + QR → Liste de mariage.
+
 ## 2026-06-30 (9) — RSVP: deadline 31 → 21 juillet + options on the card
 - **Date limite de réponse changée au 21 juillet 2026** (était 31 juillet). Site (`index.html`
   lead RSVP) + `wedding-details.md`.
