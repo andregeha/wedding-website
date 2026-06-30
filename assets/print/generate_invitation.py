@@ -145,8 +145,8 @@ def build():
     # QR + caption (two lines: RSVP deadline, then infos), inline at the very bottom
     qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
     b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 28
-    cap1 = "Confirmation souhaitée avant le 21 juillet 2026"
-    cap2 = "Infos & programme détaillé en ligne"
+    cap1 = "Réponse souhaitée avant le 21 juillet 2026 —"
+    cap2 = "auprès des mariés, de leurs parents, ou en ligne"
     c.setFont("PlexIt", 7)
     capw = max(c.stringWidth(cap1, "PlexIt", 7), c.stringWidth(cap2, "PlexIt", 7))
     gap = 9; gx = cx - (capw + gap + qs)/2; qy_top = 302
