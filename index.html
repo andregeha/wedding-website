@@ -30,7 +30,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Serif:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -61,9 +61,9 @@
   <!-- ====== NAV ====== -->
   <nav class="nav" aria-label="Sections">
     <a href="#jour-j">Le jour J</a>
+    <a href="#presence">Présence</a>
     <a href="#programme">Programme</a>
     <a href="#cadeaux">Liste de mariage</a>
-    <a href="#presence">Présence</a>
   </nav>
 
   <main>
@@ -88,37 +88,6 @@
           <a class="card__map" href="https://maps.app.goo.gl/j3J1pSzMC57UrrDx9" target="_blank" rel="noopener">Voir le plan</a>
         </article>
       </div>
-    </section>
-
-    <!-- ====== PROGRAMME ====== -->
-    <section class="section" id="programme">
-      <h2 class="section__title">Programme</h2>
-      <ul class="timeline">
-        <li><span class="timeline__time">16&#8239;h&#8239;30</span> <span class="timeline__what">Cérémonie religieuse</span></li>
-        <li><span class="timeline__time">18&#8239;h&#8239;30</span> <span class="timeline__what">Verre d'accueil</span></li>
-        <li><span class="timeline__time">20&#8239;h&#8239;00</span> <span class="timeline__what">Dîner</span></li>
-        <li><span class="timeline__time">02&#8239;h&#8239;00</span> <span class="timeline__what">Fin de la célébration</span></li>
-      </ul>
-    </section>
-
-    <!-- ====== CADEAUX ====== -->
-    <section class="section section--alt" id="cadeaux">
-      <h2 class="section__title">Liste de mariage</h2>
-      <p class="section__lead">
-        Pour ceux qui le souhaitent, une liste de mariage est disponible chez
-        BLOM&nbsp;Bank, au Liban. Vous pouvez participer par virement à l'aide des
-        coordonnées ci-dessous.
-      </p>
-      <dl class="gift-accounts">
-        <div><dt>Bénéficiaire</dt><dd>André Noël Geha &amp;/ou Rhéa Nacouzi</dd></div>
-        <div><dt>Banque</dt><dd>BLOM Bank S.A.L. — Beyrouth, Liban</dd></div>
-        <div><dt>BIC / SWIFT</dt><dd>BLOMLBBX</dd></div>
-        <div><dt>IBAN (USD)</dt><dd class="gift-iban">LB90 0014 0000 2102 6732 6609 4314</dd></div>
-        <div><dt>Devise</dt><dd>USD (dollar américain)</dd></div>
-      </dl>
-      <p class="gift-note gift-note--soft">
-        Un compte en euros, pour les virements depuis l'Europe, sera ajouté prochainement.
-      </p>
     </section>
 
     <!-- ====== CONFIRMER SA PRÉSENCE (RSVP) ====== -->
@@ -202,6 +171,46 @@
           <p class="rsvp__success-text">Votre réponse a bien été enregistrée. Nous avons hâte de célébrer ce jour avec vous.</p>
         </div>
       </details>
+    </section>
+
+    <!-- ====== PROGRAMME ====== -->
+    <section class="section section--alt" id="programme">
+      <h2 class="section__title">Programme</h2>
+      <ul class="timeline">
+        <li><span class="timeline__time">16&#8239;h&#8239;30</span> <span class="timeline__what">Cérémonie religieuse</span></li>
+        <li><span class="timeline__time">18&#8239;h&#8239;30</span> <span class="timeline__what">Verre d'accueil</span></li>
+        <li><span class="timeline__time">20&#8239;h&#8239;00</span> <span class="timeline__what">Dîner</span></li>
+        <li><span class="timeline__time">02&#8239;h&#8239;00</span> <span class="timeline__what">Fin de la célébration</span></li>
+      </ul>
+    </section>
+
+    <!-- ====== LISTE DE MARIAGE ====== -->
+    <section class="section" id="cadeaux">
+      <h2 class="section__title">Liste de mariage</h2>
+      <p class="section__lead">
+        Pour ceux qui le souhaitent, vous pouvez nous gâter par un virement&#8239;—
+        au choix sur notre compte au Liban (USD) ou en France (EUR).
+      </p>
+      <div class="gift-grid">
+        <div class="gift-card">
+          <p class="gift-card__head">Liban · USD</p>
+          <dl class="gift-list">
+            <div><dt>Bénéficiaire</dt><dd>André Geha &amp;/ou Rhéa Nacouzi</dd></div>
+            <div><dt>IBAN</dt><dd class="gift-iban">LB90 0014 0000 2102 6732 6609 4314</dd></div>
+            <div><dt>BIC</dt><dd>BLOMLBBX</dd></div>
+            <div><dt>Banque</dt><dd>BLOM Bank S.A.L.</dd></div>
+          </dl>
+        </div>
+        <div class="gift-card">
+          <p class="gift-card__head">France · EUR</p>
+          <dl class="gift-list">
+            <div><dt>Bénéficiaire</dt><dd>André Geha</dd></div>
+            <div><dt>IBAN</dt><dd class="gift-iban">FR76 2823 3000 0144 2006 8520 030</dd></div>
+            <div><dt>BIC</dt><dd>REVOFRP2</dd></div>
+            <div><dt>Banque</dt><dd>Revolut</dd></div>
+          </dl>
+        </div>
+      </div>
     </section>
   </main>
 

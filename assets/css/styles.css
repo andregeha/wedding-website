@@ -67,7 +67,8 @@ img, svg { max-width: 100%; height: auto; display: block; }
   font-size: clamp(2.8rem, 12vw, 6rem);
   margin: 0 0 0.8rem;
 }
-.hero__names .amp { color: var(--accent); font-style: italic; }
+/* Esperluette : même police que le faire-part (IBM Plex Serif), pas d'italique. */
+.hero__names .amp { font-family: "IBM Plex Serif", Georgia, serif; font-weight: 400; color: var(--accent); }
 /* Date façon faire-part : texte capitales encadré de deux filets fins. */
 .hero__date {
   display: flex;
@@ -166,15 +167,17 @@ img, svg { max-width: 100%; height: auto; display: block; }
 }
 .section__lead { color: var(--muted); max-width: 38rem; margin: 0 auto 2rem; font-size: 1.05rem; }
 
-/* Discreet bank details under "Liste de mariage" */
-.gift-accounts { max-width: 32rem; margin: 0 auto; text-align: left; font-size: 0.95rem; }
-.gift-accounts > div { display: flex; flex-wrap: wrap; gap: 0.2rem 0.9rem; padding: 0.5rem 0; border-bottom: 1px solid var(--line); }
-.gift-accounts > div:last-child { border-bottom: 0; }
-.gift-accounts dt { flex: 0 0 8rem; color: var(--muted); }
-.gift-accounts dd { flex: 1 1 12rem; margin: 0; color: var(--ink); }
+/* Bank details under "Liste de mariage" — two compact accounts side by side */
+.gift-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; max-width: 42rem; margin: 0 auto; text-align: left; }
+@media (min-width: 40rem) { .gift-grid { grid-template-columns: 1fr 1fr; } }
+.gift-card { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 0.8rem; padding: 1rem 1.15rem; }
+.gift-card__head { font-family: var(--serif); font-size: 1.25rem; color: var(--accent); margin: 0 0 0.5rem; }
+.gift-list { margin: 0; }
+.gift-list > div { padding: 0.4rem 0; border-bottom: 1px solid var(--line); }
+.gift-list > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.gift-list dt { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.gift-list dd { margin: 0.1rem 0 0; color: var(--ink); font-size: 0.92rem; }
 .gift-iban { font-variant-numeric: tabular-nums; letter-spacing: 0.02em; word-break: break-word; }
-.gift-note { color: var(--muted); font-size: 0.9rem; max-width: 32rem; margin: 1.1rem auto 0; }
-.gift-note--soft { font-style: italic; font-size: 0.85rem; opacity: 0.85; margin-top: 0.5rem; }
 
 /* ---------- Cartes Le jour J ---------- */
 .cards { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }

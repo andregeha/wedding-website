@@ -42,9 +42,10 @@ NAMES   = ("André ", "&", " Rhéa")
 DATE    = "SAMEDI 22 AOÛT 2026"
 CEREMONY  = ("CÉRÉMONIE · 16 h 30", "Église Notre-Dame de l'Annonciation", "Achrafieh, Beyrouth")
 RECEPTION = ("RÉCEPTION · 18 h 30", "Hôtel Al Bustan", "Beit Mery, Mont-Liban")
-# Recto footer — discreet gift/bank note (USD account only; full wire info)
-BANK_LINE1 = "Liste de mariage   ·   BLOM Bank S.A.L. (USD)   ·   BIC/SWIFT : BLOMLBBX"
-BANK_LINE2 = "IBAN LB90 0014 0000 2102 6732 6609 4314   ·   Bénéf. : André Geha &/ou Rhéa Nacouzi"
+# Recto footer — discreet gift/bank note (two accounts: Liban/USD + France/EUR)
+GIFT_TITLE = "LISTE DE MARIAGE"
+GIFT_LB = "Liban · USD   —   André Geha &/ou Rhéa Nacouzi   ·   BIC BLOMLBBX   ·   LB90 0014 0000 2102 6732 6609 4314"
+GIFT_FR = "France · EUR   —   André Geha   ·   BIC REVOFRP2   ·   FR76 2823 3000 0144 2006 8520 030"
 # Verso — the hand-drawn illustration (the beautiful back) + RSVP
 RSVP_TITLE = "MERCI DE CONFIRMER VOTRE PRÉSENCE"
 RSVP_LINE = "Auprès des mariés ou de leurs parents, avant le 31 juillet 2026."
@@ -112,18 +113,19 @@ def build():
     vblock(*CEREMONY, cx-118, vy)
     vblock(*RECEPTION, cx+118, vy)
 
-    # discreet gift/bank footer — two lines (bank + BIC, then IBAN + beneficiary)
-    fy = Y(308); c.setStrokeColor(LINE2); c.setLineWidth(0.8); c.line(cx-72, fy, cx+72, fy)
-    center(BANK_LINE1, cx, 319, "Plex", 6.4, MUTED)
-    center(BANK_LINE2, cx, 328, "Plex", 6.4, MUTED)
+    # discreet gift/bank footer — small title, then one compact line per account
+    fy = Y(300); c.setStrokeColor(LINE2); c.setLineWidth(0.8); c.line(cx-82, fy, cx+82, fy)
+    spaced(GIFT_TITLE, cx, 309, "Plex", 6.6, 1.8, SAGE)
+    center(GIFT_LB, cx, 320, "Plex", 6.2, MUTED)
+    center(GIFT_FR, cx, 329, "Plex", 6.2, MUTED)
     c.showPage()
 
     # ===================== VERSO — the illustration (large) + RSVP =====================
     border()
     # The hand-drawn illustration is the hero of the back, shown large.
     img = Image.open(ILLUS).convert("RGB")
-    iw = 232; ih = iw*img.height/img.width
-    c.drawImage(ImageReader(img), cx-iw/2, H-(54+ih), width=iw, height=ih)
+    iw = 260; ih = iw*img.height/img.width
+    c.drawImage(ImageReader(img), cx-iw/2, H-(46+ih), width=iw, height=ih)
 
     # RSVP — confirm with the couple, the parents, or online; site also has all info
     spaced(RSVP_TITLE, cx, 248, "Plex", 8.5, 2.6, SAGE)
