@@ -2,6 +2,12 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (3) — Liste de mariage intro line reworded
+- Replaced the clunky « vous pouvez nous gâter par un virement — au choix… » lead with a
+  restrained, classic line: « Votre présence est notre plus beau cadeau. Pour ceux qui le
+  souhaitent, par virement : » (leads straight into the two account cards). Site only;
+  shipped via PR #25. Set repo git identity to `Claude <noreply@anthropic.com>`.
+
 ## 2026-06-30 (2) — Section reorder, EUR account, ampersand font, bigger verso photo
 - **Site section order** changed to: Le jour J / Merci de confirmer votre présence /
   Programme / Liste de mariage. Reassigned `section--alt` so backgrounds alternate
