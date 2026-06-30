@@ -25,7 +25,27 @@ from reportlab.graphics.barcode import qr
 from reportlab.graphics.shapes import Drawing
 from reportlab.graphics import renderPDF
 from PIL import Image
+import numpy as np
 import fitz
+
+
+def visible_bbox(im, thr=20, dens=0.02, pad=8):
+    """Bounding box of the *visible* artwork (ignores faint near-white margins).
+
+    A row/column counts as content only if >`dens` of its pixels differ from
+    white by more than `thr` — so the large faint lawn fade at the bottom of the
+    illustration is treated as background, and the crop centres the real drawing.
+    """
+    a = np.asarray(im.convert("RGB")).astype(int)
+    d = (255 - a).max(axis=2)
+    m = d > thr
+    rows = np.where(m.mean(axis=1) > dens)[0]
+    cols = np.where(m.mean(axis=0) > dens)[0]
+    if not len(rows) or not len(cols):
+        return None
+    l, t = int(cols[0]) - pad, int(rows[0]) - pad
+    r, b = int(cols[-1]) + 1 + pad, int(rows[-1]) + 1 + pad
+    return (max(0, l), max(0, t), min(im.width, r), min(im.height, b))
 
 HERE = os.path.dirname(__file__)
 FDIR = "/mnt/skills/examples/canvas-design/canvas-fonts/"
@@ -132,10 +152,14 @@ def build():
     renderPDF.draw(dwg, c, gx + capw + gap, H-(qy_top+qs))
     c.showPage()
 
-    # ===================== VERSO — just the illustration, very large, centred =====================
+    # ===================== VERSO — just the illustration, very large, truly centred =====================
+    # Crop the faint near-white margins (esp. the lawn fade at the bottom) so the
+    # *visible* artwork — not the image frame — is what gets centred on the page.
     border()
-    iw = 400; ih = iw*img.height/img.width
-    c.drawImage(ImageReader(img), cx-iw/2, (H-ih)/2, width=iw, height=ih)
+    vb = visible_bbox(img)
+    vimg = img.crop(vb) if vb else img
+    iw = 420; ih = iw*vimg.height/vimg.width
+    c.drawImage(ImageReader(vimg), cx-iw/2, (H-ih)/2, width=iw, height=ih)
     c.showPage()
 
     c.save()
