@@ -2,6 +2,19 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (5) — Verso drawing enlarged + Cloudflare Pages domain
+- **Faire-part verso**: illustration enlarged (iw 340 → 400) and kept centred — the « high »
+  look was the faint lawn foreground; bigger fills the page so it reads as a centred hero.
+- **Hosting → Cloudflare Pages** (client choice B, free, hides GitHub username). Target URL
+  **`https://mariage-andre-rhea-geha.pages.dev`** (note: `.pages.dev`, no `www`, not `.pages.app`).
+  Updated all absolute URLs in `index.html` (og:url, og:image, twitter:image, Web3Forms
+  `redirect`) and the **card QR** (`SITE`) to the pages.dev address.
+- **Web3Forms still works** from any domain (browser POST to api.web3forms.com with the public
+  key — host-independent). Client must connect the repo in Cloudflare (project name
+  `mariage-andre-rhea-geha`, no build, output dir = root). GitHub Pages can stay as a mirror.
+- ⚠️ Don't print the card until the Cloudflare site is confirmed live at that exact URL
+  (the QR has no redirect if the URL never existed).
+
 ## 2026-06-30 (4) — Faire-part: full content on the recto, big drawing on the verso
 - Reworked the card so the **recto holds everything** (parents, names, date, **illustration
   back on the recto**, cérémonie/réception, both gift accounts, and a small QR + « Infos,
