@@ -2,6 +2,13 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (6) — Verso: true vertical centering of the drawing (auto-crop)
+- The illustration has ~31% faint lawn/white at the bottom, so frame-centering left the art
+  sitting high. Added `visible_bbox()` (numpy: row/col density of non-white pixels) to the
+  generator — the verso now **crops the faint margins and centres the visible artwork**.
+- Verified by computer vision on the rendered PNG: top margin == bottom margin (0px offset),
+  also horizontally centred. iw=420.
+
 ## 2026-06-30 (5) — Verso drawing enlarged + Cloudflare Pages domain
 - **Faire-part verso**: illustration enlarged (iw 340 → 400) and kept centred — the « high »
   look was the faint lawn foreground; bigger fills the page so it reads as a centred hero.
