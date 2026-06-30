@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-"""Printable wedding invitation (faire-part) — official landscape card, recto/verso.
+"""Printable wedding invitation (faire-part) — official landscape card, single page.
 
 Format: 178 × 127 mm landscape (7×5", standard wedding-invitation size).
-Page 1 (recto): the complete invitation — parents, names, date, the illustration,
-                cérémonie/réception, the two gift accounts, and a QR to the site.
-Page 2 (verso): just the hotel illustration, very large.
+One page: the complete invitation — parents, names, date, the illustration,
+          cérémonie/réception, the two gift accounts, and a QR to the site.
 
 True VECTOR PDF (crisp text + QR) via reportlab; illustration embedded at full resolution.
-A PNG preview of each page is rendered from the same PDF via PyMuPDF (preview == print).
+A PNG preview is rendered from the same PDF via PyMuPDF (preview == print).
 Single typeface throughout: IBM Plex Serif (regular + italic).
 
 Run from repo root:  python3 assets/print/generate_invitation.py
@@ -52,8 +51,7 @@ FDIR = "/mnt/skills/examples/canvas-design/canvas-fonts/"
 PLEX, PLEX_IT = FDIR+"IBMPlexSerif-Regular.ttf", FDIR+"IBMPlexSerif-Italic.ttf"
 ILLUS = os.path.join(HERE, "hotel-source.png")
 PDF   = os.path.join(HERE, "invitation.pdf")
-PNG_R = os.path.join(HERE, "invitation.png")        # recto preview
-PNG_V = os.path.join(HERE, "invitation-verso.png")  # verso preview
+PNG_R = os.path.join(HERE, "invitation.png")        # single-page preview
 
 # --- content (keep in sync with wedding-details.md) ---
 PARENTS = ("Elie & Pascale Geha", "Manhal & Najwa Nacouzi")
@@ -155,19 +153,11 @@ def build():
     renderPDF.draw(dwg, c, gx + capw + gap, H-(qy_top+qs))
     c.showPage()
 
-    # ===================== VERSO — just the illustration, very large, truly centred =====================
-    # Uses the same tight-cropped artwork, so the *visible* drawing is centred (not the frame).
-    border()
-    iw = 420; ih = iw*art.height/art.width
-    c.drawImage(ImageReader(art), cx-iw/2, (H-ih)/2, width=iw, height=ih)
-    c.showPage()
-
     c.save()
     doc = fitz.open(PDF)
     doc[0].get_pixmap(dpi=200).save(PNG_R)
-    doc[1].get_pixmap(dpi=200).save(PNG_V)
     doc.close()
-    print("wrote", PDF, "+ recto/verso previews")
+    print("wrote", PDF, "+ preview")
 
 if __name__ == "__main__":
     build()

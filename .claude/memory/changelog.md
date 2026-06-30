@@ -2,6 +2,11 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (8) — Faire-part: single page (verso dropped)
+- Client wants **one page** → removed the verso (the large standalone illustration) entirely.
+  The card is now a **1-page PDF** with everything on the recto (incl. the cropped drawing +
+  QR). Deleted `invitation-verso.png`; generator renders a single page; updated skill + memory.
+
 ## 2026-06-30 (7) — Keep GitHub link; recto drawing cropped + lowered, top half aired out
 - **Client keeps the GitHub Pages link** → reverted all site absolute URLs and the card QR
   back to `https://andregeha.github.io/wedding-website/`. (Cloudflare task dropped.)

@@ -5,16 +5,16 @@ description: Generate or update the printable wedding invitation (faire-part) �
 
 # Printable invitation (faire-part)
 
-A print-ready **landscape 178×127 mm (7×5") card, recto/verso**, reusing the site identity.
-Output is a **2-page true vector PDF** (`assets/print/invitation.pdf` — crisp text + QR) plus
-PNG previews of each page (`invitation.png` = recto, `invitation-verso.png` = verso), rendered
-from the same PDF. The hotel illustration is embedded full-resolution (`hotel-source.png`).
+A print-ready **single-page landscape 178×127 mm (7×5") card**, reusing the site identity.
+Output is a **1-page true vector PDF** (`assets/print/invitation.pdf` — crisp text + QR) plus
+a PNG preview (`invitation.png`), rendered from the same PDF. The hotel illustration is
+embedded full-resolution (`hotel-source.png`) and auto-cropped to its visible artwork
+(`visible_bbox()`), so its faint near-white margins don't add empty space.
 
-- **Recto:** the complete invitation on one side — parents (Elie & Pascale Geha · Manhal &
+- **Single page:** the complete invitation — parents (Elie & Pascale Geha · Manhal &
   Najwa Nacouzi), names, date, the illustration, ceremony/reception in two columns, the two
   gift accounts (Liban/USD + France/EUR, one compact line each under « LISTE DE MARIAGE »),
   and a small QR + caption (« Infos, programme & confirmation en ligne ») at the bottom.
-- **Verso:** just the hand-drawn illustration, very large, vertically centred (no text).
 - Single typeface throughout: **IBM Plex Serif** (regular + italic).
 
 ## Regenerate
