@@ -142,13 +142,17 @@ def build():
     center(GIFT_LB, cx, gy+18, "Plex", 5.9, MUTED)
     center(GIFT_FR, cx, gy+26, "Plex", 5.9, MUTED)
 
-    # QR + caption, inline, centered at the very bottom
+    # QR + caption (two lines: RSVP deadline, then infos), inline at the very bottom
     qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
-    b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 26
-    cap = "Infos, programme & confirmation en ligne"
-    c.setFont("PlexIt", 7); capw = c.stringWidth(cap, "PlexIt", 7)
-    gap = 8; gx = cx - (capw + gap + qs)/2; qy_top = 304
-    c.setFillColor(MUTED); c.drawString(gx, Y(qy_top + qs/2 + 2.5), cap)
+    b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 28
+    cap1 = "Réponse souhaitée avant le 21 juillet 2026 —"
+    cap2 = "auprès des mariés, de leurs parents, ou en ligne"
+    c.setFont("PlexIt", 7)
+    capw = max(c.stringWidth(cap1, "PlexIt", 7), c.stringWidth(cap2, "PlexIt", 7))
+    gap = 9; gx = cx - (capw + gap + qs)/2; qy_top = 302
+    c.setFillColor(MUTED)
+    c.drawString(gx, Y(qy_top + 10), cap1)
+    c.drawString(gx, Y(qy_top + 21), cap2)
     dwg = Drawing(qs, qs, transform=[qs/bw, 0, 0, qs/bh, 0, 0]); dwg.add(qw)
     renderPDF.draw(dwg, c, gx + capw + gap, H-(qy_top+qs))
     c.showPage()

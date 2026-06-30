@@ -2,6 +2,12 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (9) — RSVP: deadline 31 → 21 juillet + options on the card
+- **Date limite de réponse changée au 21 juillet 2026** (était 31 juillet). Site (`index.html`
+  lead RSVP) + `wedding-details.md`.
+- **Carte**: bloc RSVP près du QR (2 lignes) = date limite **+ les trois options** :
+  « Réponse souhaitée avant le 21 juillet 2026 — auprès des mariés, de leurs parents, ou en ligne ».
+
 ## 2026-06-30 (8) — Faire-part: single page (verso dropped)
 - Client wants **one page** → removed the verso (the large standalone illustration) entirely.
   The card is now a **1-page PDF** with everything on the recto (incl. the cropped drawing +
