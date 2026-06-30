@@ -2,8 +2,24 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (2) — Section reorder, EUR account, ampersand font, bigger verso photo
+- **Site section order** changed to: Le jour J / Merci de confirmer votre présence /
+  Programme / Liste de mariage. Reassigned `section--alt` so backgrounds alternate
+  grey/white/grey/white; RSVP webform untouched (still works). Nav reordered to match.
+- **Hero ampersand** « & » now in **IBM Plex Serif** (same as the faire-part); loaded the
+  font + `.hero__names .amp` rule (was Cormorant italic, client disliked it).
+- **Liste de mariage — added the France/EUR account** (André Geha · `REVOFRP2` ·
+  `FR76 2823 3000 0144 2006 8520 030`). Site rebuilt as **two compact cards** (Liban·USD /
+  France·EUR) in a responsive grid (`.gift-grid`/`.gift-card`), replacing the long `dl`.
+- **Faire-part**: recto footer now lists **both accounts** (one compact line each, under a
+  small « LISTE DE MARIAGE » title); verso illustration **enlarged** (iw 232 → 260).
+  Regenerated `invitation.pdf` / `.png` / `-verso.png`.
+
 ## 2026-06-30 — Time fix, gift wording, "Merci de confirmer", faire-part redesign
 - Client confirmed the **online RSVP (Web3Forms) works**.
+- **Published live**: merged via PR #23 (squash) → `main`; Deploy run #24 = success.
+  Direct `git push origin main` is blocked (503 / protected branch) — go-live path is
+  **PR + merge** via the GitHub MCP tools. Site live at andregeha.github.io/wedding-website.
 - **Cérémonie 16 h 45 → 16 h 30** everywhere: site (carte + programme), `wedding-details.md`,
   and faire-part (`CEREMONY` constant).
 - **Liste de mariage**: dropped the **dépôt en espèces / agence-locator** note on the site —

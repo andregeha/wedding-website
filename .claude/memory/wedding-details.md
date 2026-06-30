@@ -52,28 +52,29 @@
 - Non précisé (à ne pas afficher).
 
 ## Cadeaux / Liste de mariage
+**Deux comptes publiés** (site + faire-part) : un au Liban (USD), un en France (EUR).
+Participation **par virement** uniquement (pas de dépôt en espèces affiché — décision 2026-06-30).
+
+### Compte Liban — USD (BLOM Bank)
 **Banque : BLOM Bank S.A.L.** (بنك لبنان والمهجر), Beyrouth, Liban — **BIC/SWIFT : `BLOMLBBX`**.
 Compte au nom de **ANDRE NOEL GEHA &/OR RHEA NACOUZI** (n° client 2660943). Ouvert juin 2026.
-
-Deux comptes ouverts, **un seul publié** :
 
 | Devise | N° de compte | IBAN | Publié ? |
 |--------|--------------|------|----------|
 | **USD** | 021 02 673 2660943 1 4 | `LB90 0014 0000 2102 6732 6609 4314` | ✅ site + faire-part |
 | LBP | 021 01 673 2660943 1 5 | `LB55 0014 0000 2101 6732 6609 4315` | ❌ mémoire seulement |
 
-- **Seul le compte USD** est affiché (site + faire-part) — décision client.
-- Participer **par virement** (BIC + IBAN ci-dessus). Le **dépôt en espèces / locator d'agence
-  n'est plus affiché** (décision client 2026-06-30 : ne garder que les coordonnées de virement).
-- **Compte EUR (France)** en cours d'ouverture → à ajouter plus tard (virements depuis l'Europe).
+### Compte France — EUR (Revolut) — ajouté 2026-06-30
+- Bénéficiaire : **André Geha** (seul) · Banque : **Revolut** · **BIC : `REVOFRP2`**
+- **IBAN : `FR76 2823 3000 0144 2006 8520 030`** · Devise : EUR · ✅ site + faire-part
 
 ## Faire-part imprimé
 - Format **paysage 178 × 127 mm** (7×5", standard), **recto/verso**, vectoriel.
 - **Émis par les parents** : « Elie & Pascale Geha · Manhal & Najwa Nacouzi — ont la joie de
   vous convier au mariage de leurs enfants André & Rhéa ».
 - Recto : invitation + cérémonie/réception (2 colonnes) + un pied de page discret
-  « Liste de mariage » avec le **compte USD** (banque, BIC, IBAN, bénéficiaire). **Pas
-  d'illustration sur le recto** (déplacée au verso, 2026-06-30).
+  « Liste de mariage » avec **les deux comptes** (Liban/USD + France/EUR), une ligne
+  compacte chacun. **Pas d'illustration sur le recto** (déplacée au verso, 2026-06-30).
 - Verso : **l'illustration de l'hôtel en grand** (le « héros » du dos) + « Merci de confirmer
   votre présence » + QR vers le site. **Plus de programme/déroulé** sur le verso (sur le site).
   Généré par `assets/print/`.
@@ -99,7 +100,11 @@ Deux comptes ouverts, **un seul publié** :
 - Accent: **soft sage green** (drawn from the foliage/garden in the illustration), used
   sparingly (rules, links, button). Faire-part uses a thin-rule date motif — echoed in the hero.
 - Fonts: client said no need to match the faire-part font. Keep Inter (sans) for body,
-  a refined serif (Cormorant) for names/headings.
+  a refined serif (Cormorant) for names/headings. **Exception (2026-06-30): the hero
+  ampersand `& ` uses IBM Plex Serif** (same as the card) — the Cormorant `&` was unloved.
+- **Site section order (2026-06-30)**: Le jour J → Merci de confirmer votre présence →
+  Programme → Liste de mariage. Backgrounds alternate grey/white/grey/white (`section--alt`
+  on Le jour J + Programme; RSVP + Liste de mariage are white).
 
 ---
 *Last confirmed: full content provided 2026-06-22. Pending: hotel illustration file;

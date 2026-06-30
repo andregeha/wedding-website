@@ -11,10 +11,11 @@
 - [ ] Client: **buy `mariage-andre-et-rhea.com`** (fallback `…-2026.com`) + set DNS
       (apex A/AAAA to GitHub Pages + `www` CNAME → andregeha.github.io). Then tell me →
       I add the repo `CNAME` file, update absolute URLs, and we enable Enforce HTTPS.
-- [ ] Client (later): provide **EUR (France) IBAN + BIC** → add a second account for
-      virements depuis l'Europe (site + faire-part). Still waiting (2026-06-30).
-
 ## Done (recent)
+- [x] 2026-06-30 (2): **EUR/France account added** (Revolut, `REVOFRP2`,
+      `FR76 2823 3000 0144 2006 8520 030`) on site + faire-part; site sections reordered
+      (Jour J / Présence / Programme / Liste de mariage) with alternating backgrounds;
+      hero « & » → IBM Plex Serif; verso illustration enlarged.
 - [x] 2026-06-30: cérémonie **16 h 30** (was 16 h 45); gift section = virement only
       (dropped cash/agence note); RSVP heading « **Merci de confirmer** votre présence »;
       faire-part redesign — illustration off recto, large on verso, programme dropped.
