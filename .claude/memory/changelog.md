@@ -2,6 +2,13 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (4) — Faire-part: full content on the recto, big drawing on the verso
+- Reworked the card so the **recto holds everything** (parents, names, date, **illustration
+  back on the recto**, cérémonie/réception, both gift accounts, and a small QR + « Infos,
+  programme & confirmation en ligne » at the bottom). **Verso = just the illustration, very
+  large** (centred, no text). Removed the verso RSVP/QR + unused constants. Regenerated PDF/PNGs.
+- Updated `invitation` skill + memory to match.
+
 ## 2026-06-30 (3) — Liste de mariage intro line reworded
 - Replaced the clunky « vous pouvez nous gâter par un virement — au choix… » lead with a
   restrained, classic line: « Votre présence est notre plus beau cadeau. Pour ceux qui le

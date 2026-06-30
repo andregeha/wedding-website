@@ -2,9 +2,9 @@
 """Printable wedding invitation (faire-part) — official landscape card, recto/verso.
 
 Format: 178 × 127 mm landscape (7×5", standard wedding-invitation size).
-Page 1 (recto): formal invitation issued by the parents.
-Page 2 (verso): the hotel illustration, a discreet "gifts" note with TWO bank accounts
-                (Lebanon/USD and abroad/EUR), and a QR to the site.
+Page 1 (recto): the complete invitation — parents, names, date, the illustration,
+                cérémonie/réception, the two gift accounts, and a QR to the site.
+Page 2 (verso): just the hotel illustration, very large.
 
 True VECTOR PDF (crisp text + QR) via reportlab; illustration embedded at full resolution.
 A PNG preview of each page is rendered from the same PDF via PyMuPDF (preview == print).
@@ -46,12 +46,8 @@ RECEPTION = ("RÉCEPTION · 18 h 30", "Hôtel Al Bustan", "Beit Mery, Mont-Liban
 GIFT_TITLE = "LISTE DE MARIAGE"
 GIFT_LB = "Liban · USD   —   André Geha &/ou Rhéa Nacouzi   ·   BIC BLOMLBBX   ·   LB90 0014 0000 2102 6732 6609 4314"
 GIFT_FR = "France · EUR   —   André Geha   ·   BIC REVOFRP2   ·   FR76 2823 3000 0144 2006 8520 030"
-# Verso — the hand-drawn illustration (the beautiful back) + RSVP
-RSVP_TITLE = "MERCI DE CONFIRMER VOTRE PRÉSENCE"
-RSVP_LINE = "Auprès des mariés ou de leurs parents, avant le 31 juillet 2026."
-ONLINE_LINE = "Ou en ligne — toutes les informations et le programme détaillé :"
+# Site URL encoded by the recto QR (GitHub redirects keep it valid after a custom domain)
 SITE = "https://andregeha.github.io/wedding-website/"
-QR_CAPTION = "INFOS & CONFIRMATION EN LIGNE"
 
 INK   = colors.Color(43/255, 43/255, 41/255)
 SAGE  = colors.Color(95/255, 125/255, 99/255)
@@ -86,55 +82,60 @@ def build():
         y = Y(off); c.setStrokeColor(color); c.setLineWidth(1)
         c.line(cxc-half-20, y, cxc-half-5, y); c.line(cxc+half+5, y, cxc+half+20, y)
 
-    # ===================== RECTO =====================
-    # No illustration here — it now lives on the verso, larger. Layout rebalanced
-    # with generous whitespace around the names and date.
+    img = Image.open(ILLUS).convert("RGB")
+
+    # ===================== RECTO — the complete invitation, incl. the illustration =====================
     border()
     # Parents on either side of the card
-    center(PARENTS[0], cx-126, 74, "Plex", 12.5, INK)
-    center(PARENTS[1], cx+126, 74, "Plex", 12.5, INK)
-    center(INVITE, cx, 112, "PlexIt", 10.5, MUTED)
+    center(PARENTS[0], cx-128, 50, "Plex", 11, INK)
+    center(PARENTS[1], cx+128, 50, "Plex", 11, INK)
+    center(INVITE, cx, 70, "PlexIt", 9.5, MUTED)
 
-    a, amp, r = NAMES; fs = 28
+    a, amp, r = NAMES; fs = 23
     c.setFont("Plex", fs)
     wa, wamp, wr = (c.stringWidth(s, "Plex", fs) for s in (a, amp, r))
-    x = cx - (wa+wamp+wr)/2; yb = Y(166)
+    x = cx - (wa+wamp+wr)/2; yb = Y(100)
     c.setFillColor(INK); c.drawString(x, yb, a)
     c.setFillColor(SAGE); c.drawString(x+wa, yb, amp)
     c.setFillColor(INK); c.drawString(x+wa+wamp, yb, r)
 
-    dw = spaced(DATE, cx, 202, "Plex", 11, 2.2, INK); rules(cx, 199, dw/2)
+    dw = spaced(DATE, cx, 122, "Plex", 9.5, 2.0, INK); rules(cx, 119, dw/2)
 
+    # the hand-drawn illustration, modest, between the date and the venues
+    iw = 116; ih = iw*img.height/img.width
+    c.drawImage(ImageReader(img), cx-iw/2, H-(132+ih), width=iw, height=ih)
+
+    # ceremony / reception two columns
     def vblock(role, venue, addr, cxc, top):
-        spaced(role, cxc, top, "Plex", 8, 2.2, SAGE)
-        center(venue, cxc, top+13, "Plex", 10, INK)
-        center(addr, cxc, top+24, "Plex", 7.8, MUTED)
-    vy = 258
+        spaced(role, cxc, top, "Plex", 7.5, 2.0, SAGE)
+        center(venue, cxc, top+12, "Plex", 9.2, INK)
+        center(addr, cxc, top+22, "Plex", 7.2, MUTED)
+    vy = 132 + ih + 13
     vblock(*CEREMONY, cx-118, vy)
     vblock(*RECEPTION, cx+118, vy)
 
-    # discreet gift/bank footer — small title, then one compact line per account
-    fy = Y(300); c.setStrokeColor(LINE2); c.setLineWidth(0.8); c.line(cx-82, fy, cx+82, fy)
-    spaced(GIFT_TITLE, cx, 309, "Plex", 6.6, 1.8, SAGE)
-    center(GIFT_LB, cx, 320, "Plex", 6.2, MUTED)
-    center(GIFT_FR, cx, 329, "Plex", 6.2, MUTED)
+    # discreet gift footer — small title, one compact line per account
+    gy = vy + 22 + 16
+    c.setStrokeColor(LINE2); c.setLineWidth(0.7); c.line(cx-84, Y(gy), cx+84, Y(gy))
+    spaced(GIFT_TITLE, cx, gy+9, "Plex", 6.2, 1.6, SAGE)
+    center(GIFT_LB, cx, gy+18, "Plex", 5.9, MUTED)
+    center(GIFT_FR, cx, gy+26, "Plex", 5.9, MUTED)
+
+    # QR + caption, inline, centered at the very bottom
+    qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
+    b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 26
+    cap = "Infos, programme & confirmation en ligne"
+    c.setFont("PlexIt", 7); capw = c.stringWidth(cap, "PlexIt", 7)
+    gap = 8; gx = cx - (capw + gap + qs)/2; qy_top = 304
+    c.setFillColor(MUTED); c.drawString(gx, Y(qy_top + qs/2 + 2.5), cap)
+    dwg = Drawing(qs, qs, transform=[qs/bw, 0, 0, qs/bh, 0, 0]); dwg.add(qw)
+    renderPDF.draw(dwg, c, gx + capw + gap, H-(qy_top+qs))
     c.showPage()
 
-    # ===================== VERSO — the illustration (large) + RSVP =====================
+    # ===================== VERSO — just the illustration, very large =====================
     border()
-    # The hand-drawn illustration is the hero of the back, shown large.
-    img = Image.open(ILLUS).convert("RGB")
-    iw = 260; ih = iw*img.height/img.width
-    c.drawImage(ImageReader(img), cx-iw/2, H-(46+ih), width=iw, height=ih)
-
-    # RSVP — confirm with the couple, the parents, or online; site also has all info
-    spaced(RSVP_TITLE, cx, 248, "Plex", 8.5, 2.6, SAGE)
-    center(RSVP_LINE, cx, 264, "Plex", 8.6, INK)
-    center(ONLINE_LINE, cx, 280, "Plex", 8.3, MUTED)
-    qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
-    b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 32
-    dwg = Drawing(qs, qs, transform=[qs/bw, 0, 0, qs/bh, 0, 0]); dwg.add(qw)
-    renderPDF.draw(dwg, c, cx-qs/2, H-(290+qs))
+    iw = 340; ih = iw*img.height/img.width
+    c.drawImage(ImageReader(img), cx-iw/2, (H-ih)/2, width=iw, height=ih)
     c.showPage()
 
     c.save()

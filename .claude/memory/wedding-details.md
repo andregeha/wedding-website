@@ -72,12 +72,12 @@ Compte au nom de **ANDRE NOEL GEHA &/OR RHEA NACOUZI** (n° client 2660943). Ouv
 - Format **paysage 178 × 127 mm** (7×5", standard), **recto/verso**, vectoriel.
 - **Émis par les parents** : « Elie & Pascale Geha · Manhal & Najwa Nacouzi — ont la joie de
   vous convier au mariage de leurs enfants André & Rhéa ».
-- Recto : invitation + cérémonie/réception (2 colonnes) + un pied de page discret
-  « Liste de mariage » avec **les deux comptes** (Liban/USD + France/EUR), une ligne
-  compacte chacun. **Pas d'illustration sur le recto** (déplacée au verso, 2026-06-30).
-- Verso : **l'illustration de l'hôtel en grand** (le « héros » du dos) + « Merci de confirmer
-  votre présence » + QR vers le site. **Plus de programme/déroulé** sur le verso (sur le site).
-  Généré par `assets/print/`.
+- **Recto = la carte complète** (décision 2026-06-30 (4)) : parents, prénoms, date,
+  **l'illustration** (de retour sur le recto), cérémonie/réception (2 colonnes), les **deux
+  comptes** « Liste de mariage » (Liban/USD + France/EUR, une ligne compacte chacun), et un
+  **petit QR** + légende « Infos, programme & confirmation en ligne » en bas.
+- **Verso = uniquement l'illustration, en très grand** (centrée, sans texte). Le RSVP/QR a été
+  déplacé sur le recto. Généré par `assets/print/`.
 
 ## RSVP
 - **Date limite: 31 juillet 2026.**
