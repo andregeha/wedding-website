@@ -9,12 +9,12 @@
 
 ## Date & time
 - Wedding date: **samedi 22 août 2026**
-- Ceremony: **16 h 45**
+- Ceremony: **16 h 30**
 - Reception / verre d'accueil: **18 h 30**
 
 ## Cérémonie (religieuse)
 - Type: religieuse (rite grec-orthodoxe).
-- Heure: **16 h 45**
+- Heure: **16 h 30**
 - Lieu: **Église Notre-Dame de l'Annonciation**, Achrafieh, Beyrouth.
 - Parking: **gratuit, à 50 m après l'église sur la droite de la route.**
 - Carte: https://maps.app.goo.gl/grQqHbBrcDq7Jx4i6
@@ -34,7 +34,7 @@
   panoramique. Hôte du festival international Al Bustan. Site: hotelalbustan.com
 
 ## Programme / déroulé
-- **16 h 45** — Cérémonie religieuse
+- **16 h 30** — Cérémonie religieuse
 - **18 h 30** — Verre d'accueil
 - **20 h 00** — Dîner  *(⚠️ client a écrit « 8h diner » → interprété comme 20 h ; à confirmer)*
 - **02 h 00** — Fin de la célébration
@@ -63,18 +63,20 @@ Deux comptes ouverts, **un seul publié** :
 | LBP | 021 01 673 2660943 1 5 | `LB55 0014 0000 2101 6732 6609 4315` | ❌ mémoire seulement |
 
 - **Seul le compte USD** est affiché (site + faire-part) — décision client.
-- Participer **par virement** (BIC + IBAN ci-dessus) **ou en espèces** dans une agence BLOM Bank
-  au Liban. Locator : https://www.blombank.com/english/branches-and-atms-locator
-  (filtrer sur **Branches**, pas **ATMs**).
+- Participer **par virement** (BIC + IBAN ci-dessus). Le **dépôt en espèces / locator d'agence
+  n'est plus affiché** (décision client 2026-06-30 : ne garder que les coordonnées de virement).
 - **Compte EUR (France)** en cours d'ouverture → à ajouter plus tard (virements depuis l'Europe).
 
 ## Faire-part imprimé
 - Format **paysage 178 × 127 mm** (7×5", standard), **recto/verso**, vectoriel.
 - **Émis par les parents** : « Elie & Pascale Geha · Manhal & Najwa Nacouzi — ont la joie de
   vous convier au mariage de leurs enfants André & Rhéa ».
-- Recto : invitation + cérémonie/réception (2 colonnes) + illustration + un pied de page
-  discret « Liste de mariage » avec le **compte USD** (banque, BIC, IBAN, bénéficiaire).
-  Verso : programme de la journée + RSVP + QR vers le site. Généré par `assets/print/`.
+- Recto : invitation + cérémonie/réception (2 colonnes) + un pied de page discret
+  « Liste de mariage » avec le **compte USD** (banque, BIC, IBAN, bénéficiaire). **Pas
+  d'illustration sur le recto** (déplacée au verso, 2026-06-30).
+- Verso : **l'illustration de l'hôtel en grand** (le « héros » du dos) + « Merci de confirmer
+  votre présence » + QR vers le site. **Plus de programme/déroulé** sur le verso (sur le site).
+  Généré par `assets/print/`.
 
 ## RSVP
 - **Date limite: 31 juillet 2026.**
