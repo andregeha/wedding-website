@@ -52,6 +52,8 @@ PLEX, PLEX_IT = FDIR+"IBMPlexSerif-Regular.ttf", FDIR+"IBMPlexSerif-Italic.ttf"
 ILLUS = os.path.join(HERE, "hotel-source.png")
 PDF   = os.path.join(HERE, "invitation.pdf")
 PNG_R = os.path.join(HERE, "invitation.png")        # single-page preview
+PDF_B5 = os.path.join(HERE, "invitation-b5.pdf")    # B5 landscape (250×176 mm) version
+PNG_B5 = os.path.join(HERE, "invitation-b5.png")
 
 # --- content (keep in sync with wedding-details.md) ---
 PARENTS = ("Elie & Pascale Geha", "Manhal & Najwa Nacouzi")
@@ -158,6 +160,20 @@ def build():
     doc[0].get_pixmap(dpi=200).save(PNG_R)
     doc.close()
     print("wrote", PDF, "+ preview")
+
+    # --- B5 landscape version (250 × 176 mm) ---------------------------------
+    # Same design, scaled to fill a B5 sheet (aspect 1.42 ≈ the card's 1.40), centred
+    # and vector-preserved by embedding the source page. Text + QR stay crisp.
+    B5W, B5H = 250*mm, 176*mm
+    src = fitz.open(PDF); out = fitz.open()
+    page = out.new_page(width=B5W, height=B5H)
+    s = min(B5W/W, B5H/H); tw, th = W*s, H*s
+    x0, y0 = (B5W-tw)/2, (B5H-th)/2
+    page.show_pdf_page(fitz.Rect(x0, y0, x0+tw, y0+th), src, 0)
+    out.save(PDF_B5)
+    fitz.open(PDF_B5)[0].get_pixmap(dpi=200).save(PNG_B5)
+    src.close(); out.close()
+    print("wrote", PDF_B5, "+ preview")
 
 if __name__ == "__main__":
     build()

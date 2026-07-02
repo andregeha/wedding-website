@@ -7,7 +7,9 @@ description: Generate or update the printable wedding invitation (faire-part) �
 
 A print-ready **single-page landscape 178×127 mm (7×5") card**, reusing the site identity.
 Output is a **1-page true vector PDF** (`assets/print/invitation.pdf` — crisp text + QR) plus
-a PNG preview (`invitation.png`), rendered from the same PDF. The hotel illustration is
+a PNG preview (`invitation.png`), rendered from the same PDF. A **B5 landscape (250×176 mm)**
+version is also emitted (`invitation-b5.pdf` / `invitation-b5.png`) — the same design embedded
+and scaled to fill B5 (aspect 1.42 ≈ the card's 1.40), vector-preserved. The hotel illustration is
 embedded full-resolution (`hotel-source.png`) and auto-cropped to its visible artwork
 (`visible_bbox()`), so its faint near-white margins don't add empty space.
 

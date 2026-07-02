@@ -2,6 +2,11 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (11) — B5 landscape version of the card
+- Added a **B5 landscape (250 × 176 mm)** export: `invitation-b5.pdf` / `invitation-b5.png`.
+  Same design, embedded and scaled to fill B5 (aspect 1.42 ≈ card's 1.40), vector-preserved
+  (text + QR stay crisp) via PyMuPDF `show_pdf_page`. The 178×127 version stays as-is.
+
 ## 2026-06-30 (10) — Card: RSVP line moved above Liste de mariage, on one line
 - Recto bottom reflowed: the RSVP line is now a **single line placed above** the « Liste de
   mariage » block (was two lines below it), with the QR inline at its right — saves space.
