@@ -23,10 +23,10 @@ END:VTIMEZONE
 BEGIN:VEVENT
 UID:mariage-andre-rhea-2026-08-22@andregeha.github.io
 DTSTAMP:20260622T100000Z
-DTSTART;TZID=Asia/Beirut:20260822T164500
+DTSTART;TZID=Asia/Beirut:20260822T170000
 DTEND;TZID=Asia/Beirut:20260823T020000
 SUMMARY:Mariage d'André & Rhéa
 LOCATION:Église Notre-Dame de l'Annonciation, Achrafieh, Beyrouth
-DESCRIPTION:Cérémonie à 16 h 45 — Église Notre-Dame de l'Annonciation, Achrafieh, Beyrouth.\nRéception à 18 h 30 — Hôtel Al Bustan, Beit Mery.\nMerci de confirmer votre présence avant le 31 juillet 2026.
+DESCRIPTION:Cérémonie à 17 h 00 — Église Notre-Dame de l'Annonciation, Achrafieh, Beyrouth.\nRéception à 18 h 30 — Hôtel Al Bustan, Beit Mery.\nMerci de confirmer votre présence avant le 21 juillet 2026.
 END:VEVENT
 END:VCALENDAR

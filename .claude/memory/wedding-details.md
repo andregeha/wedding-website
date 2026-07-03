@@ -9,12 +9,12 @@
 
 ## Date & time
 - Wedding date: **samedi 22 août 2026**
-- Ceremony: **16 h 30**
+- Ceremony: **17 h 00**
 - Reception / verre d'accueil: **18 h 30**
 
 ## Cérémonie (religieuse)
 - Type: religieuse (rite grec-orthodoxe).
-- Heure: **16 h 30**
+- Heure: **17 h 00**
 - Lieu: **Église Notre-Dame de l'Annonciation**, Achrafieh, Beyrouth.
 - Parking: **gratuit, à 50 m après l'église sur la droite de la route.**
 - Carte: https://maps.app.goo.gl/grQqHbBrcDq7Jx4i6
@@ -34,7 +34,7 @@
   panoramique. Hôte du festival international Al Bustan. Site: hotelalbustan.com
 
 ## Programme / déroulé
-- **16 h 30** — Cérémonie religieuse
+- **17 h 00** — Cérémonie religieuse
 - **18 h 30** — Verre d'accueil
 - **20 h 00** — Dîner  *(⚠️ client a écrit « 8h diner » → interprété comme 20 h ; à confirmer)*
 - **02 h 00** — Fin de la célébration
