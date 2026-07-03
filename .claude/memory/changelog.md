@@ -2,6 +2,12 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (12) — Cérémonie 16 h 30 → 17 h 00
+- Client set the **cérémonie (messe) to 17 h 00** (was 16 h 30). Updated the site
+  (carte + programme), both card sizes (`CEREMONY` constant → 178×127 + B5), and memory.
+- Also fixed the stale `assets/wedding.ics`: ceremony 16 h 45 → **17 h 00** (DTSTART 170000)
+  and deadline 31 → **21 juillet 2026** (it had never been synced).
+
 ## 2026-06-30 (11) — B5 landscape version of the card
 - Added a **B5 landscape (250 × 176 mm)** export: `invitation-b5.pdf` / `invitation-b5.png`.
   Same design, embedded and scaled to fill B5 (aspect 1.42 ≈ card's 1.40), vector-preserved
