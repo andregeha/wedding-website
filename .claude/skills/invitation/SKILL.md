@@ -6,10 +6,14 @@ description: Generate or update the printable wedding invitation (faire-part) �
 # Printable invitation (faire-part)
 
 A print-ready **single-page landscape 178×127 mm (7×5") card**, reusing the site identity.
-Output is a **1-page true vector PDF** (`assets/print/invitation.pdf` — crisp text + QR) plus
-a PNG preview (`invitation.png`), rendered from the same PDF. A **B5 landscape (250×176 mm)**
-version is also emitted (`invitation-b5.pdf` / `invitation-b5.png`) — the same design embedded
-and scaled to fill B5 (aspect 1.42 ≈ the card's 1.40), vector-preserved. The hotel illustration is
+**Three versions** are emitted (all 1-page true vector PDFs + PNG previews):
+- `invitation.pdf` / `.png` — 178×127 mm, with the RSVP line **+ QR**.
+- `invitation-b5.pdf` / `.png` — **B5 landscape (250×176 mm)**, the with-QR design embedded
+  and scaled to fill B5 (aspect 1.42 ≈ the card's 1.40), vector-preserved.
+- `invitation-no-qr.pdf` / `.png` — 178×127 mm, identical but **without the QR** (RSVP line centred).
+
+`render_card(path, png, qr_on)` draws the 178×127 page; `build()` renders both 178×127 versions
+then embeds the with-QR one into a B5 page. The hotel illustration is
 embedded full-resolution (`hotel-source.png`) and auto-cropped to its visible artwork
 (`visible_bbox()`), so its faint near-white margins don't add empty space.
 

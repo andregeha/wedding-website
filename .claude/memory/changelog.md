@@ -2,6 +2,13 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (13) — Smaller ampersand + a 3rd (no-QR) card version
+- **Names ampersand shrunk** on the card (fs 24 → « & » at 15 pt, raised ~3 pt to sit centred)
+  — the full-size `&` looked ugly. Applies to both 178×127 and B5 (same generator).
+- **Three card versions now** (refactored generator into `render_card(path, png, qr_on)`):
+  1. `invitation.pdf` (178×127, with QR) · 2. `invitation-b5.pdf` (B5, with QR) ·
+  3. **`invitation-no-qr.pdf`** (178×127, same design, **no QR** — RSVP line centred).
+
 ## 2026-06-30 (12) — Cérémonie 16 h 30 → 17 h 00
 - Client set the **cérémonie (messe) to 17 h 00** (was 16 h 30). Updated the site
   (carte + programme), both card sizes (`CEREMONY` constant → 178×127 + B5), and memory.
