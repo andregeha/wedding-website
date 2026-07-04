@@ -114,14 +114,14 @@ def render_card(path, png, qr_on=True):
     center(PARENTS[1], cx+128, 58, "Plex", 11, INK)
     center(INVITE, cx, 84, "PlexIt", 9.5, MUTED)
 
-    # Names, with a smaller ampersand (raised a touch to sit centred between the names)
+    # Names, with a smaller ampersand sitting on the SAME baseline as the names
     a, amp, r = NAMES[0].strip(), NAMES[1], NAMES[2].strip()
     fs = 24; ampfs = 15; pad = 9
     wa = c.stringWidth(a, "Plex", fs); wr = c.stringWidth(r, "Plex", fs)
     wamp = c.stringWidth(amp, "Plex", ampfs)
     total = wa + pad + wamp + pad + wr; x = cx - total/2; yb = Y(120)
     c.setFont("Plex", fs); c.setFillColor(INK); c.drawString(x, yb, a)
-    c.setFont("Plex", ampfs); c.setFillColor(SAGE); c.drawString(x+wa+pad, Y(117), amp)
+    c.setFont("Plex", ampfs); c.setFillColor(SAGE); c.drawString(x+wa+pad, yb, amp)
     c.setFont("Plex", fs); c.setFillColor(INK); c.drawString(x+wa+pad+wamp+pad, yb, r)
 
     dw = spaced(DATE, cx, 146, "Plex", 9.5, 2.0, INK); rules(cx, 143, dw/2)

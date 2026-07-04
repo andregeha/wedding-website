@@ -2,6 +2,10 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (14) — Ampersand baseline-aligned with the names
+- The smaller « & » was raised ~3 pt (looked off); now drawn on the **same baseline** as the
+  names (bottom-aligned). Applies to all 3 card versions (same `render_card`).
+
 ## 2026-06-30 (13) — Smaller ampersand + a 3rd (no-QR) card version
 - **Names ampersand shrunk** on the card (fs 24 → « & » at 15 pt, raised ~3 pt to sit centred)
   — the full-size `&` looked ugly. Applies to both 178×127 and B5 (same generator).
