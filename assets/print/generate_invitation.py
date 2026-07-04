@@ -54,6 +54,8 @@ PDF   = os.path.join(HERE, "invitation.pdf")
 PNG_R = os.path.join(HERE, "invitation.png")        # single-page preview
 PDF_B5 = os.path.join(HERE, "invitation-b5.pdf")    # B5 landscape (250×176 mm) version
 PNG_B5 = os.path.join(HERE, "invitation-b5.png")
+PDF_NOQR = os.path.join(HERE, "invitation-no-qr.pdf")  # 178×127 mm, same design, no QR
+PNG_NOQR = os.path.join(HERE, "invitation-no-qr.png")
 
 # --- content (keep in sync with wedding-details.md) ---
 PARENTS = ("Elie & Pascale Geha", "Manhal & Najwa Nacouzi")
@@ -76,10 +78,9 @@ MUTED = colors.Color(97/255, 92/255, 86/255)
 LINE2 = colors.Color(228/255, 231/255, 224/255)
 W, H = 178*mm, 127*mm
 
-def build():
-    pdfmetrics.registerFont(TTFont("Plex", PLEX))
-    pdfmetrics.registerFont(TTFont("PlexIt", PLEX_IT))
-    c = canvas.Canvas(PDF, pagesize=(W, H))
+def render_card(path, png, qr_on=True):
+    """Draw the single-page 178×127 card. qr_on toggles the QR next to the RSVP line."""
+    c = canvas.Canvas(path, pagesize=(W, H))
     cx = W/2
     def Y(off): return H - off
 
@@ -103,24 +104,25 @@ def build():
         c.line(cxc-half-20, y, cxc-half-5, y); c.line(cxc+half+5, y, cxc+half+20, y)
 
     # Crop the illustration to its visible artwork (drops the faint lawn/white margins,
-    # esp. at the bottom) so it can be placed tight and centred on both sides.
+    # esp. at the bottom) so it can be placed tight and centred.
     img = Image.open(ILLUS).convert("RGB")
     vb = visible_bbox(img); art = img.crop(vb) if vb else img
 
-    # ===================== RECTO — the complete invitation, incl. the illustration =====================
     border()
     # Parents on either side of the card
     center(PARENTS[0], cx-128, 58, "Plex", 11, INK)
     center(PARENTS[1], cx+128, 58, "Plex", 11, INK)
     center(INVITE, cx, 84, "PlexIt", 9.5, MUTED)
 
-    a, amp, r = NAMES; fs = 24
-    c.setFont("Plex", fs)
-    wa, wamp, wr = (c.stringWidth(s, "Plex", fs) for s in (a, amp, r))
-    x = cx - (wa+wamp+wr)/2; yb = Y(120)
-    c.setFillColor(INK); c.drawString(x, yb, a)
-    c.setFillColor(SAGE); c.drawString(x+wa, yb, amp)
-    c.setFillColor(INK); c.drawString(x+wa+wamp, yb, r)
+    # Names, with a smaller ampersand (raised a touch to sit centred between the names)
+    a, amp, r = NAMES[0].strip(), NAMES[1], NAMES[2].strip()
+    fs = 24; ampfs = 15; pad = 9
+    wa = c.stringWidth(a, "Plex", fs); wr = c.stringWidth(r, "Plex", fs)
+    wamp = c.stringWidth(amp, "Plex", ampfs)
+    total = wa + pad + wamp + pad + wr; x = cx - total/2; yb = Y(120)
+    c.setFont("Plex", fs); c.setFillColor(INK); c.drawString(x, yb, a)
+    c.setFont("Plex", ampfs); c.setFillColor(SAGE); c.drawString(x+wa+pad, Y(117), amp)
+    c.setFont("Plex", fs); c.setFillColor(INK); c.drawString(x+wa+pad+wamp+pad, yb, r)
 
     dw = spaced(DATE, cx, 146, "Plex", 9.5, 2.0, INK); rules(cx, 143, dw/2)
 
@@ -137,33 +139,42 @@ def build():
     vblock(*CEREMONY, cx-118, vy)
     vblock(*RECEPTION, cx+118, vy)
 
-    # RSVP — one compact line + QR, ABOVE the gift block (saves vertical space)
-    qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
-    b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 26
+    # RSVP — one compact line (with the QR beside it when qr_on), above the gift block
     rsvp = "Réponse souhaitée avant le 21 juillet 2026 — auprès des mariés, de leurs parents, ou en ligne"
-    c.setFont("PlexIt", 6.2); rw = c.stringWidth(rsvp, "PlexIt", 6.2)
-    gap = 9; gx = cx - (rw + gap + qs)/2; ry_top = vy + 22 + 11
-    c.setFillColor(MUTED); c.drawString(gx, Y(ry_top + qs/2 + 2.2), rsvp)
-    dwg = Drawing(qs, qs, transform=[qs/bw, 0, 0, qs/bh, 0, 0]); dwg.add(qw)
-    renderPDF.draw(dwg, c, gx + rw + gap, H-(ry_top+qs))
+    ry_top = vy + 22 + 11
+    if qr_on:
+        qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
+        b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 26
+        c.setFont("PlexIt", 6.2); rw = c.stringWidth(rsvp, "PlexIt", 6.2)
+        gap = 9; gx = cx - (rw + gap + qs)/2
+        c.setFillColor(MUTED); c.drawString(gx, Y(ry_top + qs/2 + 2.2), rsvp)
+        dwg = Drawing(qs, qs, transform=[qs/bw, 0, 0, qs/bh, 0, 0]); dwg.add(qw)
+        renderPDF.draw(dwg, c, gx + rw + gap, H-(ry_top+qs))
+        gy = ry_top + qs + 13
+    else:
+        center(rsvp, cx, ry_top + 15, "PlexIt", 6.2, MUTED)
+        gy = ry_top + 39
 
     # discreet gift footer — small title, one compact line per account
-    gy = ry_top + qs + 13
     c.setStrokeColor(LINE2); c.setLineWidth(0.7); c.line(cx-84, Y(gy), cx+84, Y(gy))
     spaced(GIFT_TITLE, cx, gy+9, "Plex", 6.2, 1.6, SAGE)
     center(GIFT_LB, cx, gy+18, "Plex", 5.9, MUTED)
     center(GIFT_FR, cx, gy+26, "Plex", 5.9, MUTED)
-    c.showPage()
+    c.showPage(); c.save()
+    fitz.open(path)[0].get_pixmap(dpi=200).save(png)
+    print("wrote", path, "+ preview")
 
-    c.save()
-    doc = fitz.open(PDF)
-    doc[0].get_pixmap(dpi=200).save(PNG_R)
-    doc.close()
-    print("wrote", PDF, "+ preview")
 
-    # --- B5 landscape version (250 × 176 mm) ---------------------------------
-    # Same design, scaled to fill a B5 sheet (aspect 1.42 ≈ the card's 1.40), centred
-    # and vector-preserved by embedding the source page. Text + QR stay crisp.
+def build():
+    pdfmetrics.registerFont(TTFont("Plex", PLEX))
+    pdfmetrics.registerFont(TTFont("PlexIt", PLEX_IT))
+
+    # Version 1: 178×127 mm with QR ; Version 3: same, without QR
+    render_card(PDF, PNG_R, qr_on=True)
+    render_card(PDF_NOQR, PNG_NOQR, qr_on=False)
+
+    # Version 2: B5 landscape (250 × 176 mm) — the with-QR design scaled to fill a B5
+    # sheet (aspect 1.42 ≈ the card's 1.40), vector-preserved so text + QR stay crisp.
     B5W, B5H = 250*mm, 176*mm
     src = fitz.open(PDF); out = fitz.open()
     page = out.new_page(width=B5W, height=B5H)
