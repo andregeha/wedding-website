@@ -2,6 +2,13 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (15) — Envelope seal sticker (Ø 25 mm)
+- New **round sticker** to cover the brand mark inside the envelope: wax-seal look, **sage
+  disc** (edge never white — envelope isn't white) + ivory double ring + the hand-drawn logo
+  (A. · floral · R.) recoloured **ivory** tone-on-tone. `assets/print/generate_sticker.py`
+  → `sticker.pdf` (Ø25 mm + 2 mm bleed, vector) + `sticker.png` (round preview).
+- Committed the original logo render to the repo: `assets/print/logo-source.png` (2700×3375).
+
 ## 2026-06-30 (14) — Ampersand baseline-aligned with the names
 - The smaller « & » was raised ~3 pt (looked off); now drawn on the **same baseline** as the
   names (bottom-aligned). Applies to all 3 card versions (same `render_card`).
