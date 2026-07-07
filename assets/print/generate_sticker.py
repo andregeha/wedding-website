@@ -29,12 +29,14 @@ LOGO = os.path.join(HERE, "logo-source.png")
 
 IVORY      = (244, 241, 233)   # #f4f1e9
 BLUE       = (83, 89, 164)     # #5359a4 — logo ink
+SAGE       = (95, 125, 99)     # #5f7d63 — the site's sage accent (the "first" green)
 LIGHTGREEN = (194, 216, 175)   # #c2d8af — tree foliage in the illustration
 DEEPGREEN  = (70, 96, 63)      # #46603f — deep green, reads on the light-green disc
 
 # version: (disc rgb, emblem/ring rgb, out basename)
 VERSIONS = [
     (BLUE,       IVORY,     "sticker-blue"),
+    (SAGE,       IVORY,     "sticker-sage"),
     (LIGHTGREEN, DEEPGREEN, "sticker-green"),
 ]
 
