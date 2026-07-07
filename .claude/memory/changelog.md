@@ -2,6 +2,10 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (17) — Sticker: add the sage (first green) version
+- Added **`sticker-sage`** = disc in the site sage `#5f7d63` (the "first" green / accent) +
+  ivory emblem, with the A/R-clearance fix. Three colourways now: blue, sage, light green.
+
 ## 2026-06-30 (16) — Sticker: 2 colourways (logo blue / tree green), A·R clear the ring
 - Dropped the dark-green (`sticker.pdf`) — not the wedding colour. Two versions now, colours
   sampled from the sources: **`sticker-blue`** = disc in the logo ink blue `#5359a4` + ivory
