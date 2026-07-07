@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Printable wedding invitation (faire-part) — official landscape card, single page.
+"""Printable wedding invitation (faire-part) — single-page landscape card.
 
-Format: 178 × 127 mm landscape (7×5", standard wedding-invitation size).
-One page: the complete invitation — parents, names, date, the illustration,
-          cérémonie/réception, the two gift accounts, and a QR to the site.
+The base design is 178 × 127 mm landscape; two deliverables are produced:
+  invitation-a5.pdf/.png     — WITH the QR, scaled to fill A5 landscape (210 × 148 mm).
+  invitation-no-qr.pdf/.png  — WITHOUT the QR, kept at the base 178 × 127 mm.
+
+One page each: the complete invitation — parents, names, date, the illustration,
+cérémonie/réception, the two gift accounts, and (a5 only) a QR to the site.
 
 True VECTOR PDF (crisp text + QR) via reportlab; illustration embedded at full resolution.
-A PNG preview is rendered from the same PDF via PyMuPDF (preview == print).
-Single typeface throughout: IBM Plex Serif (regular + italic).
+PNG previews via PyMuPDF (preview == print). Single typeface: IBM Plex Serif (reg + italic).
 
 Run from repo root:  python3 assets/print/generate_invitation.py
 Requires: reportlab, pymupdf, Pillow
@@ -50,11 +52,9 @@ HERE = os.path.dirname(__file__)
 FDIR = "/mnt/skills/examples/canvas-design/canvas-fonts/"
 PLEX, PLEX_IT = FDIR+"IBMPlexSerif-Regular.ttf", FDIR+"IBMPlexSerif-Italic.ttf"
 ILLUS = os.path.join(HERE, "hotel-source.png")
-PDF   = os.path.join(HERE, "invitation.pdf")
-PNG_R = os.path.join(HERE, "invitation.png")        # single-page preview
-PDF_B5 = os.path.join(HERE, "invitation-b5.pdf")    # B5 landscape (250×176 mm) version
-PNG_B5 = os.path.join(HERE, "invitation-b5.png")
-PDF_NOQR = os.path.join(HERE, "invitation-no-qr.pdf")  # 178×127 mm, same design, no QR
+PDF_A5   = os.path.join(HERE, "invitation-a5.pdf")     # WITH QR, A5 landscape (210×148 mm)
+PNG_A5   = os.path.join(HERE, "invitation-a5.png")
+PDF_NOQR = os.path.join(HERE, "invitation-no-qr.pdf")  # WITHOUT QR, base 178×127 mm
 PNG_NOQR = os.path.join(HERE, "invitation-no-qr.png")
 
 # --- content (keep in sync with wedding-details.md) ---
@@ -140,7 +140,7 @@ def render_card(path, png, qr_on=True):
     vblock(*RECEPTION, cx+118, vy)
 
     # RSVP — one compact line (with the QR beside it when qr_on), above the gift block
-    rsvp = "Réponse souhaitée avant le 21 juillet 2026 — auprès des mariés, de leurs parents, ou en ligne"
+    rsvp = "Réponse souhaitée avant le 28 juillet 2026 — auprès des mariés, de leurs parents, ou en ligne"
     ry_top = vy + 22 + 11
     if qr_on:
         qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
@@ -169,22 +169,24 @@ def build():
     pdfmetrics.registerFont(TTFont("Plex", PLEX))
     pdfmetrics.registerFont(TTFont("PlexIt", PLEX_IT))
 
-    # Version 1: 178×127 mm with QR ; Version 3: same, without QR
-    render_card(PDF, PNG_R, qr_on=True)
+    # Deliverable 2: WITHOUT the QR, at the base 178×127 mm
     render_card(PDF_NOQR, PNG_NOQR, qr_on=False)
 
-    # Version 2: B5 landscape (250 × 176 mm) — the with-QR design scaled to fill a B5
-    # sheet (aspect 1.42 ≈ the card's 1.40), vector-preserved so text + QR stay crisp.
-    B5W, B5H = 250*mm, 176*mm
-    src = fitz.open(PDF); out = fitz.open()
-    page = out.new_page(width=B5W, height=B5H)
-    s = min(B5W/W, B5H/H); tw, th = W*s, H*s
-    x0, y0 = (B5W-tw)/2, (B5H-th)/2
+    # Deliverable 1: WITH the QR, scaled to fill A5 landscape (210 × 148 mm). Render the
+    # with-QR base card to a temp page, then embed it (vector-preserved) into A5, centred.
+    tmp_pdf = os.path.join(HERE, "_tmp_qr.pdf"); tmp_png = os.path.join(HERE, "_tmp_qr.png")
+    render_card(tmp_pdf, tmp_png, qr_on=True)
+    A5W, A5H = 210*mm, 148*mm
+    src = fitz.open(tmp_pdf); out = fitz.open()
+    page = out.new_page(width=A5W, height=A5H)
+    s = min(A5W/W, A5H/H); tw, th = W*s, H*s
+    x0, y0 = (A5W-tw)/2, (A5H-th)/2
     page.show_pdf_page(fitz.Rect(x0, y0, x0+tw, y0+th), src, 0)
-    out.save(PDF_B5)
-    fitz.open(PDF_B5)[0].get_pixmap(dpi=200).save(PNG_B5)
+    out.save(PDF_A5)
+    fitz.open(PDF_A5)[0].get_pixmap(dpi=200).save(PNG_A5)
     src.close(); out.close()
-    print("wrote", PDF_B5, "+ preview")
+    os.remove(tmp_pdf); os.remove(tmp_png)
+    print("wrote", PDF_A5, "+ preview")
 
 if __name__ == "__main__":
     build()

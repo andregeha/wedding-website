@@ -2,6 +2,14 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (18) — RSVP deadline → 28 juillet; faire-part reduced to 2 (A5 w/ QR + no-QR)
+- **Date limite 21 → 28 juillet 2026** everywhere: site RSVP lead, card RSVP line, `wedding.ics`,
+  memory.
+- **Only two faire-parts now** (dropped `invitation.pdf` 178×127-with-QR and `invitation-b5`):
+  - **`invitation-a5.pdf`** — WITH QR, **A5 landscape 210×148 mm** (base design embedded + scaled).
+  - **`invitation-no-qr.pdf`** — WITHOUT QR, base **178×127 mm**.
+  Generator `build()` renders no-QR directly + embeds the with-QR base into A5.
+
 ## 2026-06-30 (17) — Sticker: add the sage (first green) version
 - Added **`sticker-sage`** = disc in the site sage `#5f7d63` (the "first" green / accent) +
   ivory emblem, with the A/R-clearance fix. Three colourways now: blue, sage, light green.

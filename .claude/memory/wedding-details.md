@@ -79,7 +79,7 @@ Compte au nom de **ANDRE NOEL GEHA &/OR RHEA NACOUZI** (n° client 2660943). Ouv
   en bas. PDF 1 page + `invitation.png`. Généré par `assets/print/`.
 
 ## RSVP
-- **Date limite: 21 juillet 2026.**
+- **Date limite: 28 juillet 2026.**
 - Pas de numéros affichés (les invités les connaissent). Contacter les parents:
   - **Elie & Pascale Geha**
   - **Manhal & Najwa Nacouzi**
