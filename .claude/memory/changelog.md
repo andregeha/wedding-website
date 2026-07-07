@@ -2,6 +2,14 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (16) — Sticker: 2 colourways (logo blue / tree green), A·R clear the ring
+- Dropped the dark-green (`sticker.pdf`) — not the wedding colour. Two versions now, colours
+  sampled from the sources: **`sticker-blue`** = disc in the logo ink blue `#5359a4` + ivory
+  emblem/ring; **`sticker-green`** = disc in the illustration's light tree green `#c2d8af` +
+  deep-green `#46603f` emblem/ring (tone-on-tone for contrast).
+- Fixed the **A/R touching the ring**: logo now scaled by a bounding-circle (diagonal) fit so
+  it always clears the inner ring. Generator parametrised by (disc, emblem, name).
+
 ## 2026-06-30 (15) — Envelope seal sticker (Ø 25 mm)
 - New **round sticker** to cover the brand mark inside the envelope: wax-seal look, **sage
   disc** (edge never white — envelope isn't white) + ivory double ring + the hand-drawn logo
