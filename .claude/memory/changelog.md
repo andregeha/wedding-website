@@ -2,6 +2,12 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (19) — Third faire-part: minimal (no QR / no gift list / no deadline)
+- Added **`invitation-minimal.pdf`** (178×127 mm): drops the QR, the « Liste de mariage », and
+  the deadline. Illustration enlarged (iw 122→150) so it stays balanced without the footer;
+  RSVP line shortened to « Réponse souhaitée auprès des mariés ou de leurs parents ».
+- `render_card` gains a `gift_on` flag. Three faire-parts now: a5 (QR), no-qr, minimal.
+
 ## 2026-06-30 (18) — RSVP deadline → 28 juillet; faire-part reduced to 2 (A5 w/ QR + no-QR)
 - **Date limite 21 → 28 juillet 2026** everywhere: site RSVP lead, card RSVP line, `wedding.ics`,
   memory.
