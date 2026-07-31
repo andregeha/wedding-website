@@ -6,13 +6,17 @@ description: Generate or update the printable wedding invitation (faire-part) �
 # Printable invitation (faire-part)
 
 A print-ready single-page landscape card (base design 178×127 mm), reusing the site identity.
-**Two versions** are emitted (both 1-page true vector PDFs + PNG previews):
+**Three versions** are emitted (all 1-page true vector PDFs + PNG previews):
 - `invitation-a5.pdf` / `.png` — **WITH the QR**, scaled to fill **A5 landscape (210×148 mm)**
   (aspect 1.42 ≈ the base 1.40), vector-preserved so text + QR stay crisp.
-- `invitation-no-qr.pdf` / `.png` — **WITHOUT the QR**, kept at the base **178×127 mm** (RSVP line centred).
+- `invitation-no-qr.pdf` / `.png` — **WITHOUT the QR**, base **178×127 mm** (RSVP line centred).
+- `invitation-minimal.pdf` / `.png` — **no QR, no « Liste de mariage », no deadline** (178×127 mm);
+  illustration enlarged so the card stays balanced without the footer, RSVP line shortened to
+  « Réponse souhaitée auprès des mariés ou de leurs parents ».
 
-`render_card(path, png, qr_on)` draws the 178×127 base page; `build()` renders the no-QR one
-directly, and renders the with-QR one to a temp page then embeds it into an A5 page. The hotel illustration is
+`render_card(path, png, qr_on, gift_on)` draws the 178×127 base page; `build()` renders the
+no-QR and minimal ones directly, and renders the with-QR one to a temp page then embeds it into
+an A5 page. The hotel illustration is
 embedded full-resolution (`hotel-source.png`) and auto-cropped to its visible artwork
 (`visible_bbox()`), so its faint near-white margins don't add empty space.
 

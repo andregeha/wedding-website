@@ -56,6 +56,8 @@ PDF_A5   = os.path.join(HERE, "invitation-a5.pdf")     # WITH QR, A5 landscape (
 PNG_A5   = os.path.join(HERE, "invitation-a5.png")
 PDF_NOQR = os.path.join(HERE, "invitation-no-qr.pdf")  # WITHOUT QR, base 178×127 mm
 PNG_NOQR = os.path.join(HERE, "invitation-no-qr.png")
+PDF_MIN  = os.path.join(HERE, "invitation-minimal.pdf") # no QR, no gift list, no deadline
+PNG_MIN  = os.path.join(HERE, "invitation-minimal.png")
 
 # --- content (keep in sync with wedding-details.md) ---
 PARENTS = ("Elie & Pascale Geha", "Manhal & Najwa Nacouzi")
@@ -78,8 +80,14 @@ MUTED = colors.Color(97/255, 92/255, 86/255)
 LINE2 = colors.Color(228/255, 231/255, 224/255)
 W, H = 178*mm, 127*mm
 
-def render_card(path, png, qr_on=True):
-    """Draw the single-page 178×127 card. qr_on toggles the QR next to the RSVP line."""
+def render_card(path, png, qr_on=True, gift_on=True):
+    """Draw the single-page 178×127 card.
+
+    qr_on   — QR beside the RSVP line.
+    gift_on — the « Liste de mariage » footer. When False (minimal card), the QR is dropped,
+              the RSVP line loses the deadline + « en ligne », and the illustration is enlarged
+              so the card stays balanced without the footer.
+    """
     c = canvas.Canvas(path, pagesize=(W, H))
     cx = W/2
     def Y(off): return H - off
@@ -126,21 +134,24 @@ def render_card(path, png, qr_on=True):
 
     dw = spaced(DATE, cx, 146, "Plex", 9.5, 2.0, INK); rules(cx, 143, dw/2)
 
-    # the hand-drawn illustration (cropped tight), lowered to give the top half air
-    iw = 122; ih = iw*art.height/art.width
-    c.drawImage(ImageReader(art), cx-iw/2, H-(158+ih), width=iw, height=ih)
+    # the hand-drawn illustration (cropped tight); enlarged on the minimal (no-footer) card
+    top_img = 158 if gift_on else 172
+    iw = 122 if gift_on else 150
+    ih = iw*art.height/art.width
+    c.drawImage(ImageReader(art), cx-iw/2, H-(top_img+ih), width=iw, height=ih)
 
     # ceremony / reception two columns
     def vblock(role, venue, addr, cxc, top):
         spaced(role, cxc, top, "Plex", 7.5, 2.0, SAGE)
         center(venue, cxc, top+12, "Plex", 9.2, INK)
         center(addr, cxc, top+22, "Plex", 7.2, MUTED)
-    vy = 158 + ih + 13
+    vy = top_img + ih + 13
     vblock(*CEREMONY, cx-118, vy)
     vblock(*RECEPTION, cx+118, vy)
 
-    # RSVP — one compact line (with the QR beside it when qr_on), above the gift block
-    rsvp = "Réponse souhaitée avant le 28 juillet 2026 — auprès des mariés, de leurs parents, ou en ligne"
+    # RSVP line (with the QR beside it when qr_on); the minimal card drops the deadline + « en ligne »
+    rsvp = ("Réponse souhaitée avant le 28 juillet 2026 — auprès des mariés, de leurs parents, ou en ligne"
+            if gift_on else "Réponse souhaitée auprès des mariés ou de leurs parents")
     ry_top = vy + 22 + 11
     if qr_on:
         qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
@@ -155,11 +166,12 @@ def render_card(path, png, qr_on=True):
         center(rsvp, cx, ry_top + 15, "PlexIt", 6.2, MUTED)
         gy = ry_top + 39
 
-    # discreet gift footer — small title, one compact line per account
-    c.setStrokeColor(LINE2); c.setLineWidth(0.7); c.line(cx-84, Y(gy), cx+84, Y(gy))
-    spaced(GIFT_TITLE, cx, gy+9, "Plex", 6.2, 1.6, SAGE)
-    center(GIFT_LB, cx, gy+18, "Plex", 5.9, MUTED)
-    center(GIFT_FR, cx, gy+26, "Plex", 5.9, MUTED)
+    # discreet gift footer — small title, one compact line per account (omitted on the minimal card)
+    if gift_on:
+        c.setStrokeColor(LINE2); c.setLineWidth(0.7); c.line(cx-84, Y(gy), cx+84, Y(gy))
+        spaced(GIFT_TITLE, cx, gy+9, "Plex", 6.2, 1.6, SAGE)
+        center(GIFT_LB, cx, gy+18, "Plex", 5.9, MUTED)
+        center(GIFT_FR, cx, gy+26, "Plex", 5.9, MUTED)
     c.showPage(); c.save()
     fitz.open(path)[0].get_pixmap(dpi=200).save(png)
     print("wrote", path, "+ preview")
@@ -171,6 +183,9 @@ def build():
 
     # Deliverable 2: WITHOUT the QR, at the base 178×127 mm
     render_card(PDF_NOQR, PNG_NOQR, qr_on=False)
+
+    # Deliverable 3: minimal — no QR, no « Liste de mariage », no deadline (178×127 mm)
+    render_card(PDF_MIN, PNG_MIN, qr_on=False, gift_on=False)
 
     # Deliverable 1: WITH the QR, scaled to fill A5 landscape (210 × 148 mm). Render the
     # with-QR base card to a temp page, then embed it (vector-preserved) into A5, centred.
