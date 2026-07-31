@@ -2,6 +2,10 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (20) — Minimal card: drop RSVP line, lower cérémonie/réception
+- On `invitation-minimal`, removed the « Réponse souhaitée… » line entirely and dropped the
+  cérémonie/réception block lower (vy offset +36 vs +13) to take the freed space — balanced.
+
 ## 2026-06-30 (19) — Third faire-part: minimal (no QR / no gift list / no deadline)
 - Added **`invitation-minimal.pdf`** (178×127 mm): drops the QR, the « Liste de mariage », and
   the deadline. Illustration enlarged (iw 122→150) so it stays balanced without the footer;

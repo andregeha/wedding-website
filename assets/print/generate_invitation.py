@@ -140,38 +140,38 @@ def render_card(path, png, qr_on=True, gift_on=True):
     ih = iw*art.height/art.width
     c.drawImage(ImageReader(art), cx-iw/2, H-(top_img+ih), width=iw, height=ih)
 
-    # ceremony / reception two columns
+    # ceremony / reception two columns — dropped lower on the minimal card so they take the
+    # space freed by removing the RSVP line + footer
     def vblock(role, venue, addr, cxc, top):
         spaced(role, cxc, top, "Plex", 7.5, 2.0, SAGE)
         center(venue, cxc, top+12, "Plex", 9.2, INK)
         center(addr, cxc, top+22, "Plex", 7.2, MUTED)
-    vy = top_img + ih + 13
+    vy = top_img + ih + (36 if not gift_on else 13)
     vblock(*CEREMONY, cx-118, vy)
     vblock(*RECEPTION, cx+118, vy)
 
-    # RSVP line (with the QR beside it when qr_on); the minimal card drops the deadline + « en ligne »
-    rsvp = ("Réponse souhaitée avant le 28 juillet 2026 — auprès des mariés, de leurs parents, ou en ligne"
-            if gift_on else "Réponse souhaitée auprès des mariés ou de leurs parents")
-    ry_top = vy + 22 + 11
-    if qr_on:
-        qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
-        b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 26
-        c.setFont("PlexIt", 6.2); rw = c.stringWidth(rsvp, "PlexIt", 6.2)
-        gap = 9; gx = cx - (rw + gap + qs)/2
-        c.setFillColor(MUTED); c.drawString(gx, Y(ry_top + qs/2 + 2.2), rsvp)
-        dwg = Drawing(qs, qs, transform=[qs/bw, 0, 0, qs/bh, 0, 0]); dwg.add(qw)
-        renderPDF.draw(dwg, c, gx + rw + gap, H-(ry_top+qs))
-        gy = ry_top + qs + 13
-    else:
-        center(rsvp, cx, ry_top + 15, "PlexIt", 6.2, MUTED)
-        gy = ry_top + 39
-
-    # discreet gift footer — small title, one compact line per account (omitted on the minimal card)
     if gift_on:
+        # RSVP line (with the QR beside it when qr_on), then the « Liste de mariage » footer
+        rsvp = "Réponse souhaitée avant le 28 juillet 2026 — auprès des mariés, de leurs parents, ou en ligne"
+        ry_top = vy + 22 + 11
+        if qr_on:
+            qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
+            b = qw.getBounds(); bw, bh = b[2]-b[0], b[3]-b[1]; qs = 26
+            c.setFont("PlexIt", 6.2); rw = c.stringWidth(rsvp, "PlexIt", 6.2)
+            gap = 9; gx = cx - (rw + gap + qs)/2
+            c.setFillColor(MUTED); c.drawString(gx, Y(ry_top + qs/2 + 2.2), rsvp)
+            dwg = Drawing(qs, qs, transform=[qs/bw, 0, 0, qs/bh, 0, 0]); dwg.add(qw)
+            renderPDF.draw(dwg, c, gx + rw + gap, H-(ry_top+qs))
+            gy = ry_top + qs + 13
+        else:
+            center(rsvp, cx, ry_top + 15, "PlexIt", 6.2, MUTED)
+            gy = ry_top + 39
+        # discreet gift footer — small title, one compact line per account
         c.setStrokeColor(LINE2); c.setLineWidth(0.7); c.line(cx-84, Y(gy), cx+84, Y(gy))
         spaced(GIFT_TITLE, cx, gy+9, "Plex", 6.2, 1.6, SAGE)
         center(GIFT_LB, cx, gy+18, "Plex", 5.9, MUTED)
         center(GIFT_FR, cx, gy+26, "Plex", 5.9, MUTED)
+    # (minimal card: no RSVP line and no footer — the venues are the last element)
     c.showPage(); c.save()
     fitz.open(path)[0].get_pixmap(dpi=200).save(png)
     print("wrote", path, "+ preview")
