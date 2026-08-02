@@ -89,7 +89,7 @@ def render_card(path, png, qr_on=True, gift_on=True, deadline_on=True):
     gift_on     — the « Liste de mariage » footer. When False (minimal card), the RSVP line is
                   dropped entirely, the cérémonie/réception is lowered, and the illustration is
                   enlarged so the card stays balanced without the footer.
-    deadline_on — include « avant le 28 juillet 2026 » in the RSVP line (gift cards only).
+    deadline_on — include « avant le 10 août 2026 » in the RSVP line (gift cards only).
     """
     c = canvas.Canvas(path, pagesize=(W, H))
     cx = W/2
@@ -155,7 +155,7 @@ def render_card(path, png, qr_on=True, gift_on=True, deadline_on=True):
 
     if gift_on:
         # RSVP line (with the QR beside it when qr_on), then the « Liste de mariage » footer
-        rsvp = ("Réponse souhaitée avant le 28 juillet 2026 — auprès des mariés, de leurs parents, ou en ligne"
+        rsvp = ("Réponse souhaitée avant le 10 août 2026 — auprès des mariés, de leurs parents, ou en ligne"
                 if deadline_on else
                 "Réponse souhaitée auprès des mariés, de leurs parents, ou en ligne")
         ry_top = vy + 22 + 11
