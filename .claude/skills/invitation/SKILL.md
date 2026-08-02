@@ -6,13 +6,14 @@ description: Generate or update the printable wedding invitation (faire-part) �
 # Printable invitation (faire-part)
 
 A print-ready single-page landscape card (base design 178×127 mm), reusing the site identity.
-**Three versions** are emitted (all 1-page true vector PDFs + PNG previews):
+**Four versions** are emitted (all 1-page true vector PDFs + PNG previews):
 - `invitation-a5.pdf` / `.png` — **WITH the QR**, scaled to fill **A5 landscape (210×148 mm)**
   (aspect 1.42 ≈ the base 1.40), vector-preserved so text + QR stay crisp.
 - `invitation-no-qr.pdf` / `.png` — **WITHOUT the QR**, base **178×127 mm** (RSVP line centred).
+- `invitation-no-deadline.pdf` / `.png` — no QR, **WITH « Liste de mariage » but no deadline**
+  (178×127 mm); RSVP line without « avant le 28 juillet 2026 ».
 - `invitation-minimal.pdf` / `.png` — **no QR, no « Liste de mariage », no deadline** (178×127 mm);
-  illustration enlarged so the card stays balanced without the footer, RSVP line shortened to
-  « Réponse souhaitée auprès des mariés ou de leurs parents ».
+  RSVP line dropped, cérémonie/réception lowered, illustration enlarged for balance.
 
 `render_card(path, png, qr_on, gift_on)` draws the 178×127 base page; `build()` renders the
 no-QR and minimal ones directly, and renders the with-QR one to a temp page then embeds it into

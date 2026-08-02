@@ -58,6 +58,8 @@ PDF_NOQR = os.path.join(HERE, "invitation-no-qr.pdf")  # WITHOUT QR, base 178×1
 PNG_NOQR = os.path.join(HERE, "invitation-no-qr.png")
 PDF_MIN  = os.path.join(HERE, "invitation-minimal.pdf") # no QR, no gift list, no deadline
 PNG_MIN  = os.path.join(HERE, "invitation-minimal.png")
+PDF_NODL = os.path.join(HERE, "invitation-no-deadline.pdf")  # no QR, WITH gift list, no deadline
+PNG_NODL = os.path.join(HERE, "invitation-no-deadline.png")
 
 # --- content (keep in sync with wedding-details.md) ---
 PARENTS = ("Elie & Pascale Geha", "Manhal & Najwa Nacouzi")
@@ -80,13 +82,14 @@ MUTED = colors.Color(97/255, 92/255, 86/255)
 LINE2 = colors.Color(228/255, 231/255, 224/255)
 W, H = 178*mm, 127*mm
 
-def render_card(path, png, qr_on=True, gift_on=True):
+def render_card(path, png, qr_on=True, gift_on=True, deadline_on=True):
     """Draw the single-page 178×127 card.
 
-    qr_on   — QR beside the RSVP line.
-    gift_on — the « Liste de mariage » footer. When False (minimal card), the QR is dropped,
-              the RSVP line loses the deadline + « en ligne », and the illustration is enlarged
-              so the card stays balanced without the footer.
+    qr_on       — QR beside the RSVP line.
+    gift_on     — the « Liste de mariage » footer. When False (minimal card), the RSVP line is
+                  dropped entirely, the cérémonie/réception is lowered, and the illustration is
+                  enlarged so the card stays balanced without the footer.
+    deadline_on — include « avant le 28 juillet 2026 » in the RSVP line (gift cards only).
     """
     c = canvas.Canvas(path, pagesize=(W, H))
     cx = W/2
@@ -152,7 +155,9 @@ def render_card(path, png, qr_on=True, gift_on=True):
 
     if gift_on:
         # RSVP line (with the QR beside it when qr_on), then the « Liste de mariage » footer
-        rsvp = "Réponse souhaitée avant le 28 juillet 2026 — auprès des mariés, de leurs parents, ou en ligne"
+        rsvp = ("Réponse souhaitée avant le 28 juillet 2026 — auprès des mariés, de leurs parents, ou en ligne"
+                if deadline_on else
+                "Réponse souhaitée auprès des mariés, de leurs parents, ou en ligne")
         ry_top = vy + 22 + 11
         if qr_on:
             qw = qr.QrCodeWidget(SITE); qw.barFillColor = INK
@@ -186,6 +191,9 @@ def build():
 
     # Deliverable 3: minimal — no QR, no « Liste de mariage », no deadline (178×127 mm)
     render_card(PDF_MIN, PNG_MIN, qr_on=False, gift_on=False)
+
+    # Deliverable 4: no QR, WITH « Liste de mariage », but no deadline (178×127 mm)
+    render_card(PDF_NODL, PNG_NODL, qr_on=False, gift_on=True, deadline_on=False)
 
     # Deliverable 1: WITH the QR, scaled to fill A5 landscape (210 × 148 mm). Render the
     # with-QR base card to a temp page, then embed it (vector-preserved) into A5, centred.

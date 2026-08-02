@@ -2,6 +2,12 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (21) — 4th faire-part: with gift list, no deadline
+- Added **`invitation-no-deadline.pdf`** (178×127, no QR): keeps the « Liste de mariage » but
+  drops « avant le 28 juillet 2026 » from the RSVP line. New `deadline_on` flag on `render_card`.
+  Four faire-parts now: a5 (QR+list+deadline), no-qr (list+deadline), no-deadline (list),
+  minimal (nothing).
+
 ## 2026-06-30 (20) — Minimal card: drop RSVP line, lower cérémonie/réception
 - On `invitation-minimal`, removed the « Réponse souhaitée… » line entirely and dropped the
   cérémonie/réception block lower (vy offset +36 vs +13) to take the freed space — balanced.
