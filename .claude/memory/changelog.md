@@ -2,6 +2,10 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (22) — RSVP deadline → 10 août 2026
+- Date limite **28 juillet → 10 août 2026** partout : site RSVP lead, cards with deadline
+  (a5 + no-qr), `wedding.ics`, memory.
+
 ## 2026-06-30 (21) — 4th faire-part: with gift list, no deadline
 - Added **`invitation-no-deadline.pdf`** (178×127, no QR): keeps the « Liste de mariage » but
   drops « avant le 28 juillet 2026 » from the RSVP line. New `deadline_on` flag on `render_card`.
