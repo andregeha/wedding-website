@@ -2,6 +2,13 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (24) — « Parfum » entrance coupon
+- New `assets/print/generate_coupon.py` → `coupon.pdf` + `.png`: A6 portrait entrance coupon
+  for the perfume favour. Süskind epigraph (« … le cœur de l’humanité. »), the couple's message
+  (choose one of the **five** composed scents), and « À choisir et à emporter lors du verre
+  d’accueil ». Wedding identity: IBM Plex Serif, sage, double border, sage A·R logo. Wording
+  finalised with the client.
+
 ## 2026-06-30 (23) — Print assets: black logo + tight-cropped colour drawing
 - New `assets/print/generate_print_assets.py` → two print-ready files:
   - **`logo-black.png` / `.pdf`** — the A·R logo recoloured blue→**black**, tight-cropped,
