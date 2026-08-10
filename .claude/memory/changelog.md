@@ -2,6 +2,15 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (23) — Print assets: black logo + tight-cropped colour drawing
+- New `assets/print/generate_print_assets.py` → two print-ready files:
+  - **`logo-black.png` / `.pdf`** — the A·R logo recoloured blue→**black**, tight-cropped,
+    transparent bg, at source resolution (2274×2038).
+  - **`drawing-cropped.pdf`** (+ 300-dpi `.png`) — the **colour** garden/hotel drawing from a
+    new high-quality scan (`drawing-source.pdf`), white margins cropped on all 4 sides via the
+    PDF cropbox (native res, lossless).
+- Committed the client's new high-quality drawing scan as `drawing-source.pdf`.
+
 ## 2026-06-30 (22) — RSVP deadline → 10 août 2026
 - Date limite **28 juillet → 10 août 2026** partout : site RSVP lead, cards with deadline
   (a5 + no-qr), `wedding.ics`, memory.
