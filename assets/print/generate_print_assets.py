@@ -40,10 +40,7 @@ def make_logo_black():
     alpha = np.clip((255 - lum) * 1.7, 0, 255).astype(np.uint8)   # ink -> opaque black
     out = np.zeros((*lum.shape, 4), np.uint8)          # RGB stays 0,0,0 = black
     out[..., 3] = alpha
-    img = Image.fromarray(out, "RGBA")
-    bb = img.split()[3].getbbox()                       # tight crop to the artwork
-    if bb:
-        img = img.crop(bb)
+    img = Image.fromarray(out, "RGBA")                  # keep the full original frame (uncropped)
     png = os.path.join(HERE, "logo-black.png"); img.save(png)
     # PDF at the image's native size (1 px = 1 pt), transparent background
     pdf = os.path.join(HERE, "logo-black.pdf")
