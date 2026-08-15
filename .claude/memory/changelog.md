@@ -2,6 +2,14 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (25) — Table cards (24 senteurs), two formats, B&W
+- Tables named after the 24 perfume scents. New `table_motifs.py` (24 hand-coded B&W line
+  motifs — one per scent) + `generate_table_cards.py` → **`tables-A5.pdf`** (24p, large, to
+  place on tables) and **`tables-A7.pdf`** (24p, small entrance card = A5 at ½ scale, identical
+  design). Each card: Nº, plant line drawing, name (IBM Plex Serif), double thin border, ink
+  only. Client chose "je les dessine" + A5/A7. Previews: `tables-overview.png`, `tables-preview.png`.
+- Note: name capitalisation normalised (Title Case, ’ apostrophes); « bergamotte » → « Bergamote ».
+
 ## 2026-06-30 (24) — « Parfum » entrance coupon
 - New `assets/print/generate_coupon.py` → `coupon.pdf` + `.png`: A6 portrait entrance coupon
   for the perfume favour. Süskind epigraph (« … le cœur de l’humanité. »), the couple's message
