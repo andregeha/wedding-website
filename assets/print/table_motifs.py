@@ -353,7 +353,7 @@ def chocolat(c, cx, cy, R, lw):
 
 
 MOTIFS = [
-    ("Jasmin d’Arabie", jasmin), ("Fleur d’Oranger", fleur_oranger), ("Rose de Mai", rose),
+    ("Jasmin d’Orient", jasmin), ("Fleur d’Oranger", fleur_oranger), ("Rose de Mai", rose),
     ("Pivoine Blanche", pivoine), ("Magnolia de Méditerranée", magnolia), ("Iris Poudré", iris),
     ("Citron Vert", citron), ("Bergamote", bergamote), ("Pamplemousse", pamplemousse),
     ("Verveine", verveine), ("Menthe Fraîche", menthe), ("Cèdre du Liban", cedre),
