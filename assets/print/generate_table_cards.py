@@ -22,6 +22,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib import colors
 import fitz
 from table_motifs import MOTIFS, INK
+from sketch import Pen
 
 HERE = os.path.dirname(__file__)
 FDIR = "/mnt/skills/examples/canvas-design/canvas-fonts/"
@@ -60,8 +61,9 @@ def draw_card(c, W, H, number, name, motif, name_fs):
     for ch, wch in zip(num, ws):
         c.drawString(x, y, ch); x += wch + tr
 
-    # motif (centred, upper-middle)
-    motif(c, cx, H*0.455, H*0.15, max(1.0, W*0.0055))
+    # motif (centred, upper-middle) — drawn with the hand-drawn "sketch" pen
+    R = H*0.15; lw = max(1.0, W*0.0055)
+    motif(Pen(c, rough=R*0.018, seed=number+3), cx, H*0.455, R, lw)
 
     # name (Plex Serif, uniform size across all cards)
     c.setFillColor(INK); c.setFont("Plex", name_fs)

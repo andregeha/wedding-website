@@ -374,10 +374,11 @@ def contact_sheet(path_pdf, path_png):
     from reportlab.pdfbase.ttfonts import TTFont
     FDIR = "/mnt/skills/examples/canvas-design/canvas-fonts/"
     pdfmetrics.registerFont(TTFont("Plex", FDIR+"IBMPlexSerif-Regular.ttf"))
+    from sketch import Pen
     for i, (name, fn) in enumerate(MOTIFS):
         col = i % cols; row = i // cols
         cx = col*cw + cw/2; cy = H - (row*ch + ch*0.46)
-        fn(c, cx, cy, 44, 1.4)
+        fn(Pen(c, rough=0.8, seed=i+3), cx, cy, 44, 1.4)
         c.setFillColor(INK); c.setFont("Plex", 9)
         c.drawCentredString(cx, H-(row*ch+ch*0.92), "%d · %s" % (i+1, name))
         c.setStrokeColor(colors.Color(0.85,0.85,0.83)); c.setLineWidth(0.4)

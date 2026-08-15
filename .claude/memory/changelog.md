@@ -2,6 +2,12 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (26) — Table cards: hand-drawn (sketch) rendering
+- New `sketch.py` (Pen): wraps the canvas and renders every motif stroke as a slightly wobbly,
+  double-passed hand-drawn line. Applied to the 24 table motifs (cards + contact/overview);
+  the border + text stay crisp. Wobble scales with size (rough = R*0.018), so A5 & A7 match.
+
+
 ## 2026-06-30 (25) — Table cards (24 senteurs), two formats, B&W
 - Tables named after the 24 perfume scents. New `table_motifs.py` (24 hand-coded B&W line
   motifs — one per scent) + `generate_table_cards.py` → **`tables-A5.pdf`** (24p, large, to
