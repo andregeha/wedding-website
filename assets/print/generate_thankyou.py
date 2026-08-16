@@ -126,12 +126,12 @@ def build():
     # ---- concert (single column, order O/A/F/L, title — author on one line) ----
     y += 6; rule(y, 40); y += 17
     spaced("LE CONCERT", y, "Plex", 8.5, 2.4, SAGE); y += 13
-    y = block(CONCERT_INTRO, y, "PlexIt", 8.5, MUTED, 12, W-70) + 9
+    y = block(CONCERT_INTRO, y, "PlexIt", 8.5, MUTED, 12, W-70) + 5
     for lang, songs in CONCERT:
-        c.setFillColor(SAGE); c.setFont("PlexIt", 10.5); c.drawCentredString(cx, Y(y), lang); y += 13
+        c.setFillColor(SAGE); c.setFont("PlexIt", 10.5); c.drawCentredString(cx, Y(y), lang); y += 12
         for title, author in songs:
-            songline(y, title, author); y += 12
-        y += 4
+            songline(y, title, author); y += 11.5
+        y += 3
 
     # ---- cocktails ----
     y += 4; rule(y, 52); y += 17
@@ -139,10 +139,10 @@ def build():
     for name, tagline, ingr in DRINKS:
         c.setFillColor(INK); c.setFont("Plex", 13); c.drawCentredString(cx, Y(y), name); y += 14
         y = block(tagline, y, "PlexIt", 8.6, MUTED, 10, W-72) + 0
-        y = block(ingr, y, "Plex", 7.6, SAGE, 10.5, W-58) + 20
+        y = block(ingr, y, "Plex", 7.6, SAGE, 10.5, W-58) + 18
 
     # closing
-    y += 4; block("Belle soirée et rendez-vous sur la piste !", y, "PlexIt", 9.5, SAGE, 12, W-70); y += 20
+    y += 2; block("Belle soirée et rendez-vous sur la piste !", y, "PlexIt", 9.5, SAGE, 12, W-70); y += 16
     spaced("ANDRÉ & RHÉA · 22 AOÛT 2026", y, "Plex", 7.5, 1.6, MUTED)
 
     c.showPage(); c.save()
