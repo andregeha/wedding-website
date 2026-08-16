@@ -138,8 +138,8 @@ def build():
     spaced("LES COCKTAILS MAISON", y, "Plex", 8.5, 2.4, SAGE); y += 18
     for name, tagline, ingr in DRINKS:
         c.setFillColor(INK); c.setFont("Plex", 13); c.drawCentredString(cx, Y(y), name); y += 14
-        y = block(tagline, y, "PlexIt", 8.6, MUTED, 11.5, W-72) + 3
-        y = block(ingr, y, "Plex", 7.6, SAGE, 10.5, W-58) + 8
+        y = block(tagline, y, "PlexIt", 8.6, MUTED, 10, W-72) + 0
+        y = block(ingr, y, "Plex", 7.6, SAGE, 10.5, W-58) + 20
 
     # closing
     y += 4; block("Belle soirée et rendez-vous sur la piste !", y, "PlexIt", 9.5, SAGE, 12, W-70); y += 20
