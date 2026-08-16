@@ -32,10 +32,11 @@ MUTED = colors.Color(97/255,92/255,86/255)
 LINE2 = colors.Color(228/255,231/255,224/255)
 W, H = 148*mm, 210*mm
 
-THANK = ("Merci d’être là ! Vous réunir toutes et tous ce soir est notre plus beau cadeau. "
-         "Installez-vous, laissez-vous porter par la musique, et gardez un peu d’énergie pour la piste.")
+THANK = ("Merci d’être avec nous aujourd’hui ! Ce soir, on fait la fête. Cela nous fait chaud "
+         "au cœur de commencer cette aventure à deux, si bien entourés. Trinquons à l’amour, "
+         "à la famille, aux amis et à ce demain à construire.")
 
-CONCERT_INTRO = "Les morceaux qui vous accueillent ce soir"
+CONCERT_INTRO = "En attendant de passer à table, laissez-vous porter…"
 CONCERT = [
     ("Oriental", [("Qadeyat Am Ahmad", "Omar Khairat"),
                   ("Longa Riad", "Riad Al-Sunbati")]),
@@ -123,7 +124,7 @@ def build():
     # ---- concert (single column, order O/A/F/L, title — author on one line) ----
     y += 6; rule(y, 40); y += 17
     spaced("LE CONCERT", y, "Plex", 8.5, 2.4, SAGE); y += 13
-    y = block(CONCERT_INTRO, y, "PlexIt", 8.5, MUTED, 12, W-70) + 4
+    y = block(CONCERT_INTRO, y, "PlexIt", 8.5, MUTED, 12, W-70) + 13
     for lang, songs in CONCERT:
         c.setFillColor(SAGE); c.setFont("PlexIt", 10.5); c.drawCentredString(cx, Y(y), lang); y += 14
         for title, author in songs:
@@ -138,7 +139,7 @@ def build():
         y = block(desc, y, "PlexIt", 8.8, MUTED, 11.5, W-72) + 9
 
     # closing
-    y += 4; block("Belle soirée — et rendez-vous sur la piste !", y, "PlexIt", 9.5, SAGE, 12, W-70); y += 20
+    y += 4; block("Belle soirée et rendez-vous sur la piste !", y, "PlexIt", 9.5, SAGE, 12, W-70); y += 20
     spaced("ANDRÉ & RHÉA · 22 AOÛT 2026", y, "Plex", 7.5, 1.6, MUTED)
 
     c.showPage(); c.save()
