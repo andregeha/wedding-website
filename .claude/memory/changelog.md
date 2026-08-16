@@ -2,6 +2,14 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-06-30 (27) — Thank-you card (plates, entrance)
+- New `assets/print/generate_thankyou.py` → `remerciement.pdf`/`.png`: A5 portrait thank-you
+  card placed on the plates. Humorous doctor tone; arrival concert programme (songs + original
+  performers, by language: Oriental/Anglais/Français/Libanais) + the 2 house cocktails
+  (« Droit au cœur » = groom's chocolate martini, OM wink; « Propofolle de lui » = bride's araq).
+  Wedding identity: Plex Serif, sage, double border, sage A·R logo.
+- Groom's cocktail name « Droit au cœur » chosen (OM « Droit au but » → homage to Rhéa).
+
 ## 2026-06-30 (26) — Table cards: hand-drawn (sketch) rendering
 - New `sketch.py` (Pen): wraps the canvas and renders every motif stroke as a slightly wobbly,
   double-passed hand-drawn line. Applied to the 24 table motifs (cards + contact/overview);
