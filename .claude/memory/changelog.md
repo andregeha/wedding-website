@@ -2,6 +2,24 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-08-17 — Playlist finalized + memory overhaul for parallel sessions
+- **Playlist** (private, scratchpad `build_playlist.py` → `Playlist-Rhea-Andy.xlsx`):
+  applied all client corrections + researched unknowns. Every title now has title+artist.
+  Notable fixes: I'm Good (Blue)/David Guetta & Bebe Rexha; For Elise/Saint Motel; I Drove
+  All Night/Roy Orbison; Ta marinière/Hoshi; Les gens/Christophe Maé; Voler de nuit/Calogero;
+  Spirit/Beyoncé; Marguerite/Saez; Les filles d'aujourd'hui/Joyce Jonathan & Vianney;
+  3am Biza3elni Lello/Toufic Barakat; Bi Saraha/Ziad Rahbani; several Fairuz/Warda/Abdel Halim
+  attributions. Added group-dance "Le Boogie Woogie" and Goldorak to the 90s-cartoon medley.
+- New Excel sheet **"Dance Before Zaffeh"** (6 DJ tracks with BPM + Key) from the client's
+  DJ software screenshot.
+- Provided **Spotify + Apple Music** per-track links for the Zaffé set (Colin Jay Remix is a
+  bootleg, not on streaming). Cannot auto-create playlists (needs client OAuth).
+- **Memory overhaul** so parallel sessions can pick up safely: new `deliverables.md`
+  (asset inventory + privacy policy); decisions.md (guest-data privacy ADR, print-stack ADR);
+  learnings.md (scratchpad isolation, repo-privacy-breaks-Pages, streaming limits); tasks.md
+  (current state + parallel-session coordination); wedding-details.md (concert/cocktails/
+  danses/24 table names). **No guest-identifying data committed** — repo is public.
+
 ## 2026-06-30 (27) — Thank-you card (plates, entrance)
 - New `assets/print/generate_thankyou.py` → `remerciement.pdf`/`.png`: A5 portrait thank-you
   card placed on the plates. Humorous doctor tone; arrival concert programme (songs + original

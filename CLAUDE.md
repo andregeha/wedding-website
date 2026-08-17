@@ -45,6 +45,7 @@ Full decision history lives in `.claude/memory/decisions.md`.
 index.html                 # The one-page site
 assets/css/styles.css      # All styling
 assets/img/                # Images
+assets/print/              # Print/event asset GENERATORS (Python) + outputs — see deliverables.md
 .github/workflows/deploy.yml  # Auto-deploy to GitHub Pages
 .claude/
   settings.json            # Permissions + SessionStart hook (surfaces memory)
@@ -66,6 +67,7 @@ current as part of the task, not an afterthought.
 | `changelog.md` | Dated log of what changed each session | Every session, before pushing |
 | `tasks.md` | Roadmap / backlog / open questions | When work is planned, done, or blocked |
 | `learnings.md` | Lessons, gotchas, hosting quirks, client preferences | Whenever I learn something worth not re-learning |
+| `deliverables.md` | Inventory of every print/event asset + which script builds it; the **privacy policy** for private files | Whenever an asset is added/changed |
 
 ### Memory discipline (MANDATORY)
 
@@ -75,6 +77,21 @@ current as part of the task, not an afterthought.
 3. **Before every push:** update `changelog.md` (what changed) and `tasks.md`
    (what's next). Commit memory together with code.
 4. Keep entries concise and factual. Memory is for continuity, not prose.
+
+## 5b. Privacy & parallel sessions  🔒 (read before committing or spawning sessions)
+
+**This repo is PUBLIC** — it serves the live GitHub Pages site. Consequences I must respect:
+
+- **Never commit guest-identifying data.** The guest list, the nominative seating plan, and
+  anything naming individual guests stay in the session scratchpad and are delivered to the
+  client via chat upload only — never pushed. Parents' names (already on the faire-part) are
+  fine; individual guests are not. Full policy + inventory: `.claude/memory/deliverables.md`.
+- **Do not make this repo private.** Free-tier GitHub Pages does not serve from private repos,
+  so privatizing takes the live site offline. I also have no tool to change visibility. If the
+  client wants private data version-controlled, use a **separate private repo**.
+- **Parallel sessions:** the scratchpad is per-session and NOT shared; only committed files
+  cross sessions. Each session works on **its own branch** and coordinates through committed
+  memory. Update memory before pushing so siblings see the current state.
 
 ## 6. Workflow conventions
 

@@ -78,6 +78,33 @@ Compte au nom de **ANDRE NOEL GEHA &/OR RHEA NACOUZI** (n° client 2660943). Ouv
   compacte chacun), et un **petit QR** + légende « Infos, programme & confirmation en ligne »
   en bas. PDF 1 page + `invitation.png`. Généré par `assets/print/`.
 
+## Soirée / réception — contenu
+
+### Concert d'accueil (avant le dîner) — ordre O/A/F/L
+- **Oriental** : Qadeyat Am Ahmad (Omar Khairat) · Longa Riad (Riad Al-Sunbati)
+- **Anglais** : L.O.V.E. (Nat King Cole) · Dream a Little Dream of Me (Ella Fitzgerald & Louis Armstrong)
+- **Français** : L'été indien (Joe Dassin) · La vie en rose (Édith Piaf) · For me… formidable (Charles Aznavour)
+- **Libanais** : Kan 3anna Ta7oun (Fairouz) · Bint el Chalabiya (Fairouz)
+
+### Cocktails maison (2)
+- **Droit au cœur** — chocolate espresso martini du marié (hommage OM/épouse) :
+  vodka vanille · liqueur de café · espresso · sirop de chocolat.
+- **Propofolle de lui** — à l'araq, pour la mariée : arak & tequila · sirop de litchi ·
+  cordial de pamplemousse · citron vert · rebord salé.
+
+### Danses clés
+- **1re danse** : Mistral gagnant (Renaud) jusqu'au 1er refrain → enchaîné Daddy Cool (Boney M., de 0:43, ~50 s).
+- **2e danse** : Je lui dirai (Céline Dion).
+- **3e danse** : « Marie chante » (titre à préciser).
+- **Lancer de bouquet** : Single Ladies (Beyoncé).
+
+### Noms des 24 tables (senteurs, dessin à la main N&B) — table 1 = Jasmin d'Orient
+Jasmin d'Orient · Fleur d'Oranger · Rose de Mai · Pivoine Blanche · Magnolia de Méditerranée ·
+Iris Poudré · Citron Vert · Bergamote · Pamplemousse · Verveine · Menthe Fraîche · Cèdre du Liban ·
+Santal Boisé · Bois d'Oud · Cyprès de Montagne · Vanille Bourbon · Fève Tonka · Miel de Fleurs ·
+Cardamome · Patchouli Tropical · Cannelle · Chocolat des Îles · Musc Blanc · Thé Noir.
+*(Seating: 23 tables — Thé Noir non utilisé; voir deliverables.md.)*
+
 ## RSVP
 - **Date limite: 10 août 2026.**
 - Pas de numéros affichés (les invités les connaissent). Contacter les parents:
@@ -106,5 +133,6 @@ Compte au nom de **ANDRE NOEL GEHA &/OR RHEA NACOUZI** (n° client 2660943). Ouv
   on Le jour J + Programme; RSVP + Liste de mariage are white).
 
 ---
-*Last confirmed: full content provided 2026-06-22. Pending: hotel illustration file;
-confirm dinner time (20 h?); bank details for gifts later.*
+*Last confirmed: 2026-08-17. Cérémonie 17 h 00 · réception 18 h 30 · RSVP 10 août 2026.
+Soirée content (concert, cocktails, danses, table names) added. Pending: confirm dinner time
+(20 h?); 3e danse title. Private deliverables tracked in deliverables.md (not committed).*
