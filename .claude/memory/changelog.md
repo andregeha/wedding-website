@@ -2,6 +2,20 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-08-17 (2) — Table cards rebuilt from the couple's hand-made scans
+- Replaced the procedural motif table cards with the couple's own **hand scans**
+  (`assets/print/tables-source.pdf`: calligraphy names + 23 plant drawings). New
+  `tables_extract.py` isolates each name/drawing (darkness vs blueness masks, BFS component
+  crop to strip spiral + corner labels) and recolours to ink; new `generate_table_cards.py`
+  composes Nº + calligraphy + drawing in A5 + A7 (`--blue` keeps the original ballpoint blue).
+- Drawings **matched to names by content** (scan order ≠ name order); per-card rotations baked
+  in (drawings 1–9 + Cannelle/Chocolat were scanned sideways).
+- Applied the couple's table swaps: **Nº 1 = Cèdre du Liban**, **Nº 15 = Jasmin d'Orient**,
+  **Nº 13 = Musc Blanc**, **Nº 23 = Verveine Sauvage**. Kept **black** as the final; a blue
+  variant is available via `--blue`.
+- Removed the now-orphaned `table_motifs.py`, `sketch.py`, `tables-preview.png`.
+- ⚠️ Seating plan / guest list must follow this final table numbering.
+
 ## 2026-08-17 — Playlist finalized + memory overhaul for parallel sessions
 - **Playlist** (private, scratchpad `build_playlist.py` → `Playlist-Rhea-Andy.xlsx`):
   applied all client corrections + researched unknowns. Every title now has title+artist.

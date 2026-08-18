@@ -28,7 +28,7 @@ Each script is the source of truth; re-run from repo root to regenerate.
 |-------|--------|--------|
 | Faire-part (4 variants) | `generate_invitation.py` | `invitation-a5` (with QR), `-no-qr` (178×127), `-no-deadline`, `-minimal` (.pdf/.png) |
 | Thank-you card (on plates) | `generate_thankyou.py` | `remerciement.pdf/.png` (A5) |
-| Table cards — 24 scents | `generate_table_cards.py` + `table_motifs.py` + `sketch.py` | `tables-A5.pdf`, `tables-A7.pdf` (24 p each), previews |
+| Table cards — 23 scents | `generate_table_cards.py` + `tables_extract.py` + `tables-source.pdf` | `tables-A5.pdf`, `tables-A7.pdf` (23 p each), `tables-overview.png` |
 | Envelope seal sticker ×3 | `generate_sticker.py` | `sticker-blue/-sage/-green` (Ø25mm +2mm bleed) |
 | Perfume coupon (A6) | `generate_coupon.py` | `coupon.pdf/.png` |
 | Logo (black) + garden drawing | `generate_print_assets.py` | `logo-black.pdf/.png`, `drawing-cropped.pdf/.png` |
@@ -36,7 +36,21 @@ Each script is the source of truth; re-run from repo root to regenerate.
 
 Conventions: A7 = A5 at exactly ½ scale (identical design, `show_pdf_page`). Illustrations
 auto-cropped to visible content via `visible_bbox()` (numpy density) + CV-verified centering.
-Hand-drawn "sketch" look via `sketch.Pen` (roughened double-pass strokes).
+
+### Table cards — the couple's own hand-made scans (2026-08-17)
+The 23 table cards now use the couple's **hand scans** (`tables-source.pdf`: pages 1–8 =
+calligraphy names, pages 9–31 = the 23 plant/tree drawings). `tables_extract.py` isolates each
+name (grey-pencil → darkness mask) and each drawing (blue-pen → blueness mask), removing the
+spiral binding + corner labels via BFS connected components, then recolours to one ink tone.
+`generate_table_cards.py` composes Nº + name + drawing (A5 & A7); run with `--blue` for a
+variant that keeps the drawings' original ballpoint blue. The old procedural motif system
+(`table_motifs.py`, `sketch.py`) was **removed**.
+- Drawings are matched to names **by content** (the scan order differs from the name order).
+- Per-card rotations baked into the `TABLES` list (drawings 1–9 + Cannelle/Chocolat were sideways).
+- **Final table numbering** (after the couple's swaps): **Nº 1 = Cèdre du Liban**,
+  **Nº 15 = Jasmin d'Orient**, **Nº 13 = Musc Blanc**, **Nº 23 = Verveine Sauvage**; all other
+  numbers keep the wedding-details scent order. ⚠️ Keep the seating plan / guest list in sync
+  with this numbering.
 
 ## PRIVATE deliverables — scratchpad only, NOT in git
 
