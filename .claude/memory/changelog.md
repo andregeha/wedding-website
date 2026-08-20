@@ -2,6 +2,48 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-08-18 — Verre d'accueil 18 h 30 → 18 h 00
+- Client moved the **welcome drink / réception to 18 h 00** (was 18 h 30); the **religious
+  ceremony stays 17 h 00**. Updated the site (Le jour J card + Programme timeline),
+  `assets/wedding.ics` (description), `wedding-details.md`, and the faire-part generator
+  `generate_invitation.py` (RÉCEPTION · 18 h 00). Note: the **printed** faire-part cards were
+  already produced at 18 h 30 — only the source was updated (no reprint). Dîner stays 20 h 00.
+- Also produced round **coasters Ø 95 mm** (private/scratchpad): 23 dark-blue plant drawings
+  (no text) + 1 colour Al Bustan; and a WhatsApp logistics reminder + a "chez André à 14 h"
+  friends message (chat only).
+
+## 2026-08-17 (2) — Table cards rebuilt from the couple's hand-made scans
+- Replaced the procedural motif table cards with the couple's own **hand scans**
+  (`assets/print/tables-source.pdf`: calligraphy names + 23 plant drawings). New
+  `tables_extract.py` isolates each name/drawing (darkness vs blueness masks, BFS component
+  crop to strip spiral + corner labels) and recolours to ink; new `generate_table_cards.py`
+  composes Nº + calligraphy + drawing in A5 + A7 (`--blue` keeps the original ballpoint blue).
+- Drawings **matched to names by content** (scan order ≠ name order); per-card rotations baked
+  in (drawings 1–9 + Cannelle/Chocolat were scanned sideways).
+- Applied the couple's table swaps: **Nº 1 = Cèdre du Liban**, **Nº 15 = Jasmin d'Orient**,
+  **Nº 13 = Musc Blanc**, **Nº 23 = Verveine Sauvage**. Kept **black** as the final; a blue
+  variant is available via `--blue`.
+- Removed the now-orphaned `table_motifs.py`, `sketch.py`, `tables-preview.png`.
+- ⚠️ Seating plan / guest list must follow this final table numbering.
+
+## 2026-08-17 — Playlist finalized + memory overhaul for parallel sessions
+- **Playlist** (private, scratchpad `build_playlist.py` → `Playlist-Rhea-Andy.xlsx`):
+  applied all client corrections + researched unknowns. Every title now has title+artist.
+  Notable fixes: I'm Good (Blue)/David Guetta & Bebe Rexha; For Elise/Saint Motel; I Drove
+  All Night/Roy Orbison; Ta marinière/Hoshi; Les gens/Christophe Maé; Voler de nuit/Calogero;
+  Spirit/Beyoncé; Marguerite/Saez; Les filles d'aujourd'hui/Joyce Jonathan & Vianney;
+  3am Biza3elni Lello/Toufic Barakat; Bi Saraha/Ziad Rahbani; several Fairuz/Warda/Abdel Halim
+  attributions. Added group-dance "Le Boogie Woogie" and Goldorak to the 90s-cartoon medley.
+- New Excel sheet **"Dance Before Zaffeh"** (6 DJ tracks with BPM + Key) from the client's
+  DJ software screenshot.
+- Provided **Spotify + Apple Music** per-track links for the Zaffé set (Colin Jay Remix is a
+  bootleg, not on streaming). Cannot auto-create playlists (needs client OAuth).
+- **Memory overhaul** so parallel sessions can pick up safely: new `deliverables.md`
+  (asset inventory + privacy policy); decisions.md (guest-data privacy ADR, print-stack ADR);
+  learnings.md (scratchpad isolation, repo-privacy-breaks-Pages, streaming limits); tasks.md
+  (current state + parallel-session coordination); wedding-details.md (concert/cocktails/
+  danses/24 table names). **No guest-identifying data committed** — repo is public.
+
 ## 2026-06-30 (27) — Thank-you card (plates, entrance)
 - New `assets/print/generate_thankyou.py` → `remerciement.pdf`/`.png`: A5 portrait thank-you
   card placed on the plates. Humorous doctor tone; arrival concert programme (songs + original

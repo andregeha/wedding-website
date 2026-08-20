@@ -67,7 +67,7 @@ INVITE  = "ont la joie de vous convier au mariage de leurs enfants"
 NAMES   = ("André ", "&", " Rhéa")
 DATE    = "SAMEDI 22 AOÛT 2026"
 CEREMONY  = ("CÉRÉMONIE · 17 h 00", "Église Notre-Dame de l'Annonciation", "Achrafieh, Beyrouth")
-RECEPTION = ("RÉCEPTION · 18 h 30", "Hôtel Al Bustan", "Beit Mery, Mont-Liban")
+RECEPTION = ("RÉCEPTION · 18 h 00", "Hôtel Al Bustan", "Beit Mery, Mont-Liban")
 # Recto footer — discreet gift/bank note (two accounts: Liban/USD + France/EUR)
 GIFT_TITLE = "LISTE DE MARIAGE"
 GIFT_LB = "Liban · USD   —   André Geha &/ou Rhéa Nacouzi   ·   BIC BLOMLBBX   ·   LB90 0014 0000 2102 6732 6609 4314"

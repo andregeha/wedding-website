@@ -1,5 +1,23 @@
 # Tasks & Roadmap
 
+## Current state (2026-08-17)
+- **Site**: live at andregeha.github.io/wedding-website. Cérémonie **17 h 00**, verre
+  d'accueil **18 h 00** (was 18 h 30, changed 2026-08-18), RSVP deadline **10 août 2026**.
+- **Print assets** (committed, `assets/print/`): faire-part ×4 variants, thank-you card,
+  24 table cards (A5+A7), 3 stickers, coupon, logo/drawing. Done.
+- **Private (scratchpad, NOT committed)**: playlist Excel (5 sheets), seating plan, guest
+  list. See `deliverables.md`.
+
+## Parallel-session coordination
+- Each session works on its **own branch**; this one = `claude/phone-assistant-setup-sm66ba`.
+- Coordinate via committed memory only — scratchpad does not cross sessions.
+- **Do not** commit guest data or make this repo private (breaks the live Pages site).
+
+## Open (playlist)
+- [ ] Finalize durations for the Arabic tracks with the band (see deliverables.md).
+- [ ] Optional: per-track Spotify/Apple links for the full Party+Ambiance lists (Zaffé set done).
+- [ ] Confirm 3e danse « Marie chante » exact title.
+
 ## Done
 - [x] Repo renamed to `wedding-website`; project + memory initialized; plan approved.
 - [x] Decisions logged: minimaliste moderne · WhatsApp→parents RSVP · hotel illustration · GitHub URL.

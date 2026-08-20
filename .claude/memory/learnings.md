@@ -2,6 +2,22 @@
 
 Things worth not re-learning. Newest at top.
 
+## 2026-08-17 — Parallel sessions, scratchpad isolation & repo privacy
+- **Scratchpad is per-session and NOT shared.** Each session gets a fresh clone in its own
+  ephemeral container. Files in `/tmp/.../scratchpad/` (playlist, seating, guest list) exist
+  only in the session that made them — another session cannot see them. Only committed files
+  cross sessions.
+- **Parallel-session hygiene:** each session should work on its **own branch**; coordinate
+  through committed memory (`.claude/memory/`), not through scratchpad. Update memory before
+  pushing so siblings see current state.
+- **Making this repo private would break the live site.** GitHub Pages on the free plan does
+  **not** serve from private repos — flipping visibility takes `andregeha.github.io/wedding-website`
+  offline. I also have **no tool to change repo visibility** (owner does it in Settings).
+  Keep private data in a separate private repo instead of privatizing this one.
+- **Streaming playlists:** cannot create a Spotify/Apple Music playlist in the client's
+  account (needs their OAuth login). Provide per-track deep links, or a CSV for Soundiiz/
+  TuneMyMusic bulk import. Bootleg DJ remixes (e.g. "Colin Jay Remix") are not on streaming.
+
 ## 2026-06-22 — Environment & access
 - The remote container is **ephemeral**; only committed-and-pushed files persist.
   Memory must be committed before every push.
