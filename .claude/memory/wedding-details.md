@@ -10,7 +10,7 @@
 ## Date & time
 - Wedding date: **samedi 22 août 2026**
 - Ceremony: **17 h 00**
-- Reception / verre d'accueil: **18 h 30**
+- Reception / verre d'accueil: **18 h 00**
 
 ## Cérémonie (religieuse)
 - Type: religieuse (rite grec-orthodoxe).
@@ -24,7 +24,7 @@
   (icônes russes du XIXe, œuvres de Habib Srour, rare icône sur toile du XVIIe).
 
 ## Réception
-- Heure: **18 h 30** (verre d'accueil).
+- Heure: **18 h 00** (verre d'accueil).
 - Lieu: **Hôtel Al Bustan**, Beit Mery (Mont-Liban).
 - Parking: **gratuit sur place.**
 - Carte: https://maps.app.goo.gl/j3J1pSzMC57UrrDx9
@@ -35,7 +35,7 @@
 
 ## Programme / déroulé
 - **17 h 00** — Cérémonie religieuse
-- **18 h 30** — Verre d'accueil
+- **18 h 00** — Verre d'accueil
 - **20 h 00** — Dîner  *(⚠️ client a écrit « 8h diner » → interprété comme 20 h ; à confirmer)*
 - **02 h 00** — Fin de la célébration
 
@@ -133,6 +133,6 @@ Cardamome · Patchouli Tropical · Cannelle · Chocolat des Îles · Musc Blanc 
   on Le jour J + Programme; RSVP + Liste de mariage are white).
 
 ---
-*Last confirmed: 2026-08-17. Cérémonie 17 h 00 · réception 18 h 30 · RSVP 10 août 2026.
+*Last confirmed: 2026-08-18. Cérémonie 17 h 00 · verre d'accueil 18 h 00 (était 18 h 30) · RSVP 10 août 2026.
 Soirée content (concert, cocktails, danses, table names) added. Pending: confirm dinner time
 (20 h?); 3e danse title. Private deliverables tracked in deliverables.md (not committed).*

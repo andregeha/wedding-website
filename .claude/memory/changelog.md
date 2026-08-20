@@ -2,6 +2,16 @@
 
 Dated log of what changed each session. Newest at top.
 
+## 2026-08-18 — Verre d'accueil 18 h 30 → 18 h 00
+- Client moved the **welcome drink / réception to 18 h 00** (was 18 h 30); the **religious
+  ceremony stays 17 h 00**. Updated the site (Le jour J card + Programme timeline),
+  `assets/wedding.ics` (description), `wedding-details.md`, and the faire-part generator
+  `generate_invitation.py` (RÉCEPTION · 18 h 00). Note: the **printed** faire-part cards were
+  already produced at 18 h 30 — only the source was updated (no reprint). Dîner stays 20 h 00.
+- Also produced round **coasters Ø 95 mm** (private/scratchpad): 23 dark-blue plant drawings
+  (no text) + 1 colour Al Bustan; and a WhatsApp logistics reminder + a "chez André à 14 h"
+  friends message (chat only).
+
 ## 2026-08-17 (2) — Table cards rebuilt from the couple's hand-made scans
 - Replaced the procedural motif table cards with the couple's own **hand scans**
   (`assets/print/tables-source.pdf`: calligraphy names + 23 plant drawings). New

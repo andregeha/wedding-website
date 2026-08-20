@@ -1,8 +1,8 @@
 # Tasks & Roadmap
 
 ## Current state (2026-08-17)
-- **Site**: live at andregeha.github.io/wedding-website. Cérémonie **17 h 00**, réception
-  **18 h 30**, RSVP deadline **10 août 2026**. No pending site changes.
+- **Site**: live at andregeha.github.io/wedding-website. Cérémonie **17 h 00**, verre
+  d'accueil **18 h 00** (was 18 h 30, changed 2026-08-18), RSVP deadline **10 août 2026**.
 - **Print assets** (committed, `assets/print/`): faire-part ×4 variants, thank-you card,
   24 table cards (A5+A7), 3 stickers, coupon, logo/drawing. Done.
 - **Private (scratchpad, NOT committed)**: playlist Excel (5 sheets), seating plan, guest
