@@ -49,8 +49,11 @@ variant that keeps the drawings' original ballpoint blue. The old procedural mot
 - Per-card rotations baked into the `TABLES` list (drawings 1–9 + Cannelle/Chocolat were sideways).
 - **Final table numbering** (after the couple's swaps): **Nº 1 = Cèdre du Liban**,
   **Nº 15 = Jasmin d'Orient**, **Nº 13 = Musc Blanc**, **Nº 23 = Verveine Sauvage**; all other
-  numbers keep the wedding-details scent order. ⚠️ Keep the seating plan / guest list in sync
-  with this numbering.
+  numbers keep the wedding-details scent order.
+- **Seating update (2026-08-18):** the plan now has **22 tables**, numbered **1–12 & 14–23
+  (no Nº 13)** — the couple dropped a table and skip 13. So **only 22 cards are used: Nº 1–12
+  and 14–23**; the **Nº 13 (Musc Blanc) card is NOT used**. All other card numbers still match
+  their table. Coasters carry no number → unaffected.
 
 ## PRIVATE deliverables — scratchpad only, NOT in git
 
