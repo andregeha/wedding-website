@@ -2,6 +2,16 @@
 
 Things worth not re-learning. Newest at top.
 
+## 2026-08-18 — Seating plan: table NUMBER fixes the POSITION (never reassign)
+- The seating plan's physical layout is the **approved disposition**: each table **number sits
+  at a fixed garden position** (`POSITION` dict in `generate_seatingplan.py`, scratchpad).
+- When the guest xlsx changes, **only refresh the labels** (scent name · host side · descriptif ·
+  guest count) per number — do **NOT** re-assign numbers to positions (e.g. clustering by host
+  side). Doing so physically moves tables and scrambles who sits where. This was a real mistake:
+  a côté-based zip reassignment inverted Médecins/Résidents and shuffled the room.
+- Rebuild the `DATA` dict straight from the xlsx (aggregate by "# de la table"); keep `POSITION`
+  untouched. Verify: 22 tables, no Nº 13, total 242 guests, DATA matches the file exactly.
+
 ## 2026-08-17 — Parallel sessions, scratchpad isolation & repo privacy
 - **Scratchpad is per-session and NOT shared.** Each session gets a fresh clone in its own
   ephemeral container. Files in `/tmp/.../scratchpad/` (playlist, seating, guest list) exist
